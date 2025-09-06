@@ -22,13 +22,14 @@ function loadHeader() {
                 <a href="index.html">Home</a>
                 <a href="courses.html">Courses</a>
                 <a href="success-stories.html">Success Stories</a>
+                <a href="strategy-call.html">Free Strategy Call</a>
                 <a href="contact.html">Contact</a>
-                <a href="strategy-call.html" class="btn-strategy-call">Free Strategy Call</a>
             </nav>
         </div>
     `;
     
     document.getElementById('shared-header').innerHTML = headerHTML;
 }
+
 
 document.addEventListener('DOMContentLoaded', loadHeader);
