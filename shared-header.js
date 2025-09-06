@@ -15,7 +15,7 @@ function loadHeader() {
         </div>
         <div class="header-main">
             <div class="logo-brand">
-                <img src="Skill-Logo.png" alt="SkillAI Path Logo">
+                <img src="Assets/Skill-Logo.png" alt="SkillAI Path Logo">
                 SkillAI Path
             </div>
             <nav>
@@ -33,4 +33,5 @@ function loadHeader() {
 
 
 document.addEventListener('DOMContentLoaded', loadHeader);
+
 
