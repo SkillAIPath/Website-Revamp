@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Terms and Conditions | SkillAI Path</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -20,138 +20,297 @@
       --muted: #a6a6de;
       --border: #3e3263;
       --shadow: 0 10px 28px 0 rgba(49,35,107,0.18);
-      --max-width: 900px;
     }
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      font-family: 'Poppins', Arial, sans-serif;
       background: var(--primary-bg);
       color: var(--light);
-      line-height: 1.6;
+      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      min-height: 100vh;
       scroll-behavior: smooth;
+    }
+    body {
+      background: radial-gradient(circle at 30% 30%, #3c3072 0%, #19193f 85%);
+      position: relative;
     }
     a {
       color: var(--accent);
       text-decoration: none;
-      transition: color 0.3s;
+      transition: color .22s;
     }
     a:hover, a:focus {
       color: var(--accent-dark);
     }
-    header, .footer, main.content {
-      max-width: var(--max-width);
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
+
+    /* Shared Header Styles */
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--primary);
+      padding: 0.5rem 4vw 0.5rem 4vw;
+      font-size: 0.98rem;
+      border-bottom: 1.2px solid #382b52;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
     }
-    header {
-      padding: 2rem 0 1rem 0;
-      border-bottom: 1px solid var(--border);
+    .header-top .left {
+      display: flex;
+      gap: 1.7em;
+      align-items: center;
     }
-    header h1 {
+    .header-top .right {
+      display: flex;
+      gap: 1.1em;
+      align-items: center;
+    }
+    .header-main {
+      background: var(--section);
+      background: linear-gradient(120deg, var(--primary-bg) 60%, var(--section) 100%);
+      border-bottom: 1.8px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 0.7rem 4vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: inherit;
+      position: relative;
+      z-index: 1;
+    }
+    .logo-brand {
+      font-family: 'Poppins', sans-serif;
       font-weight: 800;
-      font-size: 1.9rem;
+      font-size: 1.39rem;
+      letter-spacing: 0.06em;
+      color: var(--lavender);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-brand img {
+      height: 32px;
+      width: auto;
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 6px;
+      background: #fff0;
+      box-shadow: none;
+      display: inline-block;
+    }
+    nav {
+      display: flex;
+      gap: 1.38em;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    nav a {
+      color: var(--lavender);
+      text-decoration: none;
+      padding: 2px 0;
+      border-bottom: 2px solid transparent;
+      transition: border .2s, color .18s;
+    }
+    nav a:hover, nav a:focus, nav a.active {
+      color: var(--accent);
+      border-bottom:2px solid var(--accent);
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      max-width: 900px;
+      margin: 2rem auto 0 auto;
+      padding: 0 4vw;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .breadcrumb a {
+      color: var(--accent);
+    }
+
+    /* Page Header */
+    .page-header {
+      max-width: 900px;
+      margin: 1rem auto 3rem auto;
+      padding: 0 4vw;
+    }
+    .page-header h1 {
+      font-weight: 800;
+      font-size: 2.4rem;
       margin: 0;
       color: var(--accent);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.02em;
     }
-    main.content {
-      padding: 2rem 0 4rem 0;
+
+    /* Content */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 4vw;
       background: var(--section);
-      border-radius: 16px;
-      box-shadow: 0 10px 28px rgba(49,35,107,0.18);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 3rem;
+      border: 1px solid var(--border);
     }
-    main.content h2 {
+    .content h2 {
       font-weight: 700;
       font-size: 1.6rem;
       color: var(--accent);
       margin-top: 0;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
-    main.content h3 {
+    .content h3 {
       font-weight: 600;
       font-size: 1.2rem;
       margin-top: 2rem;
       margin-bottom: 0.8rem;
       color: var(--lavender);
     }
-    main.content p, main.content li {
+    .content p, .content li {
       color: var(--light);
       font-size: 1rem;
-      margin-top: 0;
       margin-bottom: 1rem;
+      line-height: 1.6;
     }
-    main.content ul, main.content ol {
+    .content ul, .content ol {
       padding-left: 1.6rem;
-      margin-top: 0;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
-    main.content table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 1rem;
-      color: var(--light);
-    }
-    main.content th, main.content td {
-      border: 1px solid var(--accent);
-      padding: 0.6rem 1rem;
-      text-align: left;
-    }
-    main.content th {
-      background-color: var(--accent);
-      color: var(--section);
-      font-weight: 700;
-    }
-    main.content code {
-      background-color: rgba(50, 221, 184, 0.2);
-      padding: 0.2em 0.4em;
-      border-radius: 3px;
-      font-family: monospace;
-      font-size: 0.95em;
+    .content strong {
       color: var(--accent);
     }
-    footer.footer {
-      padding: 1rem 0 2rem 0;
+
+    /* Back to Top Button */
+    .back-to-home {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 4vw;
+      text-align: center;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--section);
+      padding: 1em 2.5em;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 1.8px 7px #0affd140;
+      transition: background .17s, color .13s, box-shadow .24s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      color: #e7fefb;
+      box-shadow: 0 3.8px 17px #1affba4a;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: var(--muted);
+      border-top: 2.2px solid var(--border);
+      padding: 3em 4vw 2em 4vw;
+      font-size: 1rem;
+      margin-top: 2em;
+      z-index: 1;
+      position: relative;
+    }
+    .footer-content {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3em;
+      margin-bottom: 2.5em;
+    }
+    .footer-section h4 {
+      color: var(--lavender);
+      font-weight: 700;
+      margin: 0 0 1.2em 0;
+      font-size: 1.1rem;
+    }
+    .footer-section a {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.7em;
+      transition: color 0.3s;
+      font-size: 1rem;
+    }
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1.5em;
       border-top: 1px solid var(--border);
       font-size: 0.9rem;
       color: var(--muted);
-      text-align: center;
     }
-    @media (max-width: 600px) {
-      body {
-        font-size: 14px;
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-top, .header-main {
+        flex-direction: column;
+        gap: 1em;
+        padding: 1rem 4vw;
       }
-      header h1 {
-        font-size: 1.5rem;
+      .nav-menu {
+        gap: 1.5rem;
       }
-      main.content h2 {
-        font-size: 1.3rem;
+      .page-header h1 {
+        font-size: 2rem;
       }
-      main.content h3 {
-        font-size: 1.1rem;
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2em;
+        text-align: center;
+      }
+    }
+    @media (max-width: 480px) {
+      .page-header h1 {
+        font-size: 1.8rem;
+      }
+      nav {
+        font-size: 0.93rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Terms and Conditions</h1>
-  </header>
+  <!-- Shared Header -->
+  <div id="shared-header"></div>
+  <script src="shared-header.js"></script>
 
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="index.html">Home</a> → Terms and Conditions
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>Terms and Conditions</h1>
+  </div>
+
+  <!-- Content -->
   <main class="content">
 
     <p><strong>Last Updated:</strong> January 15, 2025</p>
 
     <h2>1. Agreement to Terms</h2>
     <p>By accessing and using the services provided by KRISHNAV TEKNOLZY PRIVATE LIMITED (operating as "SkillAIPath"), you accept and agree to be bound by the terms and provision of this agreement.</p>
-    <p><strong>Company Information:</strong> <br />
-    <strong>Legal Name:</strong> KRISHNAV TEKNOLZY PRIVATE LIMITED <br />
-    <strong>Brand Name:</strong> SkillAIPath <br />
-    <strong>Website:</strong> <a href="https://skillaipath.com">https://skillaipath.com</a> <br />
-    <strong>Email:</strong> <a href="mailto:tech@skillaipath.com">tech@skillaipath.com</a> <br />
+    <p><strong>Company Information:</strong><br>
+    <strong>Legal Name:</strong> KRISHNAV TEKNOLZY PRIVATE LIMITED<br>
+    <strong>Brand Name:</strong> SkillAIPath<br>
+    <strong>Website:</strong> <a href="https://skillaipath.com">https://skillaipath.com</a><br>
+    <strong>Email:</strong> <a href="mailto:tech@skillaipath.com">tech@skillaipath.com</a><br>
     <strong>Phone:</strong> +91 9301310154</p>
 
     <h2>2. Service Description</h2>
@@ -232,7 +391,7 @@
     </ul>
 
     <h3>5.3 Refund Terms</h3>
-    <p>Detailed refund policy is available in our separate Refund Policy document. Key points:</p>
+    <p>Detailed refund policy is available in our <a href="Refund Policy.html">Refund Policy</a> document. Key points:</p>
     <ul>
       <li>7-day cooling-off period for new enrollments</li>
       <li>Partial refunds available based on course completion percentage</li>
@@ -257,7 +416,7 @@
     </ul>
 
     <h2>7. Privacy and Data Protection</h2>
-    <p>Please see our Privacy Policy for detailed information.</p>
+    <p>Please see our <a href="Privacy Policy.html">Privacy Policy</a> for detailed information.</p>
 
     <h2>8. Code of Conduct</h2>
     <h3>8.1 Professional Behavior</h3>
@@ -285,73 +444,62 @@
       <li>Force majeure events may affect course delivery without liability</li>
     </ul>
 
-    <h2>10. Course Modifications and Cancellations</h2>
-    <h3>10.1 Course Changes</h3>
-    <ul>
-      <li>SkillAIPath reserves the right to update course content and curriculum</li>
-      <li>Schedule changes will be communicated with reasonable advance notice</li>
-      <li>Instructor changes may occur due to availability or other factors</li>
-    </ul>
-
-    <h3>10.2 Course Cancellation by SkillAIPath</h3>
-    <ul>
-      <li>Courses may be cancelled due to insufficient enrollment or unforeseen circumstances</li>
-      <li>Full refund or transfer to alternative course will be offered</li>
-      <li>Minimum 48 hours notice will be provided when possible</li>
-    </ul>
-
-    <h2>11. Dispute Resolution</h2>
-    <h3>11.1 Internal Resolution</h3>
+    <h2>10. Dispute Resolution</h2>
+    <h3>10.1 Internal Resolution</h3>
     <ul>
       <li>Contact <a href="mailto:tech@skillaipath.com">tech@skillaipath.com</a> first for issue resolution</li>
       <li>Aim to resolve disputes within 7-10 business days</li>
       <li>Escalation to management for unresolved issues</li>
     </ul>
 
-    <h3>11.2 Legal Jurisdiction</h3>
+    <h3>10.2 Legal Jurisdiction</h3>
     <ul>
       <li>Terms governed by Indian law</li>
       <li>Jurisdiction: Courts of Pune, Maharashtra, India</li>
       <li>Arbitration may be required for disputes above ₹10 lakhs</li>
     </ul>
 
-    <h2>12. Termination</h2>
-    <h3>12.1 Termination by Student</h3>
-    <ul>
-      <li>Students may terminate enrollment per refund policy terms</li>
-      <li>Written notice required via email to <a href="mailto:tech@skillaipath.com">tech@skillaipath.com</a></li>
-      <li>Course access revoked upon termination</li>
-    </ul>
-
-    <h3>12.2 Termination by SkillAIPath</h3>
-    <ul>
-      <li>Enrollment may be terminated for terms violation</li>
-      <li>Non-payment/fraudulent activity causes immediate termination</li>
-      <li>Refund eligibility depends on termination reason</li>
-    </ul>
-
-    <h2>13. Updates to Terms</h2>
-    <ul>
-      <li>Terms may be updated periodically</li>
-      <li>Material changes communicated to enrolled students</li>
-      <li>Continued use constitutes acceptance of updates</li>
-      <li>Students have 30 days to object to material changes</li>
-    </ul>
-
-    <h2>14. Contact Information</h2>
+    <h2>11. Contact Information</h2>
     <p>For questions about these terms and conditions, please contact:</p>
-    <p><strong>Email:</strong> <a href="mailto:tech@skillaipath.com">tech@skillaipath.com</a><br />
-    <strong>Phone/WhatsApp:</strong> +91 9301310154<br />
-    <strong>Website:</strong> <a href="https://skillaipath.com">https://skillaipath.com</a><br />
+    <p><strong>Email:</strong> <a href="mailto:tech@skillaipath.com">tech@skillaipath.com</a><br>
+    <strong>Phone/WhatsApp:</strong> +91 9301310154<br>
+    <strong>Website:</strong> <a href="https://skillaipath.com">https://skillaipath.com</a><br>
     <strong>Business Hours:</strong> Monday to Friday, 9:00 AM to 6:00 PM IST</p>
 
     <h2>Have Questions?</h2>
     <p>Our team is here to help you understand these terms.</p>
 
-  </main>
+  <!-- Back to Home -->
+  <div class="back-to-home">
+    <a href="index.html" class="btn-primary">← Back to Home</a>
+  </div>
 
-  <footer class="footer">
-    &copy; 2025 SkillAI Path. All rights reserved.
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Explore</h4>
+        <a href="courses.html">Courses</a>
+        <a href="success-stories.html">Success Stories</a>
+        <a href="strategy-call.html">Free Strategy Call</a>
+        <a href="enroll.html">Enroll</a>
+      </div>
+      <div class="footer-section">
+        <h4>Company</h4>
+        <a href="index.html#about">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <a href="Privacy Policy.html">Privacy Policy</a>
+        <a href="Refund Policy.html">Refund Policy</a>
+        <a href="Terms & Conditions.html">Terms & Conditions</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 SkillAI Path. All Rights Reserved.
+    </div>
   </footer>
 
 </body>
