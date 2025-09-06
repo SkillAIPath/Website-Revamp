@@ -777,34 +777,8 @@
 <body>
   <div class="background-logo"></div>
   
-  <!-- Top Bar -->
-  <div class="header-top">
-    <div class="left">
-      <span>🏠 India</span>
-      <span>+91 9301310154</span>
-      <span>tech@skillaipath.com</span>
-    </div>
-    <div class="right">
-      <span>Follow us:</span>
-      <a href="#"><img src="https://img.icons8.com/ios-glyphs/24/32ddb8/facebook-new.png" style="height:18px;"></a>
-      <a href="#"><img src="https://img.icons8.com/ios-glyphs/24/32ddb8/twitter--v1.png" style="height:18px;"></a>
-      <a href="#"><img src="https://img.icons8.com/ios-glyphs/24/32ddb8/linkedin.png" style="height:18px;"></a>
-    </div>
-  </div>
-
-  <!-- Main Navbar -->
-  <div class="header-main">
-    <div class="logo-brand">
-      <img src="Assets/Skill-Logo.png" alt="SkillAI Path Logo">
-      SkillAI Path
-    </div>
-    <nav>
-      <a href="#home" class="active">Home</a>
-      <a href="#courses">Courses</a>
-      <a href="#success-stories">Success Stories</a>
-      <a href="Strategy Call.html">Free Strategy Call</a>
-    </nav>
-  </div>
+  <!-- Shared Header Container -->
+  <div id="shared-header"></div>
 
   <!-- SECTION A: HERO Section -->
   <div class="hero" id="home">
@@ -868,7 +842,7 @@
       <div class="techstack-item"><span class="icon mlflow"></span>MLflow</div>
     </div>
     <div class="techstack-note">
-      <span class="techstack-note-icon">🔐</span>
+      <span class="techstack-note-icon">🔍</span>
       <b>Real Enterprise Setup:</b> Learn on the same tools and platforms that power Fortune 500 companies. No toy projects—build with production-grade infrastructure.
     </div>
   </div>
@@ -1012,6 +986,44 @@
   <a href="https://wa.me/919301310154" target="_blank" id="whatsapp-button" title="Chat with us on WhatsApp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
+
+  <!-- Load Shared Header JavaScript -->
+  <script>
+    function loadHeader() {
+        const headerHTML = `
+            <div class="header-top">
+                <div class="left">
+                    <span>🏠 India</span>
+                    <span>+91 9301310154</span>
+                    <span>tech@skillaipath.com</span>
+                </div>
+                <div class="right">
+                    <span>Follow us:</span>
+                    <a href="#"><img src="https://img.icons8.com/ios-glyphs/24/32ddb8/facebook-new.png" style="height:18px;"></a>
+                    <a href="#"><img src="https://img.icons8.com/ios-glyphs/24/32ddb8/twitter--v1.png" style="height:18px;"></a>
+                    <a href="#"><img src="https://img.icons8.com/ios-glyphs/24/32ddb8/linkedin.png" style="height:18px;"></a>
+                </div>
+            </div>
+            <div class="header-main">
+                <div class="logo-brand">
+                    <img src="Assets/Skill-Logo.png" alt="SkillAI Path Logo">
+                    SkillAI Path
+                </div>
+                <nav>
+                    <a href="index.html" class="active">Home</a>
+                    <a href="courses.html">Courses</a>
+                    <a href="success-stories.html">Success Stories</a>
+                    <a href="Strategy Call.html">Free Strategy Call</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+            </div>
+        `;
+        
+        document.getElementById('shared-header').innerHTML = headerHTML;
+    }
+
+    document.addEventListener('DOMContentLoaded', loadHeader);
+  </script>
 
 </body>
 </html>
