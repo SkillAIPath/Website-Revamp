@@ -487,18 +487,19 @@
       position: relative;
       overflow: hidden;
       margin-bottom: 2.5em;
+      width: 100%;
     }
     
     .testimonials-track {
       display: flex;
       transition: transform 0.5s ease;
-      gap: 1.5em;
+      width: 200%;
     }
     
     .testimonial-slide {
       display: flex;
       gap: 1.5em;
-      min-width: 100%;
+      width: 50%;
       flex-shrink: 0;
     }
     
@@ -930,7 +931,7 @@
             <div class="testimonial-card">
               <div class="testimonial-content">
                 <!--
-                <div class="quote-icon">"</div>  -->
+                <div class="quote-icon">"</div> -->
                 <p>I was interested in learning Azure Cloud but no paid platforms to access as it is expensive - provided by Krishnav Tech → I learnt SQL, Python, Pyspark - Power BI and DevOps giving me real time practical understanding of how the real projects works.</p>
               </div>
               <div class="testimonial-author">
@@ -1049,14 +1050,14 @@
     // Testimonials Carousel
     let currentSlide = 0;
     const track = document.getElementById('testimonials-track');
-    const slides = document.querySelectorAll('.testimonial-slide');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const dots = document.querySelectorAll('.carousel-dot');
-    const totalSlides = slides.length;
+    const totalSlides = 2; // We have 2 slides
 
     function updateCarousel() {
-      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      // Move the track by 50% for each slide (since each slide is 50% width)
+      track.style.transform = `translateX(-${currentSlide * 50}%)`;
       
       // Update dots
       dots.forEach((dot, index) => {
