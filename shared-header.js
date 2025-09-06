@@ -2,7 +2,7 @@ function loadHeader() {
     const headerHTML = `
         <div class="header-top">
             <div class="left">
-                <span>🏠 India</span>
+                <span>📍India</span>
                 <span>+91 9301310154</span>
                 <span>tech@skillaipath.com</span>
             </div>
@@ -33,5 +33,6 @@ function loadHeader() {
 
 
 document.addEventListener('DOMContentLoaded', loadHeader);
+
 
 
