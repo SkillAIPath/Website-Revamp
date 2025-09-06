@@ -19,7 +19,7 @@ function loadHeader() {
                 SkillAI Path
             </div>
             <nav>
-                <a href="index.html">Home</a>
+                <a href="index.html">Hom</a>
                 <a href="courses.html">Courses</a>
                 <a href="success-stories.html">Success Stories</a>
                 <a href="strategy-call.html">Free Strategy Call</a>
@@ -33,3 +33,4 @@ function loadHeader() {
 
 
 document.addEventListener('DOMContentLoaded', loadHeader);
+
