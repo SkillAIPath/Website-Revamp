@@ -451,7 +451,7 @@
       margin-top: .15em;
       font-size: 1em;
     }
-    /* SUCCESS STORIES SECTION */
+    /* SUCCESS STORIES SECTION - CAROUSEL */
     .testimonials-section {
       max-width: 1120px;
       margin: 0 auto 2.2em auto;
@@ -483,11 +483,23 @@
       margin: 0 auto;
     }
     
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5em;
+    .testimonials-carousel {
+      position: relative;
+      overflow: hidden;
       margin-bottom: 2.5em;
+    }
+    
+    .testimonials-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      gap: 1.5em;
+    }
+    
+    .testimonial-slide {
+      display: flex;
+      gap: 1.5em;
+      min-width: 100%;
+      flex-shrink: 0;
     }
     
     .testimonial-card {
@@ -497,6 +509,8 @@
       padding: 1.8em;
       border: 1.2px solid var(--border);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex: 1;
+      min-width: 0;
     }
     
     .testimonial-card:hover {
@@ -525,27 +539,7 @@
     }
     
     .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 1em;
-    }
-    
-    .author-photo {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 2px solid var(--accent);
-    }
-    
-    .author-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .author-info {
-      flex: 1;
+      text-align: left;
     }
     
     .author-name {
@@ -567,54 +561,70 @@
       font-size: 0.85rem;
     }
     
-    .join-success-cta {
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-      border-radius: 18px;
-      padding: 2.5em 2em;
-      text-align: center;
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1em;
       margin-top: 2em;
     }
     
-    .join-success-content h3 {
-      font-size: 1.5rem;
-      font-weight: 800;
+    .carousel-btn {
+      background: var(--accent);
       color: var(--section);
-      margin: 0 0 0.5em 0;
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
-    .join-success-content p {
-      color: var(--section);
-      font-size: 1.1rem;
-      margin: 0 0 1.5em 0;
-      opacity: 0.9;
+    .carousel-btn:hover {
+      background: var(--accent-dark);
+      transform: scale(1.1);
     }
     
-    .join-success-content .btn-primary {
-      background: var(--section);
-      color: var(--accent);
-      border: 2px solid var(--section);
+    .carousel-btn:disabled {
+      background: var(--muted);
+      cursor: not-allowed;
+      transform: none;
     }
     
-    .join-success-content .btn-primary:hover {
-      background: transparent;
-      color: var(--section);
-      border-color: var(--section);
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5em;
+      margin-top: 1em;
+    }
+    
+    .carousel-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--muted);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .carousel-dot.active {
+      background: var(--accent);
     }
     
     @media (max-width: 768px) {
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 1.2em;
+      .testimonial-slide {
+        flex-direction: column;
       }
       
-      .join-success-cta {
-        padding: 2em 1.5em;
-      }
-      
-      .join-success-content h3 {
-        font-size: 1.3rem;
+      .testimonial-card {
+        min-width: 100%;
       }
     }
+    
     /* QUESTIONS CTA BAR */
     .questions-bar {
       background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
@@ -789,8 +799,35 @@
   <div class="background-logo"></div>
   
   <!-- Shared Header Container -->
-  <div id="shared-header"></div>
-  <script src="shared-header.js"></script>
+  <div id="shared-header">
+    <div class="header-top">
+      <div class="left">
+        <span>🏠 India</span>
+        <span>+91 9301310154</span>
+        <span>tech@skillaipath.com</span>
+      </div>
+      <div class="right">
+        <span>Follow us:</span>
+        <a href="#"><img src="https://img.icons8.com/ios-glyphs/24/32ddb8/facebook-new.png" style="height:18px;"></a>
+        <a href="#"><img src="https://img.icons8.com/ios-glyphs/24/32ddb8/twitter--v1.png" style="height:18px;"></a>
+        <a href="#"><img src="https://img.icons8.com/ios-glyphs/24/32ddb8/linkedin.png" style="height:18px;"></a>
+      </div>
+    </div>
+    <div class="header-main">
+      <div class="logo-brand">
+        <img src="Assets/Skill-Logo.png" alt="SkillAI Path Logo">
+        SkillAI Path
+      </div>
+      <nav>
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#courses">Courses</a>
+        <a href="#success-stories">Success Stories</a>
+        <a href="#contact">Contact</a>
+        <a href="#enroll">Enroll</a>
+      </nav>
+    </div>
+  </div>
   
   <!-- SECTION A: HERO Section -->
   <div class="hero" id="home">
@@ -854,7 +891,7 @@
       <div class="techstack-item"><span class="icon mlflow"></span>MLflow</div>
     </div>
     <div class="techstack-note">
-      <span class="techstack-note-icon">🔍</span>
+      <span class="techstack-note-icon">🔧</span>
       <b>Real Enterprise Setup:</b> Learn on the same tools and platforms that power Fortune 500 companies. No toy projects—build with production-grade infrastructure.
     </div>
   </div>
@@ -879,7 +916,7 @@
     </div>
   </div>
 
-  <!-- SECTION D: Success Stories Area -->
+  <!-- SECTION D: Success Stories Area - CAROUSEL -->
   <div class="testimonials-section" id="success-stories">
     <div class="testimonials-container">
       <div class="testimonials-header">
@@ -887,65 +924,74 @@
         <p>See how our students transformed their careers with real-world AI & Data Science skills</p>
       </div>
       
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-content">
-            <div class="quote-icon">"</div>
-            <p>The course structure was incredible. I went from knowing basic Python to building production ML systems. The mentorship helped me land a Data Scientist role at a Fortune 500 company.</p>
-          </div>
-          <div class="testimonial-author">
-            <div class="author-photo">
-              <img src="https://images.unsplash.com/photo-1494790108755-2616b612b789?auto=format&fit=crop&w=150&q=80" alt="Student Success Story">
+      <div class="testimonials-carousel">
+        <div class="testimonials-track" id="testimonials-track">
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <!--
+                <div class="quote-icon">"</div>  -->
+                <p>I was interested in learning Azure Cloud but no paid platforms to access as it is expensive - provided by Krishnav Tech → I learnt SQL, Python, Pyspark - Power BI and DevOps giving me real time practical understanding of how the real projects works.</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-name">Prabhata Behera</div>
+                <div class="author-title">M.Tech Graduate</div>
+                <div class="author-company">Azure Cloud, PySpark, DevOps, Real Projects</div>
+              </div>
             </div>
-            <div class="author-info">
-              <div class="author-name">[Student Name]</div>
-              <div class="author-title">Data Scientist</div>
-              <div class="author-company">Tech Company</div>
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <div class="quote-icon">"</div>
+                <p>Koi experience nhi tha start krne se pehle - zero knowledge of tech, sql, python toh suna bhi nhi tha. English me bhi issue tha - Abhi mei Data Analytics, Engineering ke sare concepts samjhta hu - bana bhi skta hu, Data Warehouse, Lakehouse, Incremental Load, Power BI Reporting.</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-name">Vikas Ray</div>
+                <div class="author-title">B.A. Student • Zero tech background</div>
+                <div class="author-company">Data Analytics, Data Warehouse, Power BI, SQL & Python</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <div class="quote-icon">"</div>
+                <p>Started Machine Learning - the 3 step process was very easy to catch up - understanding business and ML Predictions. I can handle now - Computer Vision Projects, Use AI Tools for Speed delivery on tasks. The business-first approach made complex concepts simple.</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-name">Mansi</div>
+                <div class="author-title">B.Com Graduate • Commerce background</div>
+                <div class="author-company">Machine Learning, Computer Vision, AI Tools, Business Analytics</div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <div class="quote-icon">"</div>
+                <p>Understanding AI Tools, Power Apps building, and internal structure on how to provide fast delivery. The training transformed how I approach business problems and automated many of my workflows.</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-name">Vivek Kumar</div>
+                <div class="author-title">Marketing & Graphic Designer</div>
+                <div class="author-company">AI Tools, Power Apps, Automation, Business Optimization</div>
+              </div>
             </div>
           </div>
         </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-content">
-            <div class="quote-icon">"</div>
-            <p>What set this program apart was the focus on real business problems. I'm now leading AI initiatives at my company and earning 3x my previous salary.</p>
-          </div>
-          <div class="testimonial-author">
-            <div class="author-photo">
-              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80" alt="Student Success Story">
-            </div>
-            <div class="author-info">
-              <div class="author-name">[Student Name]</div>
-              <div class="author-title">AI/ML Engineer</div>
-              <div class="author-company">Startup</div>
-            </div>
-          </div>
+        
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="prev-btn">‹</button>
+          <button class="carousel-btn" id="next-btn">›</button>
         </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-content">
-            <div class="quote-icon">"</div>
-            <p>The enterprise-grade tools and real-world projects gave me confidence to transition from a non-tech background to becoming a Data Analyst.</p>
-          </div>
-          <div class="testimonial-author">
-            <div class="author-photo">
-              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80" alt="Student Success Story">
-            </div>
-            <div class="author-info">
-              <div class="author-name">[Student Name]</div>
-              <div class="author-title">Data Analyst</div>
-              <div class="author-company">Financial Services</div>
-            </div>
-          </div>
+        
+        <div class="carousel-dots">
+          <div class="carousel-dot active" data-slide="0"></div>
+          <div class="carousel-dot" data-slide="1"></div>
         </div>
       </div>
 
-      <div class="join-success-cta">
-        <div class="join-success-content">
-          <h3>Ready to Write Your Success Story?</h3>
-          <p>Join hundreds of professionals who've transformed their careers with our proven methodology</p>
-          <a href="Strategy Call.html" class="btn-primary">Book Your Free Strategy Call</a>
-        </div>
+      <div style="text-align: center; margin-top: 3em;">
+        <h3 style="font-size: 1.8rem; font-weight: 800; color: var(--light); margin-bottom: 0.8em;">Ready to Write Your Success Story?</h3>
+        <p style="color: var(--muted); font-size: 1.1rem; margin-bottom: 2em; max-width: 600px; margin-left: auto; margin-right: auto;">Join hundreds of professionals who've transformed their careers with our proven methodology</p>
+        <a href="Strategy Call.html" class="btn-primary" style="font-size: 1.2rem; padding: 1.1em 2.5em;">Book Your Free Strategy Call</a>
       </div>
     </div>
   </div>
@@ -999,6 +1045,69 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
   </a>
   
+  <script>
+    // Testimonials Carousel
+    let currentSlide = 0;
+    const track = document.getElementById('testimonials-track');
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const totalSlides = slides.length;
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      
+      // Update dots
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+      
+      // Update button states
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === totalSlides - 1;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateCarousel();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateCarousel();
+      }
+    }
+
+    function goToSlide(slideIndex) {
+      currentSlide = slideIndex;
+      updateCarousel();
+    }
+
+    // Event listeners
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => goToSlide(index));
+    });
+
+    // Auto-advance carousel every 8 seconds
+    setInterval(() => {
+      if (currentSlide < totalSlides - 1) {
+        nextSlide();
+      } else {
+        currentSlide = 0;
+        updateCarousel();
+      }
+    }, 8000);
+
+    // Initialize carousel
+    updateCarousel();
+  </script>
 
 </body>
 </html>
