@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Courses | SkillAI Path</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Master AI & Data Science with enterprise-grade training. Foundation Track ₹55,400 (5-12 months) and Mastery Track ₹1,50,000 (1 year). Real tools, real projects, real results.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="Assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="Assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="Assets/apple-touch-icon.png">
+  <link rel="manifest" href="Assets/site.webmanifest">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #23234e;
+      --primary-bg: #19193f;
+      --overlay: #3d1d5e;
+      --section: #22224b;
+      --card: #29295e;
+      --light: #f8f8ff;
+      --lavender: #e2d7ff;
+      --accent: #32ddb8;
+      --accent-dark: #14ad93;
+      --text: #fff;
+      --muted: #a6a6de;
+      --border: #3e3263;
+      --shadow: 0 10px 28px 0 rgba(49,35,107,0.18);
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--primary-bg);
+      color: var(--light);
+      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+    body {
+      background: radial-gradient(circle at 30% 30%, #3c3072 0%, #19193f 85%);
+      position: relative;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color .22s;
+    }
+    a:hover, a:focus {
+      color: var(--accent-dark);
+    }
+    .background-logo {
+      position: fixed;
+      top: 50px;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      background: url('Assets/Skill-Logo.png') no-repeat center 110px;
+      background-size: 350px auto;
+      opacity: 0.07;
+    }
+
+    /* Shared Header Styles */
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--primary);
+      padding: 0.5rem 4vw 0.5rem 4vw;
+      font-size: 0.98rem;
+      border-bottom: 1.2px solid #382b52;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+    .header-top .left {
+      display: flex;
+      gap: 1.7em;
+      align-items: center;
+    }
+    .header-top .right {
+      display: flex;
+      gap: 1.1em;
+      align-items: center;
+    }
+    .header-main {
+      background: var(--section);
+      background: linear-gradient(120deg, var(--primary-bg) 60%, var(--section) 100%);
+      border-bottom: 1.8px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 0.7rem 4vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: inherit;
+      position: relative;
+      z-index: 1;
+    }
+    .logo-brand {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 1.39rem;
+      letter-spacing: 0.06em;
+      color: var(--lavender);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-brand img {
+      height: 32px;
+      width: auto;
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 6px;
+      background: #fff0;
+      box-shadow: none;
+      display: inline-block;
+    }
+    nav {
+      display: flex;
+      gap: 1.38em;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    nav a {
+      color: var(--lavender);
+      text-decoration: none;
+      padding: 2px 0;
+      border-bottom: 2px solid transparent;
+      transition: border .2s, color .18s;
+    }
+    nav a:hover, nav a:focus, nav a.active {
+      color: var(--accent);
+      border-bottom:2px solid var(--accent);
+    }
+
+    /* Page Header */
+    .page-header {
+      max-width: 1120px;
+      margin: 2rem auto 3rem auto;
+      padding: 0 4vw;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .page-header h1 {
+      font-weight: 800;
+      font-size: 2.8rem;
+      margin: 0 0 0.5em 0;
+      color: var(--light);
+      letter-spacing: 0.02em;
+    }
+    .page-header p {
+      color: var(--muted);
+      font-size: 1.2rem;
+      margin: 0;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Course Overview Stats */
+    .course-overview {
+      max-width: 1120px;
+      margin: 0 auto 3rem auto;
+      padding: 0 4vw;
+      position: relative;
+      z-index: 1;
+    }
+
+    .overview-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5em;
+      margin-bottom: 2em;
+    }
+
+    .stat-card {
+      background: var(--section);
+      border-radius: 16px;
+      padding: 2em 1.5em;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(49,35,107,0.25);
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.3em;
+    }
+
+    .stat-label {
+      color: var(--light);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .stat-description {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 0.5em;
+    }
+
+    /* Course Tracks */
+    .course-tracks {
+      max-width: 1120px;
+      margin: 0 auto 4rem auto;
+      padding: 0 4vw;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tracks-header {
+      text-align: center;
+      margin-bottom: 3em;
+    }
+
+    .tracks-header h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--light);
+      margin: 0 0 0.5em 0;
+    }
+
+    .tracks-header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 3em;
+      justify-items: center;
+    }
+
+    .track-card {
+      background: var(--section);
+      border-radius: 20px;
+      padding: 3em 2.5em;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      max-width: 550px;
+      width: 100%;
+    }
+
+    .track-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(49,35,107,0.3);
+    }
+
+    .track-card.featured {
+      border: 2px solid var(--accent);
+      background: linear-gradient(135deg, var(--section) 0%, rgba(50,221,184,0.05) 100%);
+    }
+
+    .track-card.featured::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: 1.5em;
+      right: -2.5em;
+      background: var(--accent);
+      color: var(--section);
+      padding: 0.4em 3.5em;
+      font-size: 0.8rem;
+      font-weight: 700;
+      transform: rotate(45deg);
+      z-index: 2;
+    }
+
+    .track-header {
+      text-align: center;
+      margin-bottom: 2.5em;
+    }
+
+    .track-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin: 0 0 0.5em 0;
+    }
+
+    .track-subtitle {
+      color: var(--light);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0 0 1em 0;
+    }
+
+    .track-duration {
+      background: rgba(50,221,184,0.15);
+      color: var(--accent);
+      padding: 0.6em 1.2em;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 0.8em;
+    }
+
+    .track-pricing {
+      text-align: center;
+      margin: 1.5em 0 2.5em 0;
+      background: rgba(50,221,184,0.08);
+      border: 1px solid var(--accent);
+      border-radius: 15px;
+      padding: 1.5em;
+    }
+
+    .track-price {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 0.3em;
+    }
+
+    .track-price-original {
+      font-size: 1.1rem;
+      color: var(--muted);
+      text-decoration: line-through;
+      margin-right: 0.5em;
+    }
+
+    .track-price-note {
+      color: var(--light);
+      font-size: 0.95rem;
+      margin-top: 0.5em;
+    }
+
+    .finance-options {
+      background: rgba(50,221,184,0.1);
+      border-radius: 10px;
+      padding: 1em;
+      margin-top: 1em;
+      font-size: 0.9rem;
+      color: var(--light);
+    }
+
+    .track-features {
+      margin: 2em 0;
+    }
+
+    .track-features h4 {
+      color: var(--light);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0 0 1.2em 0;
+      text-align: center;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5em;
+      margin-bottom: 2em;
+    }
+
+    .feature-category {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.5em;
+      border: 1px solid var(--border);
+    }
+
+    .feature-category h5 {
+      color: var(--accent);
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 1em 0;
+    }
+
+    .feature-category ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .feature-category li {
+      color: var(--muted);
+      padding: 0.3em 0;
+      font-size: 0.9rem;
+      position: relative;
+      padding-left: 1.2em;
+    }
+
+    .feature-category li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .track-guarantee {
+      background: rgba(50,221,184,0.1);
+      border: 2px solid var(--accent);
+      border-radius: 15px;
+      padding: 1.5em;
+      margin: 2em 0;
+      text-align: center;
+    }
+
+    .track-guarantee h5 {
+      color: var(--accent);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0 0 0.8em 0;
+    }
+
+    .track-guarantee p {
+      color: var(--light);
+      font-size: 0.95rem;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .track-actions {
+      text-align: center;
+      margin-top: 2.5em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--section);
+      padding: 1.2em 2.5em;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(50,221,184,0.3);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover, .btn-primary:focus {
+      background: var(--accent-dark);
+      color: #e7fefb;
+      box-shadow: 0 6px 20px rgba(50,221,184,0.4);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--accent);
+      padding: 1em 2.5em;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 2px solid var(--accent);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover, .btn-secondary:focus {
+      background: var(--accent);
+      color: var(--section);
+      transform: translateY(-2px);
+    }
+
+    /* Learning Methodology Section */
+    .methodology-section {
+      max-width: 1120px;
+      margin: 0 auto 4rem auto;
+      padding: 0 4vw;
+      position: relative;
+      z-index: 1;
+    }
+
+    .methodology-header {
+      text-align: center;
+      margin-bottom: 3em;
+    }
+
+    .methodology-header h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--light);
+      margin: 0 0 0.5em 0;
+    }
+
+    .methodology-content {
+      background: var(--section);
+      border-radius: 20px;
+      padding: 3em;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .methodology-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2em;
+    }
+
+    .methodology-step {
+      text-align: center;
+      padding: 1.5em;
+      background: var(--card);
+      border-radius: 15px;
+      border: 1px solid var(--border);
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: var(--accent);
+      color: var(--section);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.3rem;
+      margin: 0 auto 1em auto;
+    }
+
+    .step-title {
+      color: var(--accent);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0 0 0.8em 0;
+    }
+
+    .step-description {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      max-width: 1000px;
+      margin: 0 auto 4rem auto;
+      padding: 0 4vw;
+      position: relative;
+      z-index: 1;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 3em;
+    }
+
+    .faq-header h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--light);
+      margin: 0 0 0.5em 0;
+    }
+
+    .faq-header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .faq-item {
+      margin-bottom: 1.5em;
+      background: var(--section);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      box-shadow: 0 5px 15px rgba(50, 221, 184, 0.1);
+    }
+
+    .faq-question {
+      padding: 1.2em 1.5em;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: var(--light);
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background: rgba(50, 221, 184, 0.05);
+    }
+
+    .faq-toggle {
+      color: var(--accent);
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-toggle {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      padding: 0 1.5em;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 0 1.5em 1.5em 1.5em;
+      max-height: 500px;
+    }
+
+    /* Enrollment CTA */
+    .enrollment-cta {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      border-radius: 22px;
+      margin: 3em auto 2em auto;
+      max-width: 900px;
+      padding: 3em 2em;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(50, 221, 184, 0.25);
+      position: relative;
+      z-index: 1;
+    }
+
+    .enrollment-cta h3 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--section);
+      margin: 0 0 0.8em 0;
+    }
+
+    .enrollment-cta p {
+      color: var(--section);
+      font-size: 1.2rem;
+      margin: 0 0 2em 0;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5em;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn-primary {
+      background: var(--section);
+      color: var(--accent);
+      padding: 1.2em 3em;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: 2px solid var(--section);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-btn-primary:hover {
+      background: transparent;
+      color: var(--section);
+      border-color: var(--section);
+      transform: translateY(-2px);
+    }
+
+    .cta-btn-secondary {
+      background: transparent;
+      color: var(--section);
+      padding: 1.2em 3em;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: 2px solid var(--section);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-btn-secondary:hover {
+      background: var(--section);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: var(--muted);
+      border-top: 2.2px solid var(--border);
+      padding: 3em 4vw 2em 4vw;
+      font-size: 1rem;
+      margin-top: 2em;
+      z-index: 1;
+      position: relative;
+    }
+    .footer-content {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3em;
+      margin-bottom: 2.5em;
+    }
+    .footer-section h4 {
+      color: var(--lavender);
+      font-weight: 700;
+      margin: 0 0 1.2em 0;
+      font-size: 1.1rem;
+    }
+    .footer-section a {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.7em;
+      transition: color 0.3s;
+      font-size: 1rem;
+    }
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1.5em;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* WhatsApp Button */
+    #whatsapp-button {
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      bottom: 24px;
+      right: 22px;
+      z-index: 100;
+      background: #2be582;
+      border-radius: 50%;
+      box-shadow: 0 6px 22px #0cfac933;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.3px solid #aedfdc;
+      transition: background .19s;
+    }
+    #whatsapp-button:hover {
+      background: #16c47d;
+    }
+    #whatsapp-button img {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .overview-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
+      }
+      
+      .tracks-grid {
+        grid-template-columns: 1fr;
+        gap: 2em;
+      }
+      
+      .track-card {
+        padding: 2em 1.5em;
+        max-width: none;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1em;
+      }
+      
+      .methodology-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .page-header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .track-title {
+        font-size: 1.5rem;
+      }
+      
+      .track-price {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .overview-stats {
+        grid-template-columns: 1fr;
+      }
+      
+      .page-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .track-card {
+        padding: 1.5em 1em;
+      }
+      
+      .methodology-content {
+        padding: 2em 1.5em;
+      }
+      
+      .enrollment-cta {
+        padding: 2em 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-logo"></div>
+  
+  <!-- Shared Header -->
+  <div id="shared-header"></div>
+  <script src="shared-header.js"></script>
+  
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>AI & Data Science Training Programs</h1>
+    <p>Master enterprise-grade skills with our comprehensive training programs. From foundation to mastery, we provide the tools and mentorship to transform your career in AI and Data Science.</p>
+  </div>
+
+  <!-- Course Overview Stats -->
+  <div class="course-overview">
+    <div class="overview-stats">
+      <div class="stat-card">
+        <span class="stat-number">2</span>
+        <div class="stat-label">Learning Tracks</div>
+        <div class="stat-description">Foundation to Mastery</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">5-12</span>
+        <div class="stat-label">Months Duration</div>
+        <div class="stat-description">Flexible Timeline</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">15+</span>
+        <div class="stat-label">Enterprise Tools</div>
+        <div class="stat-description">Real-World Technology</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">100%</span>
+        <div class="stat-label">Practical Learning</div>
+        <div class="stat-description">V1, V2, V3 Methodology</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Course Tracks -->
+  <div class="course-tracks">
+    <div class="tracks-header">
+      <h2>Choose Your Learning Path</h2>
+      <p>Two comprehensive tracks designed for different career goals. Both include lifetime access, enterprise tool access, and our proven V1-V2-V3 learning methodology with real client presentations.</p>
+    </div>
+
+    <div class="tracks-grid">
+      <!-- Foundation Track -->
+      <div class="track-card featured">
+        <div class="track-header">
+          <h3 class="track-title">Data Science Foundation</h3>
+          <div class="track-subtitle">Complete Foundation Training</div>
+          <div class="track-duration">5-12 Months • Flexible Timeline</div>
+        </div>
+
+        <div class="track-pricing">
+          <div class="track-price">₹55,400</div>
+          <div class="track-price-note">All-inclusive • No Hidden Costs</div>
+          <div class="finance-options">
+            <strong>💳 EduFin Loans Available</strong><br>
+            EMI options starting from ₹4,600/month
+          </div>
+        </div>
+
+        <div class="track-features">
+          <h4>Complete Learning Modules</h4>
+          <div class="features-grid">
+            <div class="feature-category">
+              <h5>Data Analytics</h5>
+              <ul>
+                <li>SQL Advanced & Pre-training</li>
+                <li>Power BI with Copilots</li>
+                <li>Dashboard Sharing & TMDL</li>
+                <li>DAX Setup & Visual Storytelling</li>
+                <li>Analytics Mindset & Problem Solving</li>
+              </ul>
+            </div>
+            <div class="feature-category">
+              <h5>Programming & Development</h5>
+              <ul>
+                <li>Python/PySpark Programming</li>
+                <li>Streamlit Applications</li>
+                <li>FastAPI Setup & Development</li>
+                <li>Object-Oriented Programming</li>
+                <li>Retail Data Analysis</li>
+              </ul>
+            </div>
+            <div class="feature-category">
+              <h5>Cloud & Infrastructure</h5>
+              <ul>
+                <li>Azure Cloud Infrastructure</li>
+                <li>Database Management</li>
+                <li>On-Premise Data Modelling</li>
+                <li>Architecture Designing</li>
+                <li>Cost Estimation & Optimization</li>
+              </ul>
+            </div>
+            <div class="feature-category">
+              <h5>Data Engineering</h5>
+              <ul>
+                <li>Full Truncate Load</li>
+                <li>Incremental Load Strategies</li>
+                <li>Data Mart & Warehouses</li>
+                <li>Dimension Modelling</li>
+                <li>Lakehouse Implementation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="track-guarantee">
+          <h5>🎯 Learning Guarantee</h5>
+          <p>Master enterprise tools through our V1 (Learn) → V2 (Practice) → V3 (Present to Client) methodology. Graduate with a professional portfolio ready for industry.</p>
+        </div>
+
+        <div class="track-actions">
+          <a href="enroll.html" class="btn-primary">Enroll in Foundation Track</a>
+          <a href="Strategy Call.html" class="btn-secondary">Book Free Strategy Call</a>
+        </div>
+      </div>
+
+      <!-- Mastery Track -->
+      <div class="track-card">
+        <div class="track-header">
+          <h3 class="track-title">Data Science Mastery</h3>
+          <div class="track-subtitle">Advanced Professional Program</div>
+          <div class="track-duration">1 Year • Lifetime Access</div>
+        </div>
+
+        <div class="track-pricing">
+          <div class="track-price">₹1,50,000</div>
+          <div class="track-price-note">Complete Advanced Training</div>
+          <div class="finance-options">
+            <strong>🎓 Lifetime Learning Access</strong><br>
+            Flexible payment options available
+          </div>
+        </div>
+
+        <div class="track-features">
+          <h4>Advanced Enterprise Modules</h4>
+          <div class="features-grid">
+            <div class="feature-category">
+              <h5>Advanced Cloud</h5>
+              <ul>
+                <li>Azure Gen2 Advanced</li>
+                <li>Databricks Enterprise</li>
+                <li>Azure Data Factory (ADF)</li>
+                <li>Logic Apps & Functions</li>
+                <li>Advanced Cost Optimization</li>
+              </ul>
+            </div>
+            <div class="feature-category">
+              <h5>MLOps & DevOps</h5>
+              <ul>
+                <li>Lakehouse Implementation</li>
+                <li>DevOps Pipelines</li>
+                <li>dbt Data Transformation</li>
+                <li>MLOps Best Practices</li>
+                <li>Enterprise Deployment</li>
+              </ul>
+            </div>
+            <div class="feature-category">
+              <h5>AI & Computer Vision</h5>
+              <ul>
+                <li>Computer Vision Projects</li>
+                <li>Generative AI Applications</li>
+                <li>AI Agents Development</li>
+                <li>Advanced Model Training</li>
+                <li>Production AI Systems</li>
+              </ul>
+            </div>
+            <div class="feature-category">
+              <h5>Power BI Advanced</h5>
+              <ul>
+                <li>Advanced Power BI Features</li>
+                <li>Enterprise Dashboards</li>
+                <li>Custom Visuals</li>
+                <li>Power BI Service Admin</li>
+                <li>Large Scale Deployments</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="track-guarantee">
+          <h5>🚀 Mastery Guarantee</h5>
+          <p>Become an enterprise-level data scientist with advanced skills in AI, MLOps, and cloud architecture. Build production-ready systems and lead data science initiatives.</p>
+        </div>
+
+        <div class="track-actions">
+          <a href="enroll.html" class="btn-primary">Enroll in Mastery Track</a>
+          <a href="Strategy Call.html" class="btn-secondary">Book Free Strategy Call</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Learning Methodology -->
+  <div class="methodology-section">
+    <div class="methodology-header">
+      <h2>Our Proven V1-V2-V3 Learning Methodology</h2>
+    </div>
+
+    <div class="methodology-content">
+      <div class="methodology-grid">
+        <div class="methodology-step">
+          <div class="step-number">V1</div>
+          <h4 class="step-title">Learn & Understand</h4>
+          <p class="step-description">Comprehensive learning through expert-led sessions, hands-on tutorials, and interactive workshops with enterprise tools.</p>
+        </div>
+        <div class="methodology-step">
+          <div class="step-number">V2</div>
+          <h4 class="step-title">Practice & Apply</h4>
+          <p class="step-description">Hands-on practice with real datasets, guided assessments, and project-based learning to reinforce concepts.</p>
+        </div>
+        <div class="methodology-step">
+          <div class="step-number">V3</div>
+          <h4 class="step-title">Present & Demonstrate</h4>
+          <p class="step-description">Present your projects to real clients/moderators, receive feedback, and build confidence for professional environments.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="faq-section">
+    <div class="faq-header">
+      <h2>Frequently Asked Questions</h2>
+      <p>Common questions about our training programs and enrollment process</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Which track should I choose - Foundation or Mastery?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Choose Foundation (₹55,400) if you're starting your data science journey or need core skills. Choose Mastery (₹1,50,000) if you want advanced skills in AI, MLOps, and enterprise-level expertise. Book a free strategy call for personalized recommendations.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>What is the V1-V2-V3 learning methodology?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>V1 (Learn): Comprehensive training sessions. V2 (Practice): Hands-on practice and assessments. V3 (Present): Present your work to real clients or moderators. This ensures you not only learn but can confidently demonstrate your skills professionally.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Are EduFin loans really available?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Yes! We have partnered with EduFin to offer education loans with easy EMI options. For the Foundation track, you can start with EMIs as low as ₹4,600/month. Loan approval is subject to EduFin's terms and conditions.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>What enterprise tools will I get access to?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>You'll get hands-on access to Azure Cloud, Databricks, Power BI, SQL databases, Python/PySpark environments, and more. These are the same tools used by Fortune 500 companies, giving you real enterprise experience.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>How flexible is the 5-12 month timeline for Foundation track?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Very flexible! You can complete the Foundation track in 5 months with intensive study, or take up to 12 months for a more relaxed pace. The program adapts to your schedule and learning speed while maintaining quality standards.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Do I need prior programming experience?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>No prior experience required for the Foundation track. We start from basics and build up to advanced concepts. The Mastery track assumes you have foundation-level knowledge or equivalent experience.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enrollment CTA -->
+  <div class="enrollment-cta">
+    <h3>Ready to Transform Your Career?</h3>
+    <p>Join thousands of successful graduates who've mastered enterprise-grade AI and Data Science skills through our proven methodology</p>
+    <div class="cta-buttons">
+      <a href="enroll.html" class="cta-btn-primary">Start Your Journey</a>
+      <a href="Strategy Call.html" class="cta-btn-secondary">Book Free Strategy Call</a>
+    </div>
+  </div>
+
+  <!-- Shared Footer -->
+  <div id="shared-footer"></div>
+  <script src="shared-footer.js"></script>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/919301310154" target="_blank" id="whatsapp-button" title="Chat with us on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+  
+  <script>
+    // FAQ Accordion Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          
+          // Close all other FAQ items
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+            }
+          });
+          
+          // Toggle current item
+          if (isActive) {
+            item.classList.remove('active');
+          } else {
+            item.classList.add('active');
+          }
+        });
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add scroll-based animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.querySelectorAll('.stat-card, .track-card, .methodology-step').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
