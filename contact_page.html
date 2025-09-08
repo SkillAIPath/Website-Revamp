@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Us | SkillAI Path</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact SkillAI Path for AI & Data Science training. Get in touch via phone, email, WhatsApp, or visit our office. Free strategy calls available.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="Assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="Assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="Assets/apple-touch-icon.png">
+  <link rel="manifest" href="Assets/site.webmanifest">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #23234e;
+      --primary-bg: #19193f;
+      --overlay: #3d1d5e;
+      --section: #22224b;
+      --card: #29295e;
+      --light: #f8f8ff;
+      --lavender: #e2d7ff;
+      --accent: #32ddb8;
+      --accent-dark: #14ad93;
+      --text: #fff;
+      --muted: #a6a6de;
+      --border: #3e3263;
+      --shadow: 0 10px 28px 0 rgba(49,35,107,0.18);
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--primary-bg);
+      color: var(--light);
+      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+    body {
+      background: radial-gradient(circle at 30% 30%, #3c3072 0%, #19193f 85%);
+      position: relative;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color .22s;
+    }
+    a:hover, a:focus {
+      color: var(--accent-dark);
+    }
+    .background-logo {
+      position: fixed;
+      top: 50px;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      background: url('Assets/Skill-Logo.png') no-repeat center 110px;
+      background-size: 350px auto;
+      opacity: 0.07;
+    }
+
+    /* Shared Header Styles */
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--primary);
+      padding: 0.5rem 4vw 0.5rem 4vw;
+      font-size: 0.98rem;
+      border-bottom: 1.2px solid #382b52;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+    .header-top .left {
+      display: flex;
+      gap: 1.7em;
+      align-items: center;
+    }
+    .header-top .right {
+      display: flex;
+      gap: 1.1em;
+      align-items: center;
+    }
+    .header-main {
+      background: var(--section);
+      background: linear-gradient(120deg, var(--primary-bg) 60%, var(--section) 100%);
+      border-bottom: 1.8px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 0.7rem 4vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: inherit;
+      position: relative;
+      z-index: 1;
+    }
+    .logo-brand {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 1.39rem;
+      letter-spacing: 0.06em;
+      color: var(--lavender);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-brand img {
+      height: 32px;
+      width: auto;
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 6px;
+      background: #fff0;
+      box-shadow: none;
+      display: inline-block;
+    }
+    nav {
+      display: flex;
+      gap: 1.38em;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    nav a {
+      color: var(--lavender);
+      text-decoration: none;
+      padding: 2px 0;
+      border-bottom: 2px solid transparent;
+      transition: border .2s, color .18s;
+    }
+    nav a:hover, nav a:focus, nav a.active {
+      color: var(--accent);
+      border-bottom:2px solid var(--accent);
+    }
+
+    /* Page Header */
+    .page-header {
+      max-width: 1120px;
+      margin: 2rem auto 3rem auto;
+      padding: 0 4vw;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .page-header h1 {
+      font-weight: 800;
+      font-size: 2.8rem;
+      margin: 0 0 0.5em 0;
+      color: var(--light);
+      letter-spacing: 0.02em;
+    }
+    .page-header p {
+      color: var(--muted);
+      font-size: 1.2rem;
+      margin: 0;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Contact Methods */
+    .contact-methods {
+      max-width: 1120px;
+      margin: 0 auto 4rem auto;
+      padding: 0 4vw;
+      position: relative;
+      z-index: 1;
+    }
+
+    .methods-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2em;
+      margin-bottom: 3em;
+    }
+
+    .method-card {
+      background: var(--section);
+      border-radius: 20px;
+      padding: 2.5em;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .method-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(49,35,107,0.25);
+    }
+
+    .method-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5em auto;
+      font-size: 1.8rem;
+    }
+
+    .method-title {
+      color: var(--accent);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 0 0 1em 0;
+    }
+
+    .method-description {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 1.5em;
+      line-height: 1.6;
+    }
+
+    .method-details {
+      color: var(--light);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.5em;
+    }
+
+    .method-action {
+      background: var(--accent);
+      color: var(--section);
+      padding: 1em 2em;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .method-action:hover {
+      background: var(--accent-dark);
+      color: #e7fefb;
+      transform: translateY(-2px);
+    }
+
+    /* Contact Form Section */
+    .contact-form-section {
+      max-width: 800px;
+      margin: 0 auto 4rem auto;
+      padding: 0 4vw;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 3em;
+    }
+
+    .form-header h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--light);
+      margin: 0 0 0.5em 0;
+    }
+
+    .form-header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .contact-form {
+      background: var(--section);
+      border-radius: 20px;
+      padding: 3em;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .form-group {
+      margin-bottom: 2em;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5em;
+    }
+
+    .form-group label {
+      display: block;
+      color: var(--light);
+      font-weight: 600;
+      margin-bottom: 0.8em;
+      font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 1.2em;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      background: var(--card);
+      color: var(--light);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(50, 221, 184, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-group select {
+      cursor: pointer;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--muted);
+    }
+
+    .form-submit {
+      text-align: center;
+      margin-top: 2em;
+    }
+
+    .submit-btn {
+      background: var(--accent);
+      color: var(--section);
+      padding: 1.2em 3em;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(50,221,184,0.3);
+    }
+
+    .submit-btn:hover {
+      background: var(--accent-dark);
+      color: #e7fefb;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(50,221,184,0.4);
+    }
+
+    .submit-btn:disabled {
+      background: var(--muted);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Office Information */
+    .office-info {
+      max-width: 1120px;
+      margin: 0 auto 4rem auto;
+      padding: 0 4vw;
+      position: relative;
+      z-index: 1;
+    }
+
+    .office-header {
+      text-align: center;
+      margin-bottom: 3em;
+    }
+
+    .office-header h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--light);
+      margin: 0 0 0.5em 0;
+    }
+
+    .office-content {
+      background: var(--section);
+      border-radius: 20px;
+      padding: 3em;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .office-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3em;
+      margin-bottom: 2em;
+    }
+
+    .office-section h3 {
+      color: var(--accent);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 0 0 1em 0;
+    }
+
+    .office-section p {
+      color: var(--light);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 0.8em;
+    }
+
+    .office-hours {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.5em;
+      border: 1px solid var(--border);
+      margin-top: 2em;
+    }
+
+    .office-hours h4 {
+      color: var(--accent);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0 0 1em 0;
+      text-align: center;
+    }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1em;
+    }
+
+    .hours-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5em 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hours-day {
+      color: var(--light);
+      font-weight: 600;
+    }
+
+    .hours-time {
+      color: var(--muted);
+    }
+
+    /* Response Time Banner */
+    .response-banner {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      border-radius: 15px;
+      margin: 3em auto;
+      max-width: 800px;
+      padding: 2em;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(50, 221, 184, 0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .response-banner h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--section);
+      margin: 0 0 0.5em 0;
+    }
+
+    .response-banner p {
+      color: var(--section);
+      font-size: 1.1rem;
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    /* FAQ Quick Links */
+    .quick-links {
+      max-width: 1120px;
+      margin: 0 auto 4rem auto;
+      padding: 0 4vw;
+      position: relative;
+      z-index: 1;
+    }
+
+    .quick-links-header {
+      text-align: center;
+      margin-bottom: 2em;
+    }
+
+    .quick-links-header h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--light);
+      margin: 0 0 0.5em 0;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5em;
+    }
+
+    .quick-link-card {
+      background: var(--section);
+      border-radius: 15px;
+      padding: 2em;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .quick-link-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .quick-link-card h4 {
+      color: var(--accent);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0 0 0.8em 0;
+    }
+
+    .quick-link-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5em;
+      line-height: 1.5;
+    }
+
+    .quick-link-btn {
+      background: transparent;
+      color: var(--accent);
+      padding: 0.8em 1.8em;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 2px solid var(--accent);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .quick-link-btn:hover {
+      background: var(--accent);
+      color: var(--section);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: var(--muted);
+      border-top: 2.2px solid var(--border);
+      padding: 3em 4vw 2em 4vw;
+      font-size: 1rem;
+      margin-top: 2em;
+      z-index: 1;
+      position: relative;
+    }
+    .footer-content {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3em;
+      margin-bottom: 2.5em;
+    }
+    .footer-section h4 {
+      color: var(--lavender);
+      font-weight: 700;
+      margin: 0 0 1.2em 0;
+      font-size: 1.1rem;
+    }
+    .footer-section a {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.7em;
+      transition: color 0.3s;
+      font-size: 1rem;
+    }
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1.5em;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* WhatsApp Button */
+    #whatsapp-button {
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      bottom: 24px;
+      right: 22px;
+      z-index: 100;
+      background: #2be582;
+      border-radius: 50%;
+      box-shadow: 0 6px 22px #0cfac933;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.3px solid #aedfdc;
+      transition: background .19s;
+    }
+    #whatsapp-button:hover {
+      background: #16c47d;
+    }
+    #whatsapp-button img {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* Form Success/Error Messages */
+    .form-message {
+      padding: 1em 1.5em;
+      border-radius: 8px;
+      margin-bottom: 1.5em;
+      font-weight: 600;
+      display: none;
+    }
+
+    .form-message.success {
+      background: rgba(50, 221, 184, 0.1);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+
+    .form-message.error {
+      background: rgba(255, 100, 100, 0.1);
+      border: 1px solid #ff6464;
+      color: #ff6464;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .methods-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 1em;
+      }
+      
+      .contact-form {
+        padding: 2em 1.5em;
+      }
+      
+      .office-details {
+        grid-template-columns: 1fr;
+        gap: 2em;
+      }
+      
+      .hours-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .links-grid {
+        grid-template-columns: 1fr;
+        gap: 1em;
+      }
+      
+      .page-header h1 {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .method-card,
+      .contact-form,
+      .office-content {
+        padding: 1.5em;
+      }
+      
+      .response-banner {
+        padding: 1.5em;
+      }
+      
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        padding: 1em;
+      }
+    }
+  </style>
+  
+  <!-- Mobile Responsive CSS -->
+  <link rel="stylesheet" href="mobile-responsive.css">
+</head>
+<body>
+  <div class="background-logo"></div>
+  
+  <!-- Shared Header -->
+  <div id="shared-header"></div>
+  <script src="shared-header.js"></script>
+  
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>Contact Us</h1>
+    <p>Ready to transform your career with AI & Data Science? Get in touch with our team for personalized guidance and support.</p>
+  </div>
+
+  <!-- Contact Methods -->
+  <div class="contact-methods">
+    <div class="methods-grid">
+      <!-- Phone Contact -->
+      <div class="method-card">
+        <div class="method-icon">📞</div>
+        <h3 class="method-title">Call Us</h3>
+        <p class="method-description">Speak directly with our training advisors for immediate assistance</p>
+        <div class="method-details">+91 9301310154</div>
+        <a href="tel:+919301310154" class="method-action">Call Now</a>
+      </div>
+
+      <!-- WhatsApp Contact -->
+      <div class="method-card">
+        <div class="method-icon">💬</div>
+        <h3 class="method-title">WhatsApp</h3>
+        <p class="method-description">Quick responses and instant support via WhatsApp messaging</p>
+        <div class="method-details">Chat with us anytime</div>
+        <a href="https://wa.me/919301310154" target="_blank" class="method-action">Start Chat</a>
+      </div>
+
+      <!-- Email Contact -->
+      <div class="method-card">
+        <div class="method-icon">✉️</div>
+        <h3 class="method-title">Email Us</h3>
+        <p class="method-description">Send detailed inquiries and get comprehensive responses</p>
+        <div class="method-details">tech@skillaipath.com</div>
+        <a href="mailto:tech@skillaipath.com" class="method-action">Send Email</a>
+      </div>
+
+      <!-- Strategy Call -->
+      <div class="method-card">
+        <div class="method-icon">🎯</div>
+        <h3 class="method-title">Free Strategy Call</h3>
+        <p class="method-description">Book a personalized career consultation call</p>
+        <div class="method-details">30-minute session</div>
+        <a href="Strategy Call.html" class="method-action">Book Call</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Response Time Banner -->
+  <div class="response-banner">
+    <h3>⚡ Quick Response Guarantee</h3>
+    <p>We respond to all inquiries within 4-6 hours during business days. Emergency support available 24/7 via WhatsApp.</p>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="contact-form-section">
+    <div class="form-header">
+      <h2>Send Us a Message</h2>
+      <p>Fill out the form below and we'll get back to you with personalized recommendations for your career goals.</p>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-message" id="form-message"></div>
+      
+      <form id="contact-form" action="#" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name *</label>
+            <input type="text" id="firstName" name="firstName" required placeholder="Enter your first name">
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name *</label>
+            <input type="text" id="lastName" name="lastName" required placeholder="Enter your last name">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="course">Course Interest</label>
+            <select id="course" name="course">
+              <option value="">Select a course</option>
+              <option value="foundation">Data Science Foundation (₹55,400)</option>
+              <option value="mastery">Data Science Mastery (₹1,50,000)</option>
+              <option value="consultation">Need Consultation</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="experience">Current Experience</label>
+            <select id="experience" name="experience">
+              <option value="">Select your level</option>
+              <option value="beginner">Complete Beginner</option>
+              <option value="some-knowledge">Some Knowledge</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+              <option value="professional">Working Professional</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="What would you like to discuss?">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" required placeholder="Tell us about your career goals, current situation, and how we can help you..."></textarea>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="submit-btn" id="submit-btn">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Office Information -->
+  <div class="office-info">
+    <div class="office-header">
+      <h2>Our Office & Business Information</h2>
+    </div>
+
+    <div class="office-content">
+      <div class="office-details">
+        <div class="office-section">
+          <h3>🏢 Company Information</h3>
+          <p><strong>Legal Name:</strong> KRISHNAV TEKNOLZY PRIVATE LIMITED</p>
+          <p><strong>Brand Name:</strong> SkillAI Path</p>
+          <p><strong>Founded:</strong> Professional AI & Data Science Training</p>
+          <p><strong>Website:</strong> <a href="https://skillaipath.com">skillaipath.com</a></p>
+        </div>
+
+        <div class="office-section">
+          <h3>📍 Contact Details</h3>
+          <p><strong>Primary Phone:</strong> +91 9301310154</p>
+          <p><strong>Email:</strong> tech@skillaipath.com</p>
+          <p><strong>WhatsApp:</strong> +91 9301310154</p>
+          <p><strong>Response Time:</strong> 4-6 hours (Business Days)</p>
+        </div>
+
+        <div class="office-section">
+          <h3>💼 Training Specializations</h3>
+          <p>• Enterprise AI & Data Science Training</p>
+          <p>• Azure Cloud & Databricks Certification</p>
+          <p>• Python/PySpark Development</p>
+          <p>• Power BI & Advanced Analytics</p>
+          <p>• MLOps & Data Engineering</p>
+        </div>
+      </div>
+
+      <div class="office-hours">
+        <h4>🕒 Business Hours & Availability</h4>
+        <div class="hours-grid">
+          <div class="hours-item">
+            <span class="hours-day">Monday - Friday</span>
+            <span class="hours-time">9:00 AM - 6:00 PM IST</span>
+          </div>
+          <div class="hours-item">
+            <span class="hours-day">Saturday</span>
+            <span class="hours-time">10:00 AM - 4:00 PM IST</span>
+          </div>
+          <div class="hours-item">
+            <span class="hours-day">Sunday</span>
+            <span class="hours-time">Closed</span>
+          </div>
+          <div class="hours-item">
+            <span class="hours-day">WhatsApp Support</span>
+            <span class="hours-time">24/7 Available</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Links -->
+  <div class="quick-links">
+    <div class="quick-links-header">
+      <h2>Quick Help & Resources</h2>
+    </div>
+
+    <div class="links-grid">
+      <div class="quick-link-card">
+        <h4>📚 Course Information</h4>
+        <p>Detailed curriculum, pricing, and track comparisons</p>
+        <a href="courses.html" class="quick-link-btn">View Courses</a>
+      </div>
+
+      <div class="quick-link-card">
+        <h4>❓ Frequently Asked Questions</h4>
+        <p>Common questions about enrollment, learning methodology, and guarantees</p>
+        <a href="faq.html" class="quick-link-btn">Read FAQ</a>
+      </div>
+
+      <div class="quick-link-card">
+        <h4>🎯 Free Strategy Call</h4>
+        <p>30-minute personalized career consultation</p>
+        <a href="Strategy Call.html" class="quick-link-btn">Book Call</a>
+      </div>
+
+      <div class="quick-link-card">
+        <h4>📝 Enrollment Process</h4>
+        <p>Start your learning journey with our training programs</p>
+        <a href="enroll.html" class="quick-link-btn">Enroll Now</a>
+      </div>
+
+      <div class="quick-link-card">
+        <h4>🔒 Privacy & Terms</h4>
+        <p>Privacy policy, refund terms, and legal information</p>
+        <a href="Privacy Policy.html" class="quick-link-btn">View Policies</a>
+      </div>
+
+      <div class="quick-link-card">
+        <h4>🌟 Success Stories</h4>
+        <p>Read testimonials from our successful graduates</p>
+        <a href="success-stories.html" class="quick-link-btn">Read Stories</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Footer -->
+  <div id="shared-footer"></div>
+  <script src="shared-footer.js"></script>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/919301310154" target="_blank" id="whatsapp-button" title="Chat with us on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+  
+  <script>
+    // Contact Form Handling
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contact-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const formMessage = document.getElementById('form-message');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        
+        // Collect form data
+        const formData = new FormData(form);
+        const data = {};
+        formData.forEach((value, key) => {
+          data[key] = value;
+        });
+        
+        // Simulate form submission (replace with actual endpoint)
+        setTimeout(() => {
+          // Reset button
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+          
+          // Show success message
+          showMessage('Thank you for your message! We\'ll get back to you within 4-6 hours during business days.', 'success');
+          
+          // Reset form
+          form.reset();
+          
+          // Optional: Redirect to WhatsApp with pre-filled message
+          const whatsappMessage = `Hi! I just submitted a contact form on your website. My name is ${data.firstName} ${data.lastName} and I'm interested in ${data.course || 'your training programs'}. ${data.message || ''}`;
+          const whatsappUrl = `https://wa.me/919301310154?text=${encodeURIComponent(whatsappMessage)}`;
+          
+          // Ask user if they want to continue on WhatsApp
+          if (confirm('Would you like to continue this conversation on WhatsApp for faster response?')) {
+            window.open(whatsappUrl, '_blank');
+          }
+        }, 2000);
+      });
+
+      function showMessage(text, type) {
+        formMessage.textContent = text;
+        formMessage.className = `form-message ${type}`;
+        formMessage.style.display = 'block';
+        
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+          formMessage.style.display = 'none';
+        }, 5000);
+      }
+
+      // Phone number formatting
+      const phoneInput = document.getElementById('phone');
+      phoneInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 0 && !value.startsWith('91')) {
+          if (value.length === 10) {
+            value = '91' + value;
+          }
+        }
+        if (value.length > 12) {
+          value = value.substring(0, 12);
+        }
+        
+        // Format as +91 XXXXX XXXXX
+        if (value.length >= 2) {
+          let formatted = '+91 ';
+          if (value.length > 2) {
+            const rest = value.substring(2);
+            if (rest.length <= 5) {
+              formatted += rest;
+            } else {
+              formatted += rest.substring(0, 5) + ' ' + rest.substring(5);
+            }
+          }
+          e.target.value = formatted;
+        }
+      });
+
+      // Form validation
+      const requiredFields = form.querySelectorAll('[required]');
+      requiredFields.forEach(field => {
+        field.addEventListener('blur', function() {
+          if (!this.value.trim()) {
+            this.style.borderColor = '#ff6464';
+          } else {
+            this.style.borderColor = var(--border);
+          }
+        });
+
+        field.addEventListener('input', function() {
+          if (this.value.trim()) {
+            this.style.borderColor = var(--accent);
+          }
+        });
+      });
+
+      // Email validation
+      const emailField = document.getElementById('email');
+      emailField.addEventListener('blur', function() {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (this.value && !emailRegex.test(this.value)) {
+          this.style.borderColor = '#ff6464';
+          showMessage('Please enter a valid email address', 'error');
+        } else if (this.value) {
+          this.style.borderColor = var(--accent);
+        }
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add scroll-based animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.querySelectorAll('.method-card, .contact-form, .office-content, .quick-link-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
