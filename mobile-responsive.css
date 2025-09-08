@@ -1079,3 +1079,259 @@ body {
     box-shadow: none !important;
   }
 }
+
+/* ===============================================
+   MOBILE BOTTOM TAB NAVIGATION
+   =============================================== */
+
+/* Mobile Bottom Navigation - HIDDEN by default */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--section);
+  border-top: 2px solid var(--border);
+  display: none; /* Hidden by default - only show on mobile */
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+.bottom-nav-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 0;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--muted);
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 12px;
+  min-width: 60px;
+  position: relative;
+}
+
+.nav-item.active {
+  color: var(--accent);
+  background: rgba(50, 221, 184, 0.1);
+}
+
+.nav-item:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.nav-icon {
+  margin-bottom: 0.2rem;
+  color: inherit;
+}
+
+.nav-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.nav-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* CTA Button in Navigation - "Free Gift" */
+.nav-cta {
+  background: var(--accent) !important;
+  color: var(--section) !important;
+  font-weight: 700;
+  padding: 0.8rem 0.5rem !important;
+  box-shadow: 0 4px 12px rgba(50, 221, 184, 0.3);
+  animation: gentle-pulse 3s infinite;
+}
+
+.nav-cta:hover {
+  background: var(--accent-dark) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(50, 221, 184, 0.4);
+}
+
+.nav-cta .nav-label {
+  color: var(--section);
+  font-weight: 700;
+}
+
+/* Gentle pulse animation for Free Gift button */
+@keyframes gentle-pulse {
+  0%, 100% { 
+    box-shadow: 0 4px 12px rgba(50, 221, 184, 0.3);
+  }
+  50% { 
+    box-shadow: 0 4px 12px rgba(50, 221, 184, 0.5), 0 0 0 4px rgba(50, 221, 184, 0.1);
+  }
+}
+
+/* Active Page Indicator */
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+/* ===============================================
+   RESPONSIVE BREAKPOINTS
+   =============================================== */
+
+/* Only show bottom nav on mobile devices */
+@media (max-width: 768px) {
+  .mobile-bottom-nav {
+    display: block; /* Show ONLY on mobile */
+  }
+  
+  /* Hide desktop hamburger menu when bottom nav is active */
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+  
+  /* Hide desktop navigation on mobile */
+  .main-nav {
+    display: none !important;
+  }
+  
+  /* Add bottom padding to prevent content overlap */
+  body {
+    padding-bottom: 80px !important;
+  }
+  
+  /* Adjust header for mobile with bottom nav */
+  .header-main {
+    justify-content: center !important;
+  }
+}
+
+/* Ensure bottom nav NEVER shows on desktop */
+@media (min-width: 769px) {
+  .mobile-bottom-nav {
+    display: none !important; /* Force hide on desktop */
+  }
+  
+  body {
+    padding-bottom: 0 !important; /* No bottom padding needed on desktop */
+  }
+}
+
+/* Fine-tune for smaller mobile screens */
+@media (max-width: 480px) {
+  .nav-label {
+    font-size: 0.7rem;
+  }
+  
+  .nav-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .bottom-nav-container {
+    padding: 0.3rem 0;
+  }
+  
+  .nav-item {
+    min-width: 50px;
+    padding: 0.4rem;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .nav-label {
+    font-size: 0.65rem;
+  }
+  
+  .nav-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+  .mobile-bottom-nav {
+    padding: 0.2rem 0;
+  }
+  
+  .bottom-nav-container {
+    padding: 0.2rem 0;
+  }
+  
+  .nav-item {
+    padding: 0.3rem;
+  }
+  
+  body {
+    padding-bottom: 60px !important;
+  }
+}
+
+/* ===============================================
+   ACCESSIBILITY IMPROVEMENTS
+   =============================================== */
+
+/* Larger touch targets for accessibility */
+@media (max-width: 768px) {
+  .nav-item {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better focus indicators */
+  .nav-item:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .mobile-bottom-nav {
+      border-top-width: 3px;
+    }
+    
+    .nav-item.active {
+      background: var(--accent);
+      color: var(--section);
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .nav-item,
+    .nav-cta {
+      transition: none;
+      animation: none;
+    }
+  }
+}
+
+/* ===============================================
+   PRINT STYLES
+   =============================================== */
+
+@media print {
+  .mobile-bottom-nav {
+    display: none !important;
+  }
+  
+  body {
+    padding-bottom: 0 !important;
+  }
+}
