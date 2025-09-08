@@ -39,12 +39,12 @@ function loadHeader() {
                     <span class="nav-label">Courses</span>
                 </a>
                 <a href="#" class="nav-item nav-cta" onclick="openGiftPopup(); return false;" data-page="strategy">
-                  <span class="nav-icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/>
-                    </svg>
-                  </span>
-                  <span class="nav-label">Free Gift</span>
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10.05 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/>
+                        </svg>
+                    </span>
+                    <span class="nav-label">Free Gift</span>
                 </a>
                 <a href="success-stories.html" class="nav-item" data-page="success">
                     <span class="nav-icon">
@@ -151,47 +151,143 @@ function loadHeader() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', loadHeader);
+// ===============================================
+// UNIVERSAL GIFT POPUP FUNCTIONALITY
+// ===============================================
 
-// Add these functions at the end of shared-header.js
+// Global variables for popup functionality
+let urgencyTimerInterval;
+
+// Universal popup function (works for both mobile button click and desktop auto-load)
 window.openGiftPopup = function() {
     const popup = document.getElementById('giftPopup');
     if (popup) {
         popup.classList.add('active');
         document.body.style.overflow = 'hidden';
+        startUrgencyTimer();
         
-        // Optional: Track analytics
+        // Track analytics
         if (typeof gtag !== 'undefined') {
+            const source = window.innerWidth <= 768 ? 'mobile_button' : 'desktop_auto';
             gtag('event', 'gift_popup_opened', {
                 event_category: 'engagement',
-                event_label: 'free_gift_popup'
+                event_label: source,
+                source: source
             });
         }
+        
+        console.log('Gift popup opened');
     }
 };
 
+// Close the gift popup
 window.closeGiftPopup = function() {
     const popup = document.getElementById('giftPopup');
     if (popup) {
         popup.classList.remove('active');
         document.body.style.overflow = '';
+        clearInterval(urgencyTimerInterval);
+        
+        // Don't show again for 24 hours
+        localStorage.setItem('giftPopupClosed', Date.now());
+        
+        console.log('Gift popup closed');
     }
 };
 
-// Close popup when clicking outside or pressing Escape
+// Track gift claim
+window.trackGiftClaim = function() {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'gift_claimed', {
+            event_category: 'conversion',
+            event_label: 'strategy_session_claimed'
+        });
+    }
+    
+    localStorage.setItem('giftClaimed', 'true');
+    console.log('Free gift claimed');
+};
+
+// Urgency timer functionality
+function startUrgencyTimer() {
+    const timerElement = document.getElementById('urgencyTimer');
+    if (!timerElement) return;
+    
+    let hours = 23;
+    let minutes = 45;
+    let seconds = 12;
+    
+    urgencyTimerInterval = setInterval(() => {
+        if (seconds > 0) {
+            seconds--;
+        } else if (minutes > 0) {
+            minutes--;
+            seconds = 59;
+        } else if (hours > 0) {
+            hours--;
+            minutes = 59;
+            seconds = 59;
+        } else {
+            clearInterval(urgencyTimerInterval);
+            return;
+        }
+        
+        const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        timerElement.textContent = `⏰ ${formattedTime} remaining`;
+    }, 1000);
+}
+
+// Check if popup should be shown
+function shouldShowPopup() {
+    const lastClosed = localStorage.getItem('giftPopupClosed');
+    const giftClaimed = localStorage.getItem('giftClaimed');
+    
+    // Don't show if gift already claimed
+    if (giftClaimed === 'true') {
+        return false;
+    }
+    
+    // Don't show if closed within last 24 hours
+    if (lastClosed) {
+        const hoursSinceClosed = (Date.now() - parseInt(lastClosed)) / (1000 * 60 * 60);
+        if (hoursSinceClosed < 24) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    const popup = document.getElementById('giftPopup');
-    if (popup) {
-        popup.addEventListener('click', function(e) {
-            if (e.target === this) {
+    // Load header first
+    loadHeader();
+    
+    // Initialize popup functionality after a small delay to ensure DOM is ready
+    setTimeout(() => {
+        // Popup event listeners
+        const popup = document.getElementById('giftPopup');
+        if (popup) {
+            // Close popup when clicking outside
+            popup.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeGiftPopup();
+                }
+            });
+        }
+
+        // Close popup with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
                 closeGiftPopup();
             }
         });
-    }
 
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeGiftPopup();
+        // Auto-show popup after 8 seconds on desktop (first visit only)
+        if (shouldShowPopup()) {
+            setTimeout(() => {
+                openGiftPopup();
+            }, 8000); // 8 second delay
         }
-    });
+    }, 100);
 });
