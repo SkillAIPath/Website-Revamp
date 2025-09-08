@@ -2,7 +2,7 @@ function loadHeader() {
     const headerHTML = `
         <div class="header-top">
             <div class="left">
-                <span>📍India</span>
+                <span>🇮🇳India</span>
                 <span>+91 9301310154</span>
                 <span class="email-contact">tech@skillaipath.com</span>
             </div>
@@ -29,7 +29,7 @@ function loadHeader() {
                 <a href="index.html">Home</a>
                 <a href="courses.html">Courses</a>
                 <a href="success-stories.html">Success Stories</a>
-                <a href="strategy-call.html">Free Strategy Call</a>
+                <a href="Strategy Call.html">Free Strategy Call</a>
                 <a href="contact.html">Contact</a>
             </nav>
         </div>
@@ -67,7 +67,39 @@ function loadHeader() {
                 mobileToggle.setAttribute('aria-expanded', 'false');
             }
         });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mainNav.classList.contains('nav-open')) {
+                mainNav.classList.remove('nav-open');
+                document.body.classList.remove('nav-open');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                mobileToggle.focus();
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                mainNav.classList.remove('nav-open');
+                document.body.classList.remove('nav-open');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
     }
+
+    // Set active navigation link based on current page
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.main-nav a');
+    
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage || 
+            (currentPage === '' && linkPage === 'index.html') ||
+            (currentPage === 'index.html' && linkPage === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
 }
 
 document.addEventListener('DOMContentLoaded', loadHeader);
