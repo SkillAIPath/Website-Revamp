@@ -26,7 +26,7 @@ function loadHeader() {
                 <span class="hamburger-line"></span>
             </button>
             <nav class="main-nav">
-                <a href="index.html">Home</a>
+                <a href="index.html">Hom</a>
                 <a href="courses.html">Courses</a>
                 <a href="success-stories.html">Success Stories</a>
                 <a href="Strategy Call.html">Free Strategy Call</a>
