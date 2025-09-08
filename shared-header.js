@@ -38,7 +38,6 @@ function loadHeader() {
                     </span>
                     <span class="nav-label">Courses</span>
                 </a>
-                // REPLACE WITH THIS:
                 <a href="#" class="nav-item nav-cta" onclick="openGiftPopup(); return false;" data-page="strategy">
                   <span class="nav-icon">
                     <svg viewBox="0 0 24 24" fill="currentColor">
