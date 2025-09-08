@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SkillAI Path</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="Assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="Assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="Assets/apple-touch-icon.png">
+  <link rel="manifest" href="Assets/site.webmanifest">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #23234e;
+      --primary-bg: #19193f;
+      --overlay: #3d1d5e;
+      --section: #22224b;
+      --card: #29295e;
+      --light: #f8f8ff;
+      --lavender: #e2d7ff;
+      --accent: #32ddb8;
+      --accent-dark: #14ad93;
+      --text: #fff;
+      --muted: #a6a6de;
+      --border: #3e3263;
+      --shadow: 0 10px 28px 0 rgba(49,35,107,0.18);
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--primary-bg);
+      color: var(--light);
+      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+    body {
+      background: radial-gradient(circle at 30% 30%, #3c3072 0%, #19193f 85%);
+      position: relative;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color .22s;
+    }
+    a:hover, a:focus {
+      color: var(--accent-dark);
+    }
+    .background-logo {
+      position: fixed;
+      top: 50px;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      background: url('Assets/Skill-Logo.png') no-repeat center 110px;
+      background-size: 350px auto;
+      opacity: 0.07;
+    }
+    
+    /* Shared Header Styles */
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--primary);
+      padding: 0.5rem 4vw 0.5rem 4vw;
+      font-size: 0.98rem;
+      border-bottom: 1.2px solid #382b52;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+    .header-top .left {
+      display: flex;
+      gap: 1.7em;
+      align-items: center;
+    }
+    .header-top .right {
+      display: flex;
+      gap: 1.1em;
+      align-items: center;
+    }
+    .header-main {
+      background: var(--section);
+      background: linear-gradient(120deg, var(--primary-bg) 60%, var(--section) 100%);
+      border-bottom: 1.8px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 0.7rem 4vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: inherit;
+      position: relative;
+      z-index: 1;
+    }
+    .logo-brand {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 1.39rem;
+      letter-spacing: 0.06em;
+      color: var(--lavender);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-brand img {
+      height: 32px;
+      width: auto;
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 6px;
+      background: #fff0;
+      box-shadow: none;
+      display: inline-block;
+    }
+    nav {
+      display: flex;
+      gap: 1.38em;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    nav a {
+      color: var(--lavender);
+      text-decoration: none;
+      padding: 2px 0;
+      border-bottom: 2px solid transparent;
+      transition: border .2s, color .18s;
+    }
+    nav a:hover, nav a:focus, nav a.active {
+      color: var(--accent);
+      border-bottom:2px solid var(--accent);
+    }
+    
+    .hero {
+      background: linear-gradient(120deg, rgba(97,77,181,0.78) 0%, rgba(25,25,63,0.93) 100%);
+      position: relative;
+      box-shadow: 0 15px 50px rgba(58,30,101,0.13);
+      overflow: hidden;
+      margin: 0 auto 1.7em auto;
+      border-radius: 0 0 32px 32px;
+      max-width: 1120px;
+      z-index: 1;
+    }
+    .hero-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      padding: 3.6em 4vw 3.2em 4vw;
+      min-height: 380px;
+      position: relative;
+      z-index: 2;
+      gap: 2em;
+    }
+    .hero-main {
+      flex: 1 1 55%;
+    }
+    .hero-main h1 {
+      font-size: 2.6rem;
+      line-height: 1.13;
+      margin: 0 0 20px 0;
+      font-weight: 900;
+      color: var(--text);
+      letter-spacing: 0.015em;
+      text-shadow: 0 2px 9px #22184a55;
+    }
+    .hero-main .subheading {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 590px;
+      margin-bottom: 30px;
+      font-weight: 500;
+    }
+    .hero-main .btn-group {
+      display: flex;
+      gap: 1.2em;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--section);
+      padding: 0.95em 2.1em;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.13rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 1.8px 7px #0affd140;
+      transition: background .17s, color .13s, box-shadow .24s;
+      text-decoration: none;
+      display: inline-block;
+      align-self: flex-start;
+    }
+    .btn-primary:hover, .btn-primary:focus {
+      background: var(--accent-dark);
+      color: #e7fefb;
+      box-shadow: 0 3.8px 17px #1affba4a;
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: var(--accent);
+      padding: 0.95em 2.1em;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.13rem;
+      border: 2px solid var(--accent);
+      cursor: pointer;
+      transition: background .15s, color .13s, border .13s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-secondary:hover, .btn-secondary:focus {
+      background: rgba(38,221,184,0.38);
+      color: #fff;
+      border-color: #fff;
+    }
+    .hero-img-area {
+      flex: 1 1 40%;
+      text-align: right;
+      min-width: 180px;
+    }
+    .hero-img-area img {
+      width: 220px;
+      max-width: 100%;
+      min-width: 120px;
+      border-radius: 1.4rem;
+      box-shadow: 0 2px 24px #27fff244;
+      opacity: 0.92;
+      background: #2a155f;
+    }
+    /* FOUNDER INFO SECTION (Section B) */
+    .info-section {
+      max-width: 1120px;
+      margin: 0 auto 2.5em auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      padding: 2.7em 4vw 2.7em 4vw;
+      background: var(--section);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      z-index: 1;
+      position: relative;
+    }
+    .info-img {
+      flex: 1 1 224px;
+      min-width: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .info-img img {
+      width: 220px;
+      max-width: 100%;
+      border-radius: 1.1em;
+      box-shadow: 0 1.8px 12px #32ddb822;
+      object-fit: cover;
+    }
+    .info-text {
+      flex: 2 1 350px;
+      margin-left: 0.7em;
+    }
+    .info-text h2 {
+      font-size: 1.36rem;
+      font-weight: 800;
+      margin: 0 0 10px 0;
+      color: var(--light);
+    }
+    .info-text p {
+      color: var(--muted);
+      font-size: 1.12rem;
+      margin-bottom: 1.2em;
+      font-style: italic;
+    }
+    .info-text b {
+      color: var(--accent);
+      font-size: 1.07em;
+    }
+    /* ENTERPRISE TECH STACK SECTION */
+    .techstack-section {
+      margin: 3.2em auto 2em auto;
+      max-width: 1100px;
+      padding: 2.7em 4vw 2em 4vw;
+      background: var(--section);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 1;
+    }
+    .techstack-title {
+      text-align: center;
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--light);
+      margin-bottom: 0.18em;
+      letter-spacing: 0.01em;
+    }
+    .techstack-desc {
+      text-align: center;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 1.8em;
+      font-weight: 500;
+    }
+    .techstack-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.1em;
+      max-width: 920px;
+      margin: 0 auto 2em auto;
+    }
+    .techstack-item {
+      color: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 1.13em 1em;
+      font-size: 1.07rem;
+      font-weight: 600;
+      gap: 13px;
+      min-width: 0;
+      transition: transform 0.2s ease;
+    }
+    .techstack-item:hover {
+      transform: translateY(-2px);
+    }
+    .techstack-note {
+      background: #32ddb813;
+      color: var(--accent);
+      border: 1.1px solid var(--accent);
+      border-radius: 12px;
+      padding: 1em 1.3em;
+      font-size: 1.05em;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 auto;
+      max-width: 820px;
+    }
+    .techstack-note-icon {
+      font-size: 1.25em;
+      color: var(--accent);
+    }
+    .icon {
+      width: 28px;
+      height: 28px;
+      display: inline-block;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .icon.azure {
+      background-image: url('https://img.icons8.com/color/48/000000/azure-1.png');
+    }
+    .icon.python {
+      background-image: url('https://img.icons8.com/color/48/000000/python.png');
+    }
+    .icon.databricks {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/3a/Databricks_Logo.svg');
+      background-color: transparent;
+    }
+    .icon.sql {
+      background-image: url('https://img.icons8.com/color/48/000000/sql.png');
+    }
+    .icon.powerbi {
+      background-image: url('https://img.icons8.com/color/48/000000/power-bi.png');
+    }
+    .icon.chatgpt {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg');
+      background-color: transparent;
+    }
+    .icon.devops {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/3800/3800890.png');
+      background-color: transparent;
+    }
+    .icon.github {
+      background-image: url('https://img.icons8.com/ios-glyphs/30/32ddb8/github.png');
+    }
+    .icon.vscode {
+      background-image: url('https://img.icons8.com/color/48/000000/visual-studio-code-2019.png');
+    }
+    .icon.n8n {
+      background-image: url('https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/n8n.svg');
+      background-color: #fff;
+      border-radius: 6px;
+    }
+    .icon.ml {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e1/Artificial_intelligence_logo.svg');
+      background-color: transparent;
+    }
+    .icon.excel {
+      background-image: url('https://img.icons8.com/color/48/000000/ms-excel.png');
+    }
+    .icon.airtable {
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/f7/Airtable_Logo.svg');
+      background-color: transparent;
+    }
+    .icon.mlflow {
+      background-image: url('https://mlflow.org/docs/latest/_static/MLflow_logo.svg');
+      background-color: transparent;
+    }
+    @media (max-width: 980px) {
+      .techstack-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 580px) {
+      .techstack-grid {
+        grid-template-columns: 1fr;
+      }
+      .techstack-section {
+        padding: 1.3em 2vw;
+      }
+    }
+    /* STAT CARDS */
+    .stats-cards {
+      background: var(--card);
+      color: var(--light);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1em;
+      max-width: 1120px;
+      margin: 0 auto 2.5em auto;
+      padding: 2.2em 4vw;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      font-size: 1rem;
+      border: 1.2px solid var(--border);
+      z-index: 1;
+      position: relative;
+    }
+    .stat {
+      text-align: center;
+      padding: 0.6em 2px;
+    }
+    .stat .num {
+      display: block;
+      font-size: 2.1em;
+      color: var(--accent);
+      font-weight: 800;
+    }
+    .stat .label {
+      color: var(--muted);
+      margin-top: .15em;
+      font-size: 1em;
+    }
+    /* SUCCESS STORIES SECTION - CAROUSEL */
+    .testimonials-section {
+      max-width: 1120px;
+      margin: 0 auto 2.2em auto;
+      padding: 3em 4vw;
+      background: var(--section);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 2.5em;
+    }
+    
+    .testimonials-header h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--light);
+      margin: 0 0 0.5em 0;
+    }
+    
+    .testimonials-header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin: 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .testimonials-carousel {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 2.5em;
+      width: 100%;
+    }
+    
+    .testimonials-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      width: 200%;
+    }
+    
+    .testimonial-slide {
+      display: flex;
+      gap: 1.5em;
+      width: 50%;
+      flex-shrink: 0;
+    }
+    
+    .testimonial-card {
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 1.8em;
+      border: 1.2px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .testimonial-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(49,35,107,0.25);
+    }
+    
+    .testimonial-content {
+      margin-bottom: 1.5em;
+    }
+    
+    .quote-icon {
+      font-size: 3rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.5em;
+      font-family: serif;
+    }
+    
+    .testimonial-content p {
+      color: var(--light);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin: 0;
+      font-style: italic;
+    }
+    
+    .testimonial-author {
+      text-align: left;
+    }
+    
+    .author-name {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 1rem;
+      margin-bottom: 0.2em;
+    }
+    
+    .author-title {
+      color: var(--light);
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.1em;
+    }
+    
+    .author-company {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+      margin-top: 2em;
+    }
+    
+    .carousel-btn {
+      background: var(--accent);
+      color: var(--section);
+      border: none;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .carousel-btn:hover {
+      background: var(--accent-dark);
+      transform: scale(1.1);
+    }
+    
+    .carousel-btn:disabled {
+      background: var(--muted);
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5em;
+      margin-top: 1em;
+    }
+    
+    .carousel-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--muted);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .carousel-dot.active {
+      background: var(--accent);
+    }
+    
+    @media (max-width: 768px) {
+      .testimonial-slide {
+        flex-direction: column;
+      }
+      
+      .testimonial-card {
+        min-width: 100%;
+      }
+    }
+    
+    /* QUESTIONS CTA BAR */
+    .questions-bar {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      border-radius: 22px;
+      margin: 2.2em auto 2.8em auto;
+      max-width: 1050px;
+      padding: 2.1em 3em 2.1em 2.4em;
+      box-shadow: 0 5px 16px rgba(50, 221, 184, 0.25);
+      position: relative;
+      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    }
+    .questions-bar-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2em;
+      flex-wrap: wrap;
+    }
+    .questions-bar-title {
+      font-size: 1.44rem;
+      font-weight: 800;
+      color: var(--section);
+      margin-bottom: 0.44em;
+    }
+    .questions-bar-desc {
+      color: var(--section);
+      font-size: 1.02rem;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+    .questions-bar-btn {
+      background: var(--section);
+      color: var(--accent);
+      border-radius: 7px;
+      padding: 0.6em 2em;
+      font-size: 1.08rem;
+      font-weight: 700;
+      border: 2px solid var(--section);
+      box-shadow: none;
+      outline: none;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      transition: background .16s, color .14s, border-color .16s;
+    }
+    .questions-bar-btn:hover, .questions-bar-btn:focus {
+      background: transparent;
+      color: var(--section);
+      border-color: var(--section);
+    }
+    @media (max-width: 650px) {
+      .questions-bar-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2em;
+      }
+      .questions-bar {
+        padding: 1.27em 1.1em;
+      }
+      .questions-bar-title {
+        font-size: 1.13rem;
+      }
+    }
+    /* FOOTER */
+    footer {
+      background: var(--primary);
+      color: var(--muted);
+      border-top: 2.2px solid var(--border);
+      padding: 3em 4vw 2em 4vw;
+      font-size: 1rem;
+      margin-top: 1.2em;
+      z-index: 1;
+      position: relative;
+    }
+    .footer-content {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3em;
+      margin-bottom: 2.5em;
+    }
+    .footer-section h4 {
+      color: var(--lavender);
+      font-weight: 700;
+      margin: 0 0 1.2em 0;
+      font-size: 1.1rem;
+    }
+    .footer-section a {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.7em;
+      transition: color 0.3s;
+      font-size: 1rem;
+    }
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1.5em;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    #whatsapp-button {
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      bottom: 24px;
+      right: 22px;
+      z-index: 100;
+      background: #2be582;
+      border-radius: 50%;
+      box-shadow: 0 6px 22px #0cfac933;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.3px solid #aedfdc;
+      transition: background .19s;
+    }
+    #whatsapp-button:hover {
+      background: #16c47d;
+    }
+    #whatsapp-button img {
+      width: 30px;
+      height: 30px;
+    }
+    @media (max-width: 980px) {
+      .hero-content, .info-section, .stats-cards {
+        flex-direction: column;
+      }
+      .stats-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 700px) {
+      .header-top, .header-main {
+        flex-direction: column;
+        gap: .35em;
+      }
+      .hero-content, .info-section {
+        padding-left: 5vw;
+        padding-right: 5vw;
+      }
+      .stats-cards {
+        padding: 1.2em 3vw;
+      }
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2em;
+        text-align: center;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-img-area img, .info-img img {
+        width: 95px;
+      }
+      .hero-main h1 {
+        font-size: 1.19rem;
+      }
+      nav {
+        font-size: .93rem;
+      }
+      .stats-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="mobile-responsive.css">
+</head>
+<body>
+  <div class="background-logo"></div>
+  
+  <!-- Shared Header Container -->
+  <div id="shared-header"></div>
+  <script src="shared-header.js"></script>
+  
+  <!-- SECTION A: HERO Section -->
+  <div class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-main">
+        <h1>
+          Get Job-Ready with Real-World Data Science & AI Training
+        </h1>
+        <div class="subheading">
+          Stop building toy projects. Master AI & Data skills by solving actual business problems with enterprise-grade mentorship. Learn from someone who's delivered production systems.
+        </div>
+        <div class="btn-group">
+          <a href="#enroll" class="btn-primary">Discover Now</a>
+          <a href="#courses" class="btn-secondary">Get Started</a>
+        </div>
+      </div>
+      <div class="hero-img-area">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="AI and Technology" />
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION B: Founder Introduction -->
+  <div class="info-section" id="about">
+    <div class="info-img">
+      <img src="Assets/Vireshphoto.jpg" alt="Viresh Gendle, Founder of SkillAI Path" style="object-fit:cover;">
+    </div>
+    <div class="info-text">
+      <h2>Viresh Gendle</h2>
+      <div style="font-weight: 700; color: var(--accent); margin-bottom: 0.25em;">
+        AI &amp; Cloud Architect &bull; Enterprise Systems Builder
+      </div>
+      <p>
+        "I've built scalable data systems across cloud platforms for real businesses.
+        Now I'm sharing the delivery blueprint—the same approach that works in enterprise environments. No theory. Just what actually solves problems."
+      </p>
+      <div style="margin-top:1.4em;color:var(--muted);font-size:1.02em;">Founder, SkillAI Path</div>
+    </div>
+  </div>
+
+  <!-- ENTERPRISE TECH STACK SECTION -->
+  <div class="techstack-section">
+    <h2 class="techstack-title">Enterprise-Grade Tech Stack You'll Master</h2>
+    <div class="techstack-desc">
+      Build solutions using the same professional tools and platforms used in real business environments
+    </div>
+    <div class="techstack-grid">
+      <div class="techstack-item"><span class="icon azure"></span>Azure Cloud</div>
+      <div class="techstack-item"><span class="icon python"></span>Python</div>
+      <div class="techstack-item"><span class="icon databricks"></span>Databricks</div>
+      <div class="techstack-item"><span class="icon sql"></span>SQL Database</div>
+      <div class="techstack-item"><span class="icon powerbi"></span>Power BI</div>
+      <div class="techstack-item"><span class="icon chatgpt"></span>ChatGPT API</div>
+      <div class="techstack-item"><span class="icon devops"></span>DevOps</div>
+      <div class="techstack-item"><span class="icon github"></span>GitHub</div>
+      <div class="techstack-item"><span class="icon vscode"></span>VS Code + Colab</div>
+      <div class="techstack-item"><span class="icon n8n"></span>N8N Automation</div>
+      <div class="techstack-item"><span class="icon ml"></span>Machine Learning</div>
+      <div class="techstack-item"><span class="icon excel"></span>Microsoft Excel</div>
+      <div class="techstack-item"><span class="icon airtable"></span>Airtable</div>
+      <div class="techstack-item"><span class="icon mlflow"></span>MLflow</div>
+    </div>
+    <div class="techstack-note">
+      <span class="techstack-note-icon">🔧</span>
+      <b>Real Enterprise Setup:</b> Learn on the same tools and platforms that power Fortune 500 companies. No toy projects—build with production-grade infrastructure.
+    </div>
+  </div>
+
+  <!-- SECTION C: STATS Section -->
+  <div class="stats-cards">
+    <div class="stat">
+      <span class="num">700+</span>
+      <span class="label">Careers Launched</span>
+    </div>
+    <div class="stat">
+      <span class="num">700+</span>
+      <span class="label">Happy Alumni</span>
+    </div>
+    <div class="stat">
+      <span class="num">140+</span>
+      <span class="label">Currently Enrolled</span>
+    </div>
+    <div class="stat">
+      <span class="num">2000+</span>
+      <span class="label">Projects Completed</span>
+    </div>
+  </div>
+
+  <!-- SECTION D: Success Stories Area - CAROUSEL -->
+  <div class="testimonials-section" id="success-stories">
+    <div class="testimonials-container">
+      <div class="testimonials-header">
+        <h2>Success Stories</h2>
+        <p>See how our students transformed their careers with real-world AI & Data Science skills</p>
+      </div>
+      
+      <div class="testimonials-carousel">
+        <div class="testimonials-track" id="testimonials-track">
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                 <!--
+                <div class="quote-icon">"</div> -->
+                <p>I was interested in learning Azure Cloud but no paid platforms to access as it is expensive - provided by Krishnav Tech → I learnt SQL, Python, Pyspark - Power BI and DevOps giving me real time practical understanding of how the real projects works.</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-name">Prabhata Behera</div>
+                <div class="author-title">M.Tech Graduate</div>
+                <div class="author-company">Azure Cloud, PySpark, DevOps, Real Projects</div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <!--
+                <div class="quote-icon">"</div> -->
+                <p>Koi experience nhi tha start krne se pehle - zero knowledge of tech, sql, python toh suna bhi nhi tha. English me bhi issue tha - Abhi mei Data Analytics, Engineering ke sare concepts samjhta hu - bana bhi skta hu, Data Warehouse, Lakehouse, Incremental Load, Power BI Reporting.</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-name">Vikas Ray</div>
+                <div class="author-title">B.A. Student • Zero tech background</div>
+                <div class="author-company">Data Analytics, Data Warehouse, Power BI, SQL & Python</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                 <!--
+                <div class="quote-icon">"</div> -->
+                <p>Started Machine Learning - the 3 step process was very easy to catch up - understanding business and ML Predictions. I can handle now - Computer Vision Projects, Use AI Tools for Speed delivery on tasks. The business-first approach made complex concepts simple.</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-name">Mansi</div>
+                <div class="author-title">B.Com Graduate • Commerce background</div>
+                <div class="author-company">Machine Learning, Computer Vision, AI Tools, Business Analytics</div>
+              </div>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                 <!--
+                <div class="quote-icon">"</div> -->
+                <p>Understanding AI Tools, Power Apps building, and internal structure on how to provide fast delivery. The training transformed how I approach business problems and automated many of my workflows.</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-name">Vivek Kumar</div>
+                <div class="author-title">Marketing & Graphic Designer</div>
+                <div class="author-company">AI Tools, Power Apps, Automation, Business Optimization</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="prev-btn">‹</button>
+          <button class="carousel-btn" id="next-btn">›</button>
+        </div>
+        
+        <div class="carousel-dots">
+          <div class="carousel-dot active" data-slide="0"></div>
+          <div class="carousel-dot" data-slide="1"></div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3em;">
+        <h3 style="font-size: 1.8rem; font-weight: 800; color: var(--light); margin-bottom: 0.8em;">Ready to Write Your Success Story?</h3>
+        <p style="color: var(--muted); font-size: 1.1rem; margin-bottom: 2em; max-width: 600px; margin-left: auto; margin-right: auto;">Join hundreds of professionals who've transformed their careers with our proven methodology</p>
+        <a href="Strategy Call.html" class="btn-primary" style="font-size: 1.2rem; padding: 1.1em 2.5em;">Book Your Free Strategy Call</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUESTIONS CTA BAR -->
+  <div class="questions-bar">
+    <div class="questions-bar-content">
+      <div>
+        <div class="questions-bar-title">Got more questions?</div>
+        <div class="questions-bar-desc">Talk to our team, our program advisor will reach out to you.</div>
+      </div>
+      <a href="#contact" class="questions-bar-btn">
+        <span>Contact us</span>
+        <svg width="19" height="19" fill="none" viewBox="0 0 24 24" style="margin-left:8px;vertical-align:-3px">
+          <path d="M20 16.49V19a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3 5.18 2 2 0 0 1 5 3h2.51A2 2 0 0 1 9.5 4.54c.13.39.44.74.81.94l2.21 1.34a2 2 0 0 1 .91 1.82V10a2 2 0 0 1-.59 1.41l-.92.92a16.06 16.06 0 0 0 5.75 5.76l.92-.92a2 2 0 0 1 1.41-.59h2.33a2 2 0 0 1 2 1.67Z" fill="currentColor"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- SECTION F: Contact/Footer Main -->
+  <div id="shared-footer"></div>
+  <script src="shared-footer.js"></script>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/919301310154" target="_blank" id="whatsapp-button" title="Chat with us on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+  
+  <script>
+    // Testimonials Carousel
+    let currentSlide = 0;
+    const track = document.getElementById('testimonials-track');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const totalSlides = 2; // We have 2 slides
+
+    function updateCarousel() {
+      // Move the track by 50% for each slide (since each slide is 50% width)
+      track.style.transform = `translateX(-${currentSlide * 50}%)`;
+      
+      // Update dots
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+      
+      // Update button states
+      prevBtn.disabled = currentSlide === 0;
+      nextBtn.disabled = currentSlide === totalSlides - 1;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateCarousel();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateCarousel();
+      }
+    }
+
+    function goToSlide(slideIndex) {
+      currentSlide = slideIndex;
+      updateCarousel();
+    }
+
+    // Event listeners
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => goToSlide(index));
+    });
+
+    // Auto-advance carousel every 8 seconds
+    setInterval(() => {
+      if (currentSlide < totalSlides - 1) {
+        nextSlide();
+      } else {
+        currentSlide = 0;
+        updateCarousel();
+      }
+    }, 8000);
+
+    // Initialize carousel
+    updateCarousel();
+  </script>
+
+</body>
+</html>
