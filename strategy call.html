@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Book a Strategy Call | SkillAI Path</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Book a free 30-minute strategy call with SkillAI Path experts. Get personalized career guidance for AI & Data Science training programs.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="Assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="Assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="Assets/apple-touch-icon.png">
+  <link rel="manifest" href="Assets/site.webmanifest">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #23234e;
+      --primary-bg: #19193f;
+      --overlay: #3d1d5e;
+      --section: #22224b;
+      --card: #29295e;
+      --light: #f8f8ff;
+      --lavender: #e2d7ff;
+      --accent: #32ddb8;
+      --accent-dark: #14ad93;
+      --text: #fff;
+      --muted: #a6a6de;
+      --border: #3e3263;
+      --shadow: 0 10px 28px 0 rgba(49,35,107,0.18);
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--primary-bg);
+      color: var(--light);
+      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+    body {
+      background: radial-gradient(circle at 30% 30%, #3c3072 0%, #19193f 85%);
+      position: relative;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color .22s;
+    }
+    a:hover, a:focus {
+      color: var(--accent-dark);
+    }
+    .background-logo {
+      position: fixed;
+      top: 50px;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      background: url('Assets/Skill-Logo.png') no-repeat center 110px;
+      background-size: 350px auto;
+      opacity: 0.07;
+    }
+
+    /* Shared Header Styles */
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--primary);
+      padding: 0.5rem 4vw 0.5rem 4vw;
+      font-size: 0.98rem;
+      border-bottom: 1.2px solid #382b52;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+    .header-top .left {
+      display: flex;
+      gap: 1.7em;
+      align-items: center;
+    }
+    .header-top .right {
+      display: flex;
+      gap: 1.1em;
+      align-items: center;
+    }
+    .header-main {
+      background: var(--section);
+      background: linear-gradient(120deg, var(--primary-bg) 60%, var(--section) 100%);
+      border-bottom: 1.8px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 0.7rem 4vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: inherit;
+      position: relative;
+      z-index: 1;
+    }
+    .logo-brand {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 1.39rem;
+      letter-spacing: 0.06em;
+      color: var(--lavender);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-brand img {
+      height: 32px;
+      width: auto;
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 6px;
+      background: #fff0;
+      box-shadow: none;
+      display: inline-block;
+    }
+    nav {
+      display: flex;
+      gap: 1.38em;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    nav a {
+      color: var(--lavender);
+      text-decoration: none;
+      padding: 2px 0;
+      border-bottom: 2px solid transparent;
+      transition: border .2s, color .18s;
+    }
+    nav a:hover, nav a:focus, nav a.active {
+      color: var(--accent);
+      border-bottom:2px solid var(--accent);
+    }
+
+    /* Page Header */
+    .page-header {
+      max-width: 1000px;
+      margin: 2rem auto 3rem auto;
+      padding: 0 4vw;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .page-header h1 {
+      font-weight: 800;
+      font-size: 2.8rem;
+      margin: 0 0 0.5em 0;
+      color: var(--light);
+      letter-spacing: 0.02em;
+    }
+    .page-header .subtitle {
+      color: var(--accent);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.8em;
+    }
+    .page-header p {
+      color: var(--muted);
+      font-size: 1.2rem;
+      margin: 0;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Main Content */
+    .main-content {
+      max-width: 1000px;
+      margin: 0 auto 4rem auto;
+      padding: 0 4vw;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3em;
+      align-items: start;
+    }
+
+    /* Call Details Section */
+    .call-details {
+      background: var(--section);
+      border-radius: 20px;
+      padding: 3em 2.5em;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .call-details h2 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .call-details h3 {
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: var(--lavender);
+    }
+
+    .call-details p, .call-details li {
+      color: var(--light);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .call-details ul, .call-details ol {
+      padding-left: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .call-details li {
+      margin-bottom: 0.8rem;
+    }
+
+    /* Benefits Grid */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5em;
+      margin: 2em 0;
+    }
+
+    .benefit-item {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.5em;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 1em;
+    }
+
+    .benefit-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .benefit-content h4 {
+      color: var(--accent);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 0.5em 0;
+    }
+
+    .benefit-content p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Booking Section */
+    .booking-section {
+      background: var(--section);
+      border-radius: 20px;
+      padding: 2.5em;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      position: sticky;
+      top: 2em;
+    }
+
+    .booking-section h3 {
+      color: var(--accent);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 0 1.5em 0;
+      text-align: center;
+    }
+
+    /* Calendar Embed Styling */
+    .tidycal-embed {
+      margin: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+
+    /* Call to Action Banner */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      border-radius: 20px;
+      margin: 3em auto 2em auto;
+      max-width: 800px;
+      padding: 2.5em;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(50, 221, 184, 0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-banner h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--section);
+      margin: 0 0 0.8em 0;
+    }
+
+    .cta-banner p {
+      color: var(--section);
+      font-size: 1.1rem;
+      margin: 0 0 1.5em 0;
+      opacity: 0.9;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-options {
+      display: flex;
+      gap: 1em;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-btn {
+      background: var(--section);
+      color: var(--accent);
+      padding: 1em 2em;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 2px solid var(--section);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .contact-btn:hover {
+      background: transparent;
+      color: var(--section);
+      border-color: var(--section);
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      max-width: 1000px;
+      margin: 0 auto 4rem auto;
+      padding: 0 4vw;
+      position: relative;
+      z-index: 1;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 2.5em;
+    }
+
+    .faq-header h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--light);
+      margin: 0 0 0.5em 0;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2em;
+      background: var(--section);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 1.2em 1.5em;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: var(--light);
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background: rgba(50, 221, 184, 0.05);
+    }
+
+    .faq-toggle {
+      color: var(--accent);
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-toggle {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      padding: 0 1.5em;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 0 1.5em 1.5em 1.5em;
+      max-height: 300px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: var(--muted);
+      border-top: 2.2px solid var(--border);
+      padding: 3em 4vw 2em 4vw;
+      font-size: 1rem;
+      margin-top: 2em;
+      z-index: 1;
+      position: relative;
+    }
+    .footer-content {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3em;
+      margin-bottom: 2.5em;
+    }
+    .footer-section h4 {
+      color: var(--lavender);
+      font-weight: 700;
+      margin: 0 0 1.2em 0;
+      font-size: 1.1rem;
+    }
+    .footer-section a {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.7em;
+      transition: color 0.3s;
+      font-size: 1rem;
+    }
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1.5em;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* WhatsApp Button */
+    #whatsapp-button {
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      bottom: 24px;
+      right: 22px;
+      z-index: 100;
+      background: #2be582;
+      border-radius: 50%;
+      box-shadow: 0 6px 22px #0cfac933;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.3px solid #aedfdc;
+      transition: background .19s;
+    }
+    #whatsapp-button:hover {
+      background: #16c47d;
+    }
+    #whatsapp-button img {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .main-content {
+        grid-template-columns: 1fr;
+        gap: 2em;
+      }
+      
+      .booking-section {
+        position: static;
+        order: -1;
+      }
+      
+      .call-details,
+      .booking-section {
+        padding: 2em 1.5em;
+      }
+      
+      .page-header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .contact-options {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .contact-btn {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .benefits-grid {
+        gap: 1em;
+      }
+      
+      .benefit-item {
+        padding: 1.2em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .call-details,
+      .booking-section {
+        padding: 1.5em 1em;
+      }
+      
+      .cta-banner {
+        padding: 2em 1.5em;
+      }
+    }
+  </style>
+  
+  <!-- Mobile Responsive CSS -->
+  <link rel="stylesheet" href="mobile-responsive.css">
+</head>
+<body>
+  <div class="background-logo"></div>
+  
+  <!-- Shared Header -->
+  <div id="shared-header"></div>
+  <script src="shared-header.js"></script>
+  
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>Book Your Strategy Call</h1>
+    <div class="subtitle">Free 30-Minute Career Consultation</div>
+    <p>Schedule a personalized session with our AI & Data Science experts to discuss your goals and create a roadmap for success.</p>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Call Details -->
+    <div class="call-details">
+      <h2>Let's Plan Your Success</h2>
+      <p>
+        Schedule a <strong>1:1 strategy call</strong> with our team to review your goals, discuss your current situation, and create a personalized roadmap for your AI & Data Science career transformation.
+      </p>
+
+      <h3>What You'll Get in This Call:</h3>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="benefit-icon">🎯</div>
+          <div class="benefit-content">
+            <h4>Career Assessment</h4>
+            <p>Detailed analysis of your current skills, background, and career objectives</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🗺️</div>
+          <div class="benefit-content">
+            <h4>Personalized Roadmap</h4>
+            <p>Custom learning path based on your goals and timeline</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">💡</div>
+          <div class="benefit-content">
+            <h4>Expert Guidance</h4>
+            <p>Direct consultation with industry professionals who've built enterprise systems</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🚀</div>
+          <div class="benefit-content">
+            <h4>Action Plan</h4>
+            <p>Clear next steps and timeline to achieve your career transformation</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Who This Is For:</h3>
+      <ul>
+        <li><strong>Career Changers:</strong> Professionals looking to transition into AI & Data Science</li>
+        <li><strong>Skill Upgraders:</strong> Current tech professionals wanting to upskill</li>
+        <li><strong>Recent Graduates:</strong> Students seeking industry-ready skills</li>
+        <li><strong>Entrepreneurs:</strong> Business owners wanting to leverage data science</li>
+        <li><strong>Freelancers:</strong> Individuals looking to offer AI/Data services</li>
+      </ul>
+
+      <h3>Call Format:</h3>
+      <ul>
+        <li><strong>Duration:</strong> 30 minutes</li>
+        <li><strong>Format:</strong> Video call (Google Meet/Zoom)</li>
+        <li><strong>Cost:</strong> Completely FREE - no obligations</li>
+        <li><strong>Follow-up:</strong> Detailed action plan sent via email</li>
+      </ul>
+
+      <p><strong>Note:</strong> This slot is reserved for serious candidates who are ready to take action on their career transformation.</p>
+    </div>
+
+    <!-- Booking Section -->
+    <div class="booking-section">
+      <h3>Pick Your Convenient Time</h3>
+      <div class="tidycal-embed" data-path="m474n0m/strategy-call"></div>
+      <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
+    </div>
+  </div>
+
+  <!-- CTA Banner -->
+  <div class="cta-banner">
+    <h3>Can't Find a Suitable Time?</h3>
+    <p>Contact us directly and we'll arrange a call that works with your schedule</p>
+    <div class="contact-options">
+      <a href="https://wa.me/919301310154" target="_blank" class="contact-btn">WhatsApp Us</a>
+      <a href="mailto:tech@skillaipath.com" class="contact-btn">Send Email</a>
+      <a href="tel:+919301310154" class="contact-btn">Call Direct</a>
+    </div>
+  </div>
+
+  <!-- FAQ Section -->
+  <div class="faq-section">
+    <div class="faq-header">
+      <h2>Strategy Call FAQ</h2>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>What exactly happens during the strategy call?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>We'll discuss your current situation, career goals, timeline, and create a personalized learning roadmap. You'll get expert advice on which track suits you best and how to achieve your objectives efficiently.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Is this really free? What's the catch?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Yes, it's completely free with no obligations. We provide genuine value to help you make informed decisions about your career. There's no pressure to enroll - our goal is to help you succeed regardless.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Who will I be speaking with?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>You'll speak with our founder Viresh Gendle or senior team members who have real industry experience building enterprise data systems. No sales representatives - only technical experts.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>What if I'm a complete beginner?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Perfect! We specialize in helping beginners. Many of our successful students started with zero technical background. We'll assess where you are and create a plan that works for your starting point.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>How soon can I expect results after the call?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>You'll receive immediate clarity during the call and a detailed action plan within 24 hours. If you decide to join our program, you can start seeing progress within the first few weeks of training.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Footer -->
+  <div id="shared-footer"></div>
+  <script src="shared-footer.js"></script>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/919301310154" target="_blank" id="whatsapp-button" title="Chat with us on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+  
+  <script>
+    // FAQ Accordion Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          
+          // Close all other FAQ items
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+            }
+          });
+          
+          // Toggle current item
+          if (isActive) {
+            item.classList.remove('active');
+          } else {
+            item.classList.add('active');
+          }
+        });
+      });
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add scroll-based animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.querySelectorAll('.call-details, .booking-section, .benefit-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+
+    // Track calendar interaction
+    window.addEventListener('message', function(event) {
+      if (event.data && event.data.type === 'tidycal_booking_completed') {
+        // Optional: Track successful bookings
+        console.log('Strategy call booked successfully!');
+        
+        // You could add analytics tracking here
+        // gtag('event', 'strategy_call_booked', { ... });
+      }
+    });
+  </script>
+
+</body>
+</html>
