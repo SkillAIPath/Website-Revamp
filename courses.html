@@ -860,8 +860,114 @@
       
       .enrollment-cta {
         padding: 2em 1.5em;
+        
       }
     }
+    /* Mobile Bottom Navigation Styles */
+.mobile-bottom-nav {
+  display: none; /* Hidden by default on desktop */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--section);
+  border-top: 2px solid var(--border);
+  box-shadow: 0 -5px 20px rgba(49, 35, 107, 0.3);
+}
+
+.bottom-nav-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 0;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.mobile-bottom-nav .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 0.25rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  min-width: 60px;
+}
+
+.mobile-bottom-nav .nav-item:hover,
+.mobile-bottom-nav .nav-item.active {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 0.25rem;
+}
+
+.nav-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.nav-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.nav-cta {
+  background: rgba(50, 221, 184, 0.1);
+  border-radius: 12px;
+  border: 1px solid var(--accent);
+}
+
+/* Show only on mobile devices */
+@media (max-width: 768px) {
+  .mobile-bottom-nav {
+    display: block;
+  }
+  
+  /* Add bottom padding to body to prevent content from being hidden behind the nav */
+  body {
+    padding-bottom: 80px;
+  }
+}
+
+/* Hide mobile toggle button on desktop */
+.mobile-menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 4px;
+  }
+  
+  .hamburger-line {
+    width: 25px;
+    height: 3px;
+    background: var(--light);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+  
+  /* Hide desktop nav on mobile */
+  .main-nav {
+    display: none;
+  }
+}
   </style>
 </head>
 <body>
