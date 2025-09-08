@@ -1079,3 +1079,242 @@ body {
     box-shadow: none !important;
   }
 }
+/* ==============================================
+   MOBILE HAMBURGER MENU FIX
+   ============================================== */
+
+/* Header container positioning */
+.header-main {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+/* Mobile menu toggle button - HIGH PRIORITY FIXES */
+.mobile-menu-toggle {
+    /* CRITICAL: Ensure button appears on top */
+    position: relative;
+    z-index: 10001 !important;
+    
+    /* Make it visible and clickable */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* Proper sizing for touch targets */
+    width: 48px;
+    height: 48px;
+    padding: 8px;
+    margin: 0;
+    
+    /* Remove default button styles */
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    
+    /* Ensure it's always clickable */
+    pointer-events: auto !important;
+    cursor: pointer;
+    
+    /* Smooth transitions */
+    transition: all 0.3s ease;
+    
+    /* Backdrop for better visibility */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Hover and focus states for better UX */
+.mobile-menu-toggle:hover,
+.mobile-menu-toggle:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+    outline: none;
+}
+
+/* Active state when menu is open */
+.mobile-menu-toggle[aria-expanded="true"] {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Hamburger lines - CRITICAL VISIBILITY FIX */
+.hamburger-line {
+    /* Make lines highly visible */
+    display: block;
+    width: 24px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 3px 0;
+    
+    /* Ensure lines are on top */
+    position: relative;
+    z-index: 10002;
+    
+    /* Smooth animation */
+    transition: all 0.3s ease;
+    
+    /* Add shadow for extra visibility */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Animated hamburger to X transformation */
+.mobile-menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Navigation menu positioning */
+.main-nav {
+    /* Hide by default on mobile */
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    
+    /* High z-index but below toggle button */
+    z-index: 10000;
+    
+    /* Styling */
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 20, 40, 0.95));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    
+    /* Smooth transition */
+    transition: left 0.4s ease-in-out;
+}
+
+/* Show navigation when open */
+.main-nav.nav-open {
+    left: 0;
+}
+
+/* Navigation links styling */
+.main-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    
+    /* Smooth transitions */
+    transition: all 0.3s ease;
+    
+    /* Make clickable area larger */
+    display: block;
+    text-align: center;
+    min-width: 200px;
+}
+
+/* Navigation link hover states */
+.main-nav a:hover,
+.main-nav a:focus {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    color: #00ff88;
+}
+
+/* Active page styling */
+.main-nav a.active {
+    background: rgba(0, 255, 136, 0.2);
+    color: #00ff88;
+    border: 2px solid rgba(0, 255, 136, 0.5);
+}
+
+/* Prevent body scroll when menu is open */
+body.nav-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* Desktop styles - hide hamburger menu */
+@media (min-width: 769px) {
+    .mobile-menu-toggle {
+        display: none;
+    }
+    
+    .main-nav {
+        position: static;
+        width: auto;
+        height: auto;
+        background: none;
+        backdrop-filter: none;
+        flex-direction: row;
+        gap: 1rem;
+        left: 0;
+    }
+    
+    .main-nav a {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        min-width: auto;
+    }
+}
+
+/* Additional mobile-specific improvements */
+@media (max-width: 768px) {
+    /* Ensure header doesn't get buried */
+    .header-main {
+        position: sticky;
+        top: 0;
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+    }
+    
+    /* Logo adjustments */
+    .logo-brand {
+        z-index: 999;
+        position: relative;
+    }
+}
+
+/* Fix for overlapping content */
+.mobile-menu-toggle,
+.hamburger-line {
+    /* Ensure these are always interactive */
+    pointer-events: auto !important;
+    user-select: none;
+}
+
+/* Accessibility improvements */
+.mobile-menu-toggle:focus-visible {
+    outline: 3px solid #00ff88;
+    outline-offset: 2px;
+}
+
+/* Emergency fallback - if menu still not working */
+.mobile-menu-toggle {
+    /* Force visibility with !important */
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+}
+
+/* Ensure hamburger lines are always visible */
+.hamburger-line {
+    background-color: #ffffff !important;
+    opacity: 1 !important;
+}
