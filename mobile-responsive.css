@@ -672,7 +672,7 @@ body {
     overflow-x: hidden;
   }
   
-  /* Force all content to low z-index on small screens */
+  /* Force all content to low z-index on small screens but keep background logo at bottom */
   .hero,
   .hero-content,
   .info-section,
@@ -681,10 +681,14 @@ body {
   .testimonials-section,
   .questions-bar,
   .contact-cta,
-  .enrollment-cta,
-  .background-logo {
+  .enrollment-cta {
     z-index: 1 !important;
     position: relative !important;
+  }
+  
+  .background-logo {
+    z-index: 0 !important;
+    position: fixed !important;
   }
   
   /* Container widths */
