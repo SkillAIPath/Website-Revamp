@@ -16,7 +16,7 @@ function loadFooter() {
                     <a href="contact.html">Contact</a>
                 </div>
                 <div class="footer-section">
-                    <h4>Legal</h4>
+                    <h4>Legal3</h4>
                     <a href="Privacy Policy.html">Privacy Policy</a>
                     <a href="Refund Policy.html">Refund Policy</a>
                     <a href="Terms & Conditions.html">Terms & Conditions</a>
@@ -30,5 +30,6 @@ function loadFooter() {
     
     document.getElementById('shared-footer').innerHTML = footerHTML;
 }
+
 
 document.addEventListener('DOMContentLoaded', loadFooter);
