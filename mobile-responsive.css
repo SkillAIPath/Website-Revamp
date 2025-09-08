@@ -14,6 +14,655 @@ body {
   width: 100%;
 }
 
+/* Mobile Responsive CSS for SkillAI Path Website */
+
+/* Fix for viewport issues and horizontal scrolling */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ===============================================
+   MOBILE BOTTOM TAB NAVIGATION
+   =============================================== */
+
+/* Mobile Bottom Navigation - HIDDEN by default */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--section);
+  border-top: 2px solid var(--border);
+  display: none; /* Hidden by default - only show on mobile */
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+.bottom-nav-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem 0;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--muted);
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 12px;
+  min-width: 60px;
+  position: relative;
+}
+
+.nav-item.active {
+  color: var(--accent);
+  background: rgba(50, 221, 184, 0.1);
+}
+
+.nav-item:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.nav-icon {
+  margin-bottom: 0.2rem;
+  color: inherit;
+}
+
+.nav-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.nav-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* CTA Button in Navigation - "Free Gift" */
+.nav-cta {
+  background: var(--accent) !important;
+  color: var(--section) !important;
+  font-weight: 700;
+  padding: 0.8rem 0.5rem !important;
+  box-shadow: 0 4px 12px rgba(50, 221, 184, 0.3);
+  animation: gentle-pulse 3s infinite;
+}
+
+.nav-cta:hover {
+  background: var(--accent-dark) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(50, 221, 184, 0.4);
+}
+
+.nav-cta .nav-label {
+  color: var(--section);
+  font-weight: 700;
+}
+
+/* Gentle pulse animation for Free Gift button */
+@keyframes gentle-pulse {
+  0%, 100% { 
+    box-shadow: 0 4px 12px rgba(50, 221, 184, 0.3);
+  }
+  50% { 
+    box-shadow: 0 4px 12px rgba(50, 221, 184, 0.5), 0 0 0 4px rgba(50, 221, 184, 0.1);
+  }
+}
+
+/* Active Page Indicator */
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+/* ===============================================
+   UNIVERSAL GIFT POPUP STYLES
+   =============================================== */
+
+/* Popup Overlay - Available on all devices */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Popup Modal - Responsive for both mobile and desktop */
+.gift-popup {
+  background: var(--section);
+  border-radius: 20px;
+  max-width: 550px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+  border: 2px solid var(--accent);
+  position: relative;
+  transform: scale(0.9) translateY(30px);
+  transition: all 0.4s ease;
+  z-index: 100000;
+}
+
+.popup-overlay.active .gift-popup {
+  transform: scale(1) translateY(0);
+}
+
+/* Close Button */
+.popup-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--card);
+  border: none;
+  color: var(--light);
+  font-size: 1.8rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 100001;
+}
+
+.popup-close:hover {
+  background: var(--accent);
+  color: var(--section);
+  transform: scale(1.1);
+}
+
+/* Popup Header */
+.popup-header {
+  text-align: center;
+  padding: 3rem 2.5rem 1.5rem 2.5rem;
+  background: linear-gradient(135deg, rgba(50, 221, 184, 0.15) 0%, rgba(50, 221, 184, 0.05) 100%);
+  border-radius: 20px 20px 0 0;
+  position: relative;
+}
+
+.gift-icon {
+  font-size: 4.5rem;
+  margin-bottom: 1.5rem;
+  animation: desktop-entrance 3s ease-in-out infinite;
+}
+
+@keyframes desktop-entrance {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.05);
+  }
+}
+
+.popup-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+}
+
+.popup-subtitle {
+  font-size: 1.2rem;
+  color: var(--light);
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+/* Welcome message for desktop */
+.welcome-message {
+  background: rgba(50, 221, 184, 0.1);
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.welcome-message p {
+  color: var(--light);
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Popup Body */
+.popup-body {
+  padding: 2rem 2.5rem;
+}
+
+.gift-reveal {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border);
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.gift-reveal h3 {
+  color: var(--accent);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.gift-value {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  color: var(--section);
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 800;
+  font-size: 1rem;
+  display: inline-block;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 4px 12px rgba(50, 221, 184, 0.3);
+}
+
+.gift-reveal p {
+  color: var(--light);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* Benefits Section */
+.gift-benefits {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.gift-benefits h4 {
+  color: var(--light);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.8rem;
+}
+
+.benefit-list li {
+  color: var(--muted);
+  padding: 0.6rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.benefit-list li::before {
+  content: '🎯';
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* Social Proof */
+.social-proof {
+  background: rgba(50, 221, 184, 0.1);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--accent);
+  position: relative;
+}
+
+.social-proof::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 3rem;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.social-proof-text {
+  font-style: italic;
+  color: var(--light);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.social-proof-author {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Action Buttons */
+.popup-actions {
+  padding: 0 2.5rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.claim-button {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+  color: var(--section);
+  padding: 1.5rem 3rem;
+  border-radius: 15px;
+  font-weight: 800;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(50, 221, 184, 0.4);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.claim-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.claim-button:hover::before {
+  left: 100%;
+}
+
+.claim-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(50, 221, 184, 0.5);
+  color: var(--section);
+}
+
+.urgency-text {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 1rem;
+}
+
+.urgency-highlight {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+/* Timer for urgency */
+.timer-display {
+  background: var(--primary);
+  color: var(--accent);
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1rem;
+  display: inline-block;
+  margin-top: 0.5rem;
+  border: 1px solid var(--accent);
+}
+
+/* ===============================================
+   RESPONSIVE BREAKPOINTS
+   =============================================== */
+
+/* Ensure content doesn't get hidden behind bottom nav on mobile */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 80px !important;
+  }
+}
+
+/* Only show bottom nav on mobile devices */
+@media (max-width: 768px) {
+  .mobile-bottom-nav {
+    display: block; /* Show ONLY on mobile */
+  }
+  
+  /* Hide desktop hamburger menu when bottom nav is active */
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+  
+  /* Hide desktop navigation on mobile */
+  .main-nav {
+    display: none !important;
+  }
+  
+  /* Adjust header for mobile with bottom nav */
+  .header-main {
+    justify-content: center !important;
+  }
+
+  /* Mobile popup adjustments */
+  .gift-popup {
+    max-width: 450px;
+    margin: 1rem;
+  }
+
+  .popup-header {
+    padding: 2.5rem 2rem 1rem 2rem;
+  }
+
+  .popup-body {
+    padding: 1.5rem 2rem;
+  }
+
+  .popup-actions {
+    padding: 0 2rem 2rem 2rem;
+  }
+
+  .popup-title {
+    font-size: 1.6rem;
+  }
+
+  .gift-icon {
+    font-size: 3.5rem;
+  }
+
+  .benefit-list {
+    grid-template-columns: 1fr;
+  }
+
+  .claim-button {
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Ensure bottom nav NEVER shows on desktop */
+@media (min-width: 769px) {
+  .mobile-bottom-nav {
+    display: none !important; /* Force hide on desktop */
+  }
+  
+  body {
+    padding-bottom: 0 !important; /* No bottom padding needed on desktop */
+  }
+
+  /* Desktop popup styling */
+  .gift-popup {
+    max-width: 600px;
+  }
+  
+  .popup-header {
+    padding: 3.5rem 3rem 2rem 3rem;
+  }
+  
+  .popup-body {
+    padding: 2rem 3rem;
+  }
+  
+  .popup-actions {
+    padding: 0 3rem 3rem 3rem;
+  }
+}
+
+/* Fine-tune for smaller mobile screens */
+@media (max-width: 480px) {
+  .nav-label {
+    font-size: 0.7rem;
+  }
+  
+  .nav-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .bottom-nav-container {
+    padding: 0.3rem 0;
+  }
+  
+  .nav-item {
+    min-width: 50px;
+    padding: 0.4rem;
+  }
+
+  /* Mobile popup fine-tuning */
+  .popup-title {
+    font-size: 1.4rem;
+  }
+
+  .gift-icon {
+    font-size: 3rem;
+  }
+
+  .claim-button {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .nav-label {
+    font-size: 0.65rem;
+  }
+  
+  .nav-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+  .mobile-bottom-nav {
+    padding: 0.2rem 0;
+  }
+  
+  .bottom-nav-container {
+    padding: 0.2rem 0;
+  }
+  
+  .nav-item {
+    padding: 0.3rem;
+  }
+  
+  body {
+    padding-bottom: 60px !important;
+  }
+}
+
+/* ===============================================
+   ACCESSIBILITY IMPROVEMENTS
+   =============================================== */
+
+/* Larger touch targets for accessibility */
+@media (max-width: 768px) {
+  .nav-item {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better focus indicators */
+  .nav-item:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .mobile-bottom-nav {
+      border-top-width: 3px;
+    }
+    
+    .nav-item.active {
+      background: var(--accent);
+      color: var(--section);
+    }
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .nav-item,
+    .nav-cta,
+    .gift-icon {
+      transition: none;
+      animation: none;
+    }
+  }
+}
+
+/* ===============================================
+   EXISTING MOBILE RESPONSIVE STYLES
+   =============================================== */
+
 /* Mobile Navigation Styles */
 .mobile-menu-toggle {
   display: none;
@@ -176,1169 +825,15 @@ body {
   box-sizing: border-box;
 }
 
-/* Mobile Responsive Breakpoints */
-
-/* Large Tablets and Small Desktops */
-@media (max-width: 1024px) {
-  .hero-content, .info-section {
-    padding-left: 3vw;
-    padding-right: 3vw;
-  }
-  
-  .techstack-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1em;
-  }
-  
-  .stats-cards {
-    padding: 1.8em 3vw;
-  }
-}
-
-/* Tablets */
-@media (max-width: 768px) {
-  /* Header Adjustments - Remove header-top styles completely */
-  .header-top {
-    display: none !important;
-  }
-  
-  /* Ensure header-main stays flexbox on mobile but with lower z-index */
-  .header-main {
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 1rem 4vw !important;
-    position: relative;
-    z-index: 1 !important;
-  }
-  
-  /* Make sure logo stays clickable */
-  .logo-brand {
-    font-size: 1.2rem;
-    text-decoration: none !important;
-    color: var(--lavender) !important;
-    z-index: 1001 !important;
-    position: relative !important;
-  }
-  
-  .logo-brand:hover {
-    color: var(--accent) !important;
-  }
-  
-  .logo-brand img {
-    height: 28px;
-  }
-  
-  /* Mobile Navigation */
-  .mobile-menu-toggle {
-    display: flex !important;
-    z-index: 1002 !important;
-    position: relative !important;
-    background: none !important;
-    border: none !important;
-    cursor: pointer !important;
-  }
-  
-  /* Mobile menu positioning and visibility fixes */
-  .main-nav {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 280px;
-    height: 100vh;
-    background: var(--section);
-    flex-direction: column;
-    padding: 80px 2rem 2rem 2rem;
-    transition: right 0.3s ease;
-    z-index: 1000;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-    gap: 2em;
-  }
-  
-  .main-nav.nav-open {
-    right: 0;
-  }
-  
-  /* Ensure nav links are clickable and visible */
-  .main-nav a {
-    font-size: 1.1rem !important;
-    padding: 0.8rem 0 !important;
-    border-bottom: 1px solid var(--border) !important;
-    border-left: none !important;
-    color: var(--lavender) !important;
-    text-decoration: none !important;
-    display: block !important;
-    position: relative !important;
-    z-index: 1001 !important;
-    pointer-events: auto !important;
-    opacity: 1 !important;
-  }
-  
-  .main-nav a:hover,
-  .main-nav a:focus {
-    color: var(--accent) !important;
-    background: rgba(50, 221, 184, 0.1) !important;
-  }
-  
-  .main-nav a.active {
-    color: var(--accent) !important;
-    border-bottom-color: var(--accent) !important;
-  }
-  
-  body.nav-open {
-    overflow: hidden;
-  }
-  
-  /* Overlay when menu is open */
-  body.nav-open::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 9998;
-    pointer-events: auto;
-  }
-  
-  /* Hero Section */
-  .hero-content {
-    flex-direction: column;
-    padding: 2.5em 4vw;
-    text-align: center;
-    gap: 2em;
-    max-width: 100%;
-    overflow: hidden;
-  }
-  
-  .hero-main h1 {
-    font-size: 2rem;
-    line-height: 1.2;
-  }
-  
-  .hero-main .subheading {
-    font-size: 1.05rem;
-    margin-bottom: 2em;
-  }
-  
-  .btn-group {
-    flex-direction: column;
-    gap: 1em;
-    align-items: stretch;
-    width: 100%;
-  }
-  
-  .btn-primary, .btn-secondary {
-    padding: 1em 1.5em;
-    font-size: 1.05rem;
-    width: 100%;
-    max-width: 100%;
-    text-align: center;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-  }
-  
-  .hero-img-area {
-    text-align: center;
-    order: -1;
-  }
-  
-  .hero-img-area img {
-    width: 180px;
-    max-width: 90%;
-  }
-  
-  /* Info Section */
-  .info-section {
-    flex-direction: column;
-    padding: 2em 4vw;
-    text-align: center;
-    gap: 1.5em;
-  }
-  
-  .info-img {
-    order: -1;
-  }
-  
-  .info-img img {
-    width: 160px;
-  }
-  
-  .info-text {
-    margin-left: 0;
-  }
-  
-  .info-text h2 {
-    font-size: 1.4rem;
-  }
-  
-  .info-text p {
-    font-size: 1.05rem;
-  }
-  
-  /* Tech Stack */
-  .techstack-section {
-    padding: 2em 4vw;
-    position: relative;
-    z-index: 1 !important;
-  }
-  
-  .techstack-title {
-    font-size: 1.4rem;
-  }
-  
-  .techstack-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8em;
-  }
-  
-  .techstack-item {
-    padding: 1em 0.8em;
-    font-size: 0.95rem;
-    gap: 10px;
-  }
-  
-  .icon {
-    width: 24px;
-    height: 24px;
-  }
-  
-  .techstack-note {
-    padding: 1em;
-    font-size: 0.95rem;
-    margin: 1.5em 0;
-  }
-  
-  /* Stats Cards */
-  .stats-cards {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 1.5em 4vw;
-    gap: 1.2em;
-  }
-  
-  .stat .num {
-    font-size: 1.8em;
-  }
-  
-  .stat .label {
-    font-size: 0.9em;
-  }
-  
-  /* Testimonials */
-  .testimonials-section {
-    padding: 2.5em 4vw;
-  }
-  
-  .testimonials-header h2 {
-    font-size: 1.5rem;
-  }
-  
-  .testimonials-header p {
-    font-size: 1rem;
-  }
-  
-  .testimonial-slide {
-    flex-direction: column;
-    gap: 1.2em;
-  }
-  
-  .testimonial-card {
-    padding: 1.5em;
-  }
-  
-  .testimonial-content p {
-    font-size: 1rem;
-  }
-  
-  .carousel-controls {
-    gap: 0.8em;
-  }
-  
-  .carousel-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1.1rem;
-  }
-  
-  /* Questions Bar */
-  .questions-bar {
-    padding: 1.8em 4vw;
-    margin: 2em auto;
-  }
-  
-  .questions-bar-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 1.5em;
-  }
-  
-  .questions-bar-title {
-    font-size: 1.2rem;
-  }
-  
-  .questions-bar-desc {
-    font-size: 0.95rem;
-  }
-  
-  .questions-bar-btn {
-    align-self: center;
-    padding: 0.8em 2.5em;
-    width: auto;
-    max-width: 100%;
-  }
-  
-  /* Footer */
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 2.5em;
-    text-align: center;
-  }
-  
-  .footer-brand {
-    text-align: center;
-    grid-column: 1;
-  }
-  
-  .footer-logo {
-    justify-content: center;
-  }
-  
-  .footer-section a {
-    font-size: 0.95rem;
-    margin-bottom: 0.6em;
-  }
-  
-  /* FAQ Specific */
-  .faq-categories {
-    grid-template-columns: 1fr;
-    gap: 1.5em;
-  }
-  
-  .faq-category {
-    padding: 1.8em 1.5em;
-  }
-  
-  .category-title {
-    font-size: 1.2rem;
-  }
-  
-  .faq-question {
-    padding: 1em 1.2em;
-    font-size: 0.95rem;
-  }
-  
-  .faq-item.active .faq-answer {
-    padding: 0 1.2em 1.2em 1.2em;
-  }
-  
-  /* Contact CTA */
-  .contact-cta {
-    padding: 2em 4vw;
-    margin: 2em auto;
-  }
-  
-  .contact-cta h3 {
-    font-size: 1.3rem;
-  }
-  
-  .contact-cta p {
-    font-size: 1rem;
-  }
-  
-  .contact-buttons {
-    flex-direction: column;
-    gap: 1em;
-    align-items: stretch;
-  }
-  
-  .contact-buttons .btn-primary,
-  .contact-buttons .btn-secondary {
-    width: 100%;
-    max-width: 100%;
-    padding: 1em 2em;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* CTA Buttons */
-  .cta-buttons {
-    flex-direction: column;
-    gap: 1em;
-    align-items: stretch;
-  }
-  
-  .cta-btn-primary, .cta-btn-secondary {
-    width: 100%;
-    max-width: 100%;
-    padding: 1em 2em;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Page Headers */
-  .page-header {
-    padding: 0 4vw;
-    margin: 1.5rem auto 2rem auto;
-  }
-  
-  .page-header h1 {
-    font-size: 2rem;
-  }
-  
-  .page-header p {
-    font-size: 1.05rem;
-  }
-  
-  /* Content Pages */
-  .content {
-    padding: 2.5rem 4vw;
-    margin-bottom: 2rem;
-  }
-  
-  .content h2 {
-    font-size: 1.4rem;
-  }
-  
-  .content h3 {
-    font-size: 1.1rem;
-  }
-  
-  .content p, .content li {
-    font-size: 0.95rem;
-  }
-  
-  .content table {
-    font-size: 0.85rem;
-    overflow-x: auto;
-    display: block;
-    white-space: nowrap;
-  }
-  
-  .content th, .content td {
-    padding: 0.6rem 0.8rem;
-  }
-  
-  .content pre {
-    font-size: 0.8em;
-    padding: 1em;
-    overflow-x: auto;
-  }
-  
-  /* Breadcrumb */
-  .breadcrumb {
-    padding: 0 4vw;
-    font-size: 0.85rem;
-  }
-  
-  /* Back to Home */
-  .back-to-home {
-    padding: 0 4vw;
-  }
-  
-  .back-to-home .btn-primary {
-    padding: 0.9em 2em;
-    font-size: 1rem;
-  }
-  
-  /* Enrollment CTA */
-  .enrollment-cta {
-    padding: 2em 4vw;
-    margin: 2em auto;
-  }
-  
-  .enrollment-cta .cta-buttons {
-    flex-direction: column;
-    gap: 1em;
-    align-items: stretch;
-  }
-  
-  .enrollment-cta .cta-btn-primary,
-  .enrollment-cta .cta-btn-secondary {
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
-/* Mobile Phones */
-@media (max-width: 480px) {
-  /* Ensure no horizontal overflow */
-  html, body {
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
-  
-  /* Force all content to low z-index on small screens but keep background logo at bottom */
-  .hero,
-  .hero-content,
-  .info-section,
-  .techstack-section,
-  .stats-cards,
-  .testimonials-section,
-  .questions-bar,
-  .contact-cta,
-  .enrollment-cta {
-    z-index: 1 !important;
-    position: relative !important;
-  }
-  
-  .background-logo {
-    z-index: 0 !important;
-    position: fixed !important;
-  }
-  
-  /* Container widths */
-  .hero-content,
-  .info-section,
-  .techstack-section,
-  .stats-cards,
-  .testimonials-section,
-  .questions-bar,
-  .contact-cta,
-  .enrollment-cta {
-    margin-left: 0;
-    margin-right: 0;
-    max-width: 100%;
-  }
-  
-  /* Header */
-  .header-main {
-    padding: 1rem 5vw !important;
-  }
-  
-  .logo-brand {
-    font-size: 1.1rem;
-  }
-  
-  .logo-brand img {
-    height: 24px;
-  }
-  
-  /* Hero */
-  .hero-content {
-    padding: 2em 5vw;
-  }
-  
-  .hero-main h1 {
-    font-size: 1.6rem;
-  }
-  
-  .hero-main .subheading {
-    font-size: 1rem;
-  }
-  
-  .hero-img-area img {
-    width: 140px;
-  }
-  
-  /* All buttons on mobile */
-  .btn-primary, .btn-secondary, 
-  .cta-btn-primary, .cta-btn-secondary,
-  .contact-buttons .btn-primary, .contact-buttons .btn-secondary {
-    width: 100% !important;
-    max-width: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    padding: 1em 1.5em !important;
-    font-size: 1rem !important;
-    box-sizing: border-box !important;
-    margin: 0 !important;
-  }
-  
-  /* Button groups */
-  .btn-group,
-  .cta-buttons,
-  .contact-buttons {
-    flex-direction: column !important;
-    gap: 1em !important;
-    width: 100% !important;
-    align-items: stretch !important;
-  }
-  
-  /* Info Section */
-  .info-section {
-    padding: 1.8em 5vw;
-  }
-  
-  .info-img img {
-    width: 140px;
-  }
-  
-  .info-text h2 {
-    font-size: 1.2rem;
-  }
-  
-  .info-text p {
-    font-size: 1rem;
-  }
-  
-  /* Tech Stack */
-  .techstack-section {
-    padding: 1.8em 5vw;
-  }
-  
-  .techstack-title {
-    font-size: 1.2rem;
-  }
-  
-  .techstack-desc {
-    font-size: 1rem;
-  }
-  
-  .techstack-grid {
-    grid-template-columns: 1fr;
-    gap: 0.6em;
-  }
-  
-  .techstack-item {
-    padding: 0.9em 1em;
-    font-size: 0.9rem;
-  }
-  
-  .icon {
-    width: 22px;
-    height: 22px;
-  }
-  
-  .techstack-note {
-    padding: 0.9em;
-    font-size: 0.9rem;
-  }
-  
-  /* Stats */
-  .stats-cards {
-    grid-template-columns: 1fr;
-    padding: 1.2em 5vw;
-    gap: 1em;
-  }
-  
-  .stat {
-    padding: 1em 0;
-  }
-  
-  .stat .num {
-    font-size: 1.6em;
-  }
-  
-  /* Testimonials */
-  .testimonials-section {
-    padding: 2em 5vw;
-  }
-  
-  .testimonials-header h2 {
-    font-size: 1.3rem;
-  }
-  
-  .testimonial-card {
-    padding: 1.2em;
-  }
-  
-  .testimonial-content p {
-    font-size: 0.95rem;
-  }
-  
-  .author-name {
-    font-size: 0.9rem;
-  }
-  
-  .author-title,
-  .author-company {
-    font-size: 0.8rem;
-  }
-  
-  /* Questions Bar */
-  .questions-bar {
-    padding: 1.5em 5vw;
-  }
-  
-  .questions-bar-title {
-    font-size: 1.1rem;
-  }
-  
-  .questions-bar-desc {
-    font-size: 0.9rem;
-  }
-  
-  /* FAQ */
-  .faq-category {
-    padding: 1.5em 5vw;
-  }
-  
-  .category-title {
-    font-size: 1.1rem;
-  }
-  
-  .faq-question {
-    padding: 0.9em 1em;
-    font-size: 0.9rem;
-  }
-  
-  .faq-answer {
-    font-size: 0.85rem;
-  }
-  
-  /* Contact CTA */
-  .contact-cta {
-    padding: 1.8em 5vw;
-  }
-  
-  .contact-cta h3 {
-    font-size: 1.2rem;
-  }
-  
-  .contact-cta p {
-    font-size: 0.95rem;
-  }
-  
-  /* Enrollment CTA */
-  .enrollment-cta {
-    padding: 1.8em 5vw;
-  }
-  
-  /* Page Content */
-  .page-header {
-    padding: 0 5vw;
-  }
-  
-  .page-header h1 {
-    font-size: 1.8rem;
-  }
-  
-  .content {
-    padding: 2rem 5vw;
-  }
-  
-  .content h2 {
-    font-size: 1.2rem;
-  }
-  
-  .content h3 {
-    font-size: 1rem;
-  }
-  
-  .content p, .content li {
-    font-size: 0.9rem;
-  }
-  
-  .content table {
-    font-size: 0.8rem;
-  }
-  
-  .content th, .content td {
-    padding: 0.5rem 0.6rem;
-  }
-  
-  /* Footer */
-  .footer-content {
-    gap: 2em;
-  }
-  
-  .footer-section h4 {
-    font-size: 1rem;
-  }
-  
-  .footer-section a {
-    font-size: 0.9rem;
-  }
-  
-  .footer-bottom {
-    font-size: 0.8rem;
-  }
-  
-  /* WhatsApp Button */
-  #whatsapp-button {
-    width: 45px;
-    height: 45px;
-    bottom: 20px;
-    right: 18px;
-  }
-  
-  #whatsapp-button img {
-    width: 26px;
-    height: 26px;
-  }
-}
-
-/* Very Small Screens */
-@media (max-width: 360px) {
-  .hero-main h1 {
-    font-size: 1.4rem;
-  }
-  
-  .btn-primary, .btn-secondary,
-  .cta-btn-primary, .cta-btn-secondary {
-    padding: 0.9em 1.2em !important;
-    font-size: 0.95rem !important;
-  }
-  
-  .techstack-item {
-    font-size: 0.85rem;
-    padding: 0.8em 0.9em;
-  }
-  
-  .questions-bar-title {
-    font-size: 1rem;
-  }
-  
-  .faq-question {
-    font-size: 0.85rem;
-  }
-  
-  .content h2 {
-    font-size: 1.1rem;
-  }
-  
-  .page-header h1 {
-    font-size: 1.6rem;
-  }
-}
-
-/* Landscape Mobile */
-@media (max-width: 768px) and (orientation: landscape) {
-  .hero-content {
-    padding: 1.5em 4vw;
-  }
-  
-  .hero-main h1 {
-    font-size: 1.8rem;
-  }
-  
-  .stats-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .main-nav {
-    padding: 60px 2rem 2rem 2rem;
-  }
-}
-
-/* High DPI Displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .icon {
-    background-size: contain;
-  }
-  
-  .logo-brand img {
-    image-rendering: -webkit-optimize-contrast;
-  }
-}
-
-/* Accessibility Improvements for Mobile */
-@media (max-width: 768px) {
-  /* Larger touch targets */
-  .faq-question,
-  .carousel-btn,
-  .btn-primary,
-  .btn-secondary,
-  .mobile-menu-toggle {
-    min-height: 44px;
-    min-width: 44px;
-  }
-  
-  /* Better focus indicators */
-  .main-nav a:focus,
-  .btn-primary:focus,
-  .btn-secondary:focus {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-  
-  /* Improved text contrast on small screens */
-  .testimonial-content p {
-    color: var(--light);
-  }
-  
-  .faq-answer {
-    color: #c8c8e8;
-  }
-}
-
 /* Print Styles */
 @media print {
-  .header-top,
-  .mobile-menu-toggle,
-  .carousel-controls,
-  .carousel-dots,
-  .questions-bar,
-  #whatsapp-button,
-  .social-links {
-    display: none !important;
-  }
-  
-  .hero-content,
-  .info-section,
-  .content {
-    background: white !important;
-    color: black !important;
-    box-shadow: none !important;
-  }
-}
-
-/* ===============================================
-   MOBILE BOTTOM TAB NAVIGATION
-   =============================================== */
-
-/* Mobile Bottom Navigation - HIDDEN by default */
-.mobile-bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: var(--section);
-  border-top: 2px solid var(--border);
-  display: none; /* Hidden by default - only show on mobile */
-  box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
-  z-index: 1000;
-}
-
-.bottom-nav-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0.5rem 0;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: var(--muted);
-  transition: all 0.3s ease;
-  padding: 0.5rem;
-  border-radius: 12px;
-  min-width: 60px;
-  position: relative;
-}
-
-.nav-item.active {
-  color: var(--accent);
-  background: rgba(50, 221, 184, 0.1);
-}
-
-.nav-item:hover {
-  color: var(--accent);
-  transform: translateY(-2px);
-}
-
-.nav-icon {
-  margin-bottom: 0.2rem;
-  color: inherit;
-}
-
-.nav-icon svg {
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
-}
-
-.nav-label {
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-/* CTA Button in Navigation - "Free Gift" */
-.nav-cta {
-  background: var(--accent) !important;
-  color: var(--section) !important;
-  font-weight: 700;
-  padding: 0.8rem 0.5rem !important;
-  box-shadow: 0 4px 12px rgba(50, 221, 184, 0.3);
-  animation: gentle-pulse 3s infinite;
-}
-
-.nav-cta:hover {
-  background: var(--accent-dark) !important;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(50, 221, 184, 0.4);
-}
-
-.nav-cta .nav-label {
-  color: var(--section);
-  font-weight: 700;
-}
-
-/* Gentle pulse animation for Free Gift button */
-@keyframes gentle-pulse {
-  0%, 100% { 
-    box-shadow: 0 4px 12px rgba(50, 221, 184, 0.3);
-  }
-  50% { 
-    box-shadow: 0 4px 12px rgba(50, 221, 184, 0.5), 0 0 0 4px rgba(50, 221, 184, 0.1);
-  }
-}
-
-/* Active Page Indicator */
-.nav-item.active::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 4px;
-  background: var(--accent);
-  border-radius: 50%;
-}
-
-/* ===============================================
-   RESPONSIVE BREAKPOINTS
-   =============================================== */
-
-/* Only show bottom nav on mobile devices */
-@media (max-width: 768px) {
-  .mobile-bottom-nav {
-    display: block; /* Show ONLY on mobile */
-  }
-  
-  /* Hide desktop hamburger menu when bottom nav is active */
-  .mobile-menu-toggle {
-    display: none !important;
-  }
-  
-  /* Hide desktop navigation on mobile */
-  .main-nav {
-    display: none !important;
-  }
-  
-  /* Add bottom padding to prevent content overlap */
-  body {
-    padding-bottom: 80px !important;
-  }
-  
-  /* Adjust header for mobile with bottom nav */
-  .header-main {
-    justify-content: center !important;
-  }
-}
-
-/* Ensure bottom nav NEVER shows on desktop */
-@media (min-width: 769px) {
-  .mobile-bottom-nav {
-    display: none !important; /* Force hide on desktop */
-  }
-  
-  body {
-    padding-bottom: 0 !important; /* No bottom padding needed on desktop */
-  }
-}
-
-/* Fine-tune for smaller mobile screens */
-@media (max-width: 480px) {
-  .nav-label {
-    font-size: 0.7rem;
-  }
-  
-  .nav-icon svg {
-    width: 18px;
-    height: 18px;
-  }
-  
-  .bottom-nav-container {
-    padding: 0.3rem 0;
-  }
-  
-  .nav-item {
-    min-width: 50px;
-    padding: 0.4rem;
-  }
-}
-
-/* Very small screens */
-@media (max-width: 360px) {
-  .nav-label {
-    font-size: 0.65rem;
-  }
-  
-  .nav-icon svg {
-    width: 16px;
-    height: 16px;
-  }
-}
-
-/* Landscape mobile optimization */
-@media (max-width: 768px) and (orientation: landscape) {
-  .mobile-bottom-nav {
-    padding: 0.2rem 0;
-  }
-  
-  .bottom-nav-container {
-    padding: 0.2rem 0;
-  }
-  
-  .nav-item {
-    padding: 0.3rem;
-  }
-  
-  body {
-    padding-bottom: 60px !important;
-  }
-}
-
-/* ===============================================
-   ACCESSIBILITY IMPROVEMENTS
-   =============================================== */
-
-/* Larger touch targets for accessibility */
-@media (max-width: 768px) {
-  .nav-item {
-    min-height: 44px;
-    min-width: 44px;
-  }
-  
-  /* Better focus indicators */
-  .nav-item:focus {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-  
-  /* High contrast mode support */
-  @media (prefers-contrast: high) {
-    .mobile-bottom-nav {
-      border-top-width: 3px;
-    }
-    
-    .nav-item.active {
-      background: var(--accent);
-      color: var(--section);
-    }
-  }
-  
-  /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .nav-item,
-    .nav-cta {
-      transition: none;
-      animation: none;
-    }
-  }
-}
-
-/* ===============================================
-   PRINT STYLES
-   =============================================== */
-
-@media print {
-  .mobile-bottom-nav {
+  .mobile-bottom-nav,
+  .popup-overlay,
+  #whatsapp-button {
     display: none !important;
   }
   
   body {
     padding-bottom: 0 !important;
-  }
-}
-
-/* Ensure content doesn't get hidden behind bottom nav on mobile */
-@media (max-width: 768px) {
-  body {
-    padding-bottom: 80px !important;
   }
 }
