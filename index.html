@@ -1111,6 +1111,57 @@
     </div>
   </div>
 </div>
+<!-- Universal Gift Popup Modal - Add just before closing </body> tag on ALL pages -->
+<div class="popup-overlay" id="giftPopup">
+  <div class="gift-popup">
+    <button class="popup-close" onclick="closeGiftPopup()" aria-label="Close popup">&times;</button>
+    
+    <div class="popup-header">
+      <div class="gift-icon">🎁</div>
+      <h2 class="popup-title">Welcome to SkillAI Path!</h2>
+      <p class="popup-subtitle">You've unlocked an exclusive career transformation gift</p>
+      <div class="welcome-message">
+        <p>Before you explore our courses, claim your personalized strategy session!</p>
+      </div>
+    </div>
 
+    <div class="popup-body">
+      <div class="gift-reveal">
+        <h3>Your Exclusive Gift:</h3>
+        <div class="gift-value">Worth ₹3,000 - Yours FREE!</div>
+        <p>30-Minute AI & Data Science Career Strategy Session</p>
+      </div>
+
+      <div class="gift-benefits">
+        <h4>What You'll Get In This Personalized Session:</h4>
+        <ul class="benefit-list">
+          <li>Complete career assessment and skills gap analysis</li>
+          <li>Personalized AI & Data Science learning roadmap</li>
+          <li>Expert guidance from industry professionals</li>
+          <li>Clear action plan with realistic timeline</li>
+          <li>Course recommendations based on your specific goals</li>
+          <li>Salary expectations and job market insights</li>
+        </ul>
+      </div>
+
+      <div class="social-proof">
+        <div class="social-proof-text">
+          This strategy session completely changed my career direction. I went from zero tech knowledge to landing a data analyst role in 6 months! The personalized roadmap was exactly what I needed.
+        </div>
+        <div class="social-proof-author">- Vikas Ray, B.A. Graduate → Data Analyst</div>
+      </div>
+    </div>
+
+    <div class="popup-actions">
+      <a href="Strategy Call.html" class="claim-button" onclick="trackGiftClaim()">
+        🎯 Claim My Free Strategy Session Now
+      </a>
+      <div class="urgency-text">
+        <span class="urgency-highlight">Limited Time:</span> Only 5 exclusive spots remaining this week!<br>
+        <div class="timer-display" id="urgencyTimer">⏰ 23:45:12 remaining</div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
