@@ -672,6 +672,21 @@ body {
     overflow-x: hidden;
   }
   
+  /* Force all content to low z-index on small screens */
+  .hero,
+  .hero-content,
+  .info-section,
+  .techstack-section,
+  .stats-cards,
+  .testimonials-section,
+  .questions-bar,
+  .contact-cta,
+  .enrollment-cta,
+  .background-logo {
+    z-index: 1 !important;
+    position: relative !important;
+  }
+  
   /* Container widths */
   .hero-content,
   .info-section,
