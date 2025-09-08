@@ -1,6 +1,20 @@
 function loadHeader() {
     const headerHTML = `
-        
+        <div class="header-top">
+            <div class="left">
+                <span>🇮🇳India</span>
+                <span>+91 9301310154</span>
+                <span class="email-contact">tech@skillaipath.com</span>
+            </div>
+            <div class="right">
+                <span class="follow-text">Follow us:</span>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><img src="https://img.icons8.com/ios-glyphs/24/32ddb8/facebook-new.png" alt="Facebook"></a>
+                    <a href="#" aria-label="Twitter"><img src="https://img.icons8.com/ios-glyphs/24/32ddb8/twitter--v1.png" alt="Twitter"></a>
+                    <a href="#" aria-label="LinkedIn"><img src="https://img.icons8.com/ios-glyphs/24/32ddb8/linkedin.png" alt="LinkedIn"></a>
+                </div>
+            </div>
+        </div>
         <div class="header-main">
             <a href="index.html" class="logo-brand" aria-label="SkillAI Path - Go to Homepage">
                 <img src="Assets/Skill-Logo.png" alt="SkillAI Path Logo">
@@ -12,7 +26,7 @@ function loadHeader() {
                 <span class="hamburger-line"></span>
             </button>
             <nav class="main-nav">
-                <a href="index.html">Hom</a>
+                <a href="index.html">Home</a>
                 <a href="courses.html">Courses</a>
                 <a href="success-stories.html">Success Stories</a>
                 <a href="Strategy Call.html">Free Strategy Call</a>
@@ -45,9 +59,10 @@ function loadHeader() {
             });
         });
 
-        // Close menu when clicking outside
+        // Close menu when clicking outside (but not on logo)
         document.addEventListener('click', function(e) {
-            if (!mobileToggle.contains(e.target) && !mainNav.contains(e.target)) {
+            const logoClick = e.target.closest('.logo-brand');
+            if (!mobileToggle.contains(e.target) && !mainNav.contains(e.target) && !logoClick) {
                 mainNav.classList.remove('nav-open');
                 document.body.classList.remove('nav-open');
                 mobileToggle.setAttribute('aria-expanded', 'false');
