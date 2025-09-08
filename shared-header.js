@@ -152,3 +152,46 @@ function loadHeader() {
 }
 
 document.addEventListener('DOMContentLoaded', loadHeader);
+
+// Add these functions at the end of shared-header.js
+window.openGiftPopup = function() {
+    const popup = document.getElementById('giftPopup');
+    if (popup) {
+        popup.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Optional: Track analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'gift_popup_opened', {
+                event_category: 'engagement',
+                event_label: 'free_gift_popup'
+            });
+        }
+    }
+};
+
+window.closeGiftPopup = function() {
+    const popup = document.getElementById('giftPopup');
+    if (popup) {
+        popup.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+};
+
+// Close popup when clicking outside or pressing Escape
+document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('giftPopup');
+    if (popup) {
+        popup.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeGiftPopup();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeGiftPopup();
+        }
+    });
+});
