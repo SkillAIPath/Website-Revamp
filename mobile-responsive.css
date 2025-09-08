@@ -202,13 +202,14 @@ body {
     display: none !important;
   }
   
-  /* Ensure header-main stays flexbox on mobile */
+  /* Ensure header-main stays flexbox on mobile but with lower z-index */
   .header-main {
     flex-direction: row !important;
     justify-content: space-between !important;
     align-items: center !important;
     padding: 1rem 4vw !important;
     position: relative;
+    z-index: 1 !important;
   }
   
   /* Make sure logo stays clickable */
@@ -381,6 +382,8 @@ body {
   /* Tech Stack */
   .techstack-section {
     padding: 2em 4vw;
+    position: relative;
+    z-index: 1 !important;
   }
   
   .techstack-title {
