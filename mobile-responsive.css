@@ -1,0 +1,806 @@
+/* Mobile Responsive CSS for SkillAI Path Website */
+
+/* Mobile Navigation Styles */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 8px;
+  gap: 4px;
+  z-index: 1001;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: var(--lavender);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Enhanced Social Links for Header */
+.social-links {
+  display: flex;
+  gap: 0.8em;
+  align-items: center;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.social-links img {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+}
+
+.social-links a:hover img {
+  transform: scale(1.1);
+}
+
+/* Mobile Responsive Breakpoints */
+
+/* Large Tablets and Small Desktops */
+@media (max-width: 1024px) {
+  .hero-content, .info-section {
+    padding-left: 3vw;
+    padding-right: 3vw;
+  }
+  
+  .techstack-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+  }
+  
+  .stats-cards {
+    padding: 1.8em 3vw;
+  }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  /* Header Adjustments */
+  .header-top {
+    padding: 0.8rem 3vw;
+    font-size: 0.9rem;
+  }
+  
+  .header-top .left,
+  .header-top .right {
+    gap: 1.2em;
+  }
+  
+  .header-main {
+    padding: 1rem 3vw;
+    position: relative;
+  }
+  
+  .logo-brand {
+    font-size: 1.2rem;
+  }
+  
+  .logo-brand img {
+    height: 28px;
+  }
+  
+  /* Mobile Navigation */
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: var(--section);
+    flex-direction: column;
+    padding: 80px 2rem 2rem 2rem;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    gap: 2em;
+  }
+  
+  .main-nav.nav-open {
+    right: 0;
+  }
+  
+  .main-nav a {
+    font-size: 1.1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+    border-left: none;
+  }
+  
+  body.nav-open {
+    overflow: hidden;
+  }
+  
+  body.nav-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+  }
+  
+  /* Hero Section */
+  .hero-content {
+    flex-direction: column;
+    padding: 2.5em 3vw;
+    text-align: center;
+    gap: 2em;
+  }
+  
+  .hero-main h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .hero-main .subheading {
+    font-size: 1.05rem;
+    margin-bottom: 2em;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+  }
+  
+  .btn-primary, .btn-secondary {
+    padding: 1em 2.5em;
+    font-size: 1.05rem;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+  
+  .hero-img-area {
+    text-align: center;
+    order: -1;
+  }
+  
+  .hero-img-area img {
+    width: 180px;
+  }
+  
+  /* Info Section */
+  .info-section {
+    flex-direction: column;
+    padding: 2em 3vw;
+    text-align: center;
+    gap: 1.5em;
+  }
+  
+  .info-img {
+    order: -1;
+  }
+  
+  .info-img img {
+    width: 160px;
+  }
+  
+  .info-text {
+    margin-left: 0;
+  }
+  
+  .info-text h2 {
+    font-size: 1.4rem;
+  }
+  
+  .info-text p {
+    font-size: 1.05rem;
+  }
+  
+  /* Tech Stack */
+  .techstack-section {
+    padding: 2em 3vw;
+  }
+  
+  .techstack-title {
+    font-size: 1.4rem;
+  }
+  
+  .techstack-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8em;
+  }
+  
+  .techstack-item {
+    padding: 1em 0.8em;
+    font-size: 0.95rem;
+    gap: 10px;
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .techstack-note {
+    padding: 1em;
+    font-size: 0.95rem;
+    margin: 1.5em 0;
+  }
+  
+  /* Stats Cards */
+  .stats-cards {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1.5em 3vw;
+    gap: 1.2em;
+  }
+  
+  .stat .num {
+    font-size: 1.8em;
+  }
+  
+  .stat .label {
+    font-size: 0.9em;
+  }
+  
+  /* Testimonials */
+  .testimonials-section {
+    padding: 2.5em 3vw;
+  }
+  
+  .testimonials-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .testimonials-header p {
+    font-size: 1rem;
+  }
+  
+  .testimonial-slide {
+    flex-direction: column;
+    gap: 1.2em;
+  }
+  
+  .testimonial-card {
+    padding: 1.5em;
+  }
+  
+  .testimonial-content p {
+    font-size: 1rem;
+  }
+  
+  .carousel-controls {
+    gap: 0.8em;
+  }
+  
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+  
+  /* Questions Bar */
+  .questions-bar {
+    padding: 1.8em 2em;
+    margin: 2em auto;
+  }
+  
+  .questions-bar-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5em;
+  }
+  
+  .questions-bar-title {
+    font-size: 1.2rem;
+  }
+  
+  .questions-bar-desc {
+    font-size: 0.95rem;
+  }
+  
+  .questions-bar-btn {
+    align-self: center;
+    padding: 0.8em 2.5em;
+  }
+  
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2.5em;
+    text-align: center;
+  }
+  
+  .footer-section a {
+    font-size: 0.95rem;
+    margin-bottom: 0.6em;
+  }
+  
+  /* FAQ Specific */
+  .faq-categories {
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+  }
+  
+  .faq-category {
+    padding: 1.8em 1.5em;
+  }
+  
+  .category-title {
+    font-size: 1.2rem;
+  }
+  
+  .faq-question {
+    padding: 1em 1.2em;
+    font-size: 0.95rem;
+  }
+  
+  .faq-item.active .faq-answer {
+    padding: 0 1.2em 1.2em 1.2em;
+  }
+  
+  /* Contact CTA */
+  .contact-cta {
+    padding: 2em 1.5em;
+    margin: 2em auto;
+  }
+  
+  .contact-cta h3 {
+    font-size: 1.3rem;
+  }
+  
+  .contact-cta p {
+    font-size: 1rem;
+  }
+  
+  .contact-buttons {
+    flex-direction: column;
+    gap: 1em;
+  }
+  
+  .contact-buttons .btn-primary,
+  .contact-buttons .btn-secondary {
+    width: 100%;
+    max-width: 250px;
+    padding: 1em 2em;
+  }
+  
+  /* Page Headers */
+  .page-header {
+    padding: 0 3vw;
+    margin: 1.5rem auto 2rem auto;
+  }
+  
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  
+  .page-header p {
+    font-size: 1.05rem;
+  }
+  
+  /* Content Pages */
+  .content {
+    padding: 2.5rem 3vw;
+    margin-bottom: 2rem;
+  }
+  
+  .content h2 {
+    font-size: 1.4rem;
+  }
+  
+  .content h3 {
+    font-size: 1.1rem;
+  }
+  
+  .content p, .content li {
+    font-size: 0.95rem;
+  }
+  
+  .content table {
+    font-size: 0.85rem;
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+  }
+  
+  .content th, .content td {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  .content pre {
+    font-size: 0.8em;
+    padding: 1em;
+    overflow-x: auto;
+  }
+  
+  /* Breadcrumb */
+  .breadcrumb {
+    padding: 0 3vw;
+    font-size: 0.85rem;
+  }
+  
+  /* Back to Home */
+  .back-to-home {
+    padding: 0 3vw;
+  }
+  
+  .back-to-home .btn-primary {
+    padding: 0.9em 2em;
+    font-size: 1rem;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  /* Header */
+  .header-top {
+    flex-direction: column;
+    gap: 0.8em;
+    padding: 1rem 4vw;
+    text-align: center;
+  }
+  
+  .header-top .left,
+  .header-top .right {
+    justify-content: center;
+    gap: 1em;
+  }
+  
+  .header-top .email-contact {
+    display: none;
+  }
+  
+  .logo-brand {
+    font-size: 1.1rem;
+  }
+  
+  .logo-brand img {
+    height: 24px;
+  }
+  
+  /* Hero */
+  .hero-content {
+    padding: 2em 4vw;
+  }
+  
+  .hero-main h1 {
+    font-size: 1.6rem;
+  }
+  
+  .hero-main .subheading {
+    font-size: 1rem;
+  }
+  
+  .hero-img-area img {
+    width: 140px;
+  }
+  
+  /* Info Section */
+  .info-section {
+    padding: 1.8em 4vw;
+  }
+  
+  .info-img img {
+    width: 140px;
+  }
+  
+  .info-text h2 {
+    font-size: 1.2rem;
+  }
+  
+  .info-text p {
+    font-size: 1rem;
+  }
+  
+  /* Tech Stack */
+  .techstack-section {
+    padding: 1.8em 4vw;
+  }
+  
+  .techstack-title {
+    font-size: 1.2rem;
+  }
+  
+  .techstack-desc {
+    font-size: 1rem;
+  }
+  
+  .techstack-grid {
+    grid-template-columns: 1fr;
+    gap: 0.6em;
+  }
+  
+  .techstack-item {
+    padding: 0.9em 1em;
+    font-size: 0.9rem;
+  }
+  
+  .icon {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .techstack-note {
+    padding: 0.9em;
+    font-size: 0.9rem;
+  }
+  
+  /* Stats */
+  .stats-cards {
+    grid-template-columns: 1fr;
+    padding: 1.2em 4vw;
+    gap: 1em;
+  }
+  
+  .stat {
+    padding: 1em 0;
+  }
+  
+  .stat .num {
+    font-size: 1.6em;
+  }
+  
+  /* Testimonials */
+  .testimonials-section {
+    padding: 2em 4vw;
+  }
+  
+  .testimonials-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .testimonial-card {
+    padding: 1.2em;
+  }
+  
+  .testimonial-content p {
+    font-size: 0.95rem;
+  }
+  
+  .author-name {
+    font-size: 0.9rem;
+  }
+  
+  .author-title,
+  .author-company {
+    font-size: 0.8rem;
+  }
+  
+  /* Questions Bar */
+  .questions-bar {
+    padding: 1.5em 1.2em;
+  }
+  
+  .questions-bar-title {
+    font-size: 1.1rem;
+  }
+  
+  .questions-bar-desc {
+    font-size: 0.9rem;
+  }
+  
+  /* FAQ */
+  .faq-category {
+    padding: 1.5em 1.2em;
+  }
+  
+  .category-title {
+    font-size: 1.1rem;
+  }
+  
+  .faq-question {
+    padding: 0.9em 1em;
+    font-size: 0.9rem;
+  }
+  
+  .faq-answer {
+    font-size: 0.85rem;
+  }
+  
+  /* Contact CTA */
+  .contact-cta {
+    padding: 1.8em 1.2em;
+  }
+  
+  .contact-cta h3 {
+    font-size: 1.2rem;
+  }
+  
+  .contact-cta p {
+    font-size: 0.95rem;
+  }
+  
+  /* Page Content */
+  .page-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .content {
+    padding: 2rem 4vw;
+  }
+  
+  .content h2 {
+    font-size: 1.2rem;
+  }
+  
+  .content h3 {
+    font-size: 1rem;
+  }
+  
+  .content p, .content li {
+    font-size: 0.9rem;
+  }
+  
+  .content table {
+    font-size: 0.8rem;
+  }
+  
+  .content th, .content td {
+    padding: 0.5rem 0.6rem;
+  }
+  
+  /* Footer */
+  .footer-content {
+    gap: 2em;
+  }
+  
+  .footer-section h4 {
+    font-size: 1rem;
+  }
+  
+  .footer-section a {
+    font-size: 0.9rem;
+  }
+  
+  .footer-bottom {
+    font-size: 0.8rem;
+  }
+  
+  /* WhatsApp Button */
+  #whatsapp-button {
+    width: 45px;
+    height: 45px;
+    bottom: 20px;
+    right: 18px;
+  }
+  
+  #whatsapp-button img {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* Very Small Screens */
+@media (max-width: 360px) {
+  .hero-main h1 {
+    font-size: 1.4rem;
+  }
+  
+  .btn-primary, .btn-secondary {
+    padding: 0.9em 1.8em;
+    font-size: 1rem;
+  }
+  
+  .techstack-item {
+    font-size: 0.85rem;
+    padding: 0.8em 0.9em;
+  }
+  
+  .questions-bar-title {
+    font-size: 1rem;
+  }
+  
+  .faq-question {
+    font-size: 0.85rem;
+  }
+  
+  .content h2 {
+    font-size: 1.1rem;
+  }
+  
+  .page-header h1 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-content {
+    padding: 1.5em 3vw;
+  }
+  
+  .hero-main h1 {
+    font-size: 1.8rem;
+  }
+  
+  .stats-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .main-nav {
+    padding: 60px 2rem 2rem 2rem;
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .icon {
+    background-size: contain;
+  }
+  
+  .logo-brand img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* Accessibility Improvements for Mobile */
+@media (max-width: 768px) {
+  /* Larger touch targets */
+  .faq-question,
+  .carousel-btn,
+  .btn-primary,
+  .btn-secondary,
+  .mobile-menu-toggle {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better focus indicators */
+  .main-nav a:focus,
+  .btn-primary:focus,
+  .btn-secondary:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  
+  /* Improved text contrast on small screens */
+  .testimonial-content p {
+    color: var(--light);
+  }
+  
+  .faq-answer {
+    color: #c8c8e8;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .header-top,
+  .mobile-menu-toggle,
+  .carousel-controls,
+  .carousel-dots,
+  .questions-bar,
+  #whatsapp-button,
+  .social-links {
+    display: none !important;
+  }
+  
+  .hero-content,
+  .info-section,
+  .content {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+}
