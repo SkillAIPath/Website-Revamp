@@ -139,7 +139,19 @@
       color: var(--accent);
       border-bottom:2px solid var(--accent);
     }
-
+    
+    /* Breadcrumb */
+    .breadcrumb {
+      max-width: 900px;
+      margin: 2rem auto 0 auto;
+      padding: 0 4vw;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .breadcrumb a {
+      color: var(--accent);
+    }
+    
     /* Page Header */
     .page-header {
       max-width: 1120px;
@@ -858,6 +870,10 @@
   <!-- Shared Header -->
   <div id="shared-header"></div>
   <script src="shared-header.js"></script>
+
+  <nav class="breadcrumb">
+  <a href="index.html">Home</a> → Courses
+</nav>
   
   <!-- Page Header -->
   <div class="page-header">
