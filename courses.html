@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>FAQ | SkillAI Path</title>
+  <title>Courses | SkillAI Path</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <!-- Favicon -->
@@ -165,8 +164,378 @@
       line-height: 1.6;
     }
 
-    /* FAQ Content */
-    .faq-container {
+    /* Course Overview Stats */
+    .course-overview {
+      max-width: 1120px;
+      margin: 0 auto 3rem auto;
+      padding: 0 4vw;
+      position: relative;
+      z-index: 1;
+    }
+
+    .overview-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5em;
+      margin-bottom: 2em;
+    }
+
+    .stat-card {
+      background: var(--section);
+      border-radius: 16px;
+      padding: 2em 1.5em;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(49,35,107,0.25);
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.3em;
+    }
+
+    .stat-label {
+      color: var(--light);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .stat-description {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 0.5em;
+    }
+
+    /* Course Tracks */
+    .course-tracks {
+      max-width: 1120px;
+      margin: 0 auto 4rem auto;
+      padding: 0 4vw;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tracks-header {
+      text-align: center;
+      margin-bottom: 3em;
+    }
+
+    .tracks-header h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--light);
+      margin: 0 0 0.5em 0;
+    }
+
+    .tracks-header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2em;
+    }
+
+    .track-card {
+      background: var(--section);
+      border-radius: 20px;
+      padding: 2.5em;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .track-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(49,35,107,0.3);
+    }
+
+    .track-card.featured {
+      border: 2px solid var(--accent);
+      background: linear-gradient(135deg, var(--section) 0%, rgba(50,221,184,0.05) 100%);
+    }
+
+    .track-card.featured::before {
+      content: 'MOST POPULAR';
+      position: absolute;
+      top: 1em;
+      right: -2em;
+      background: var(--accent);
+      color: var(--section);
+      padding: 0.3em 3em;
+      font-size: 0.8rem;
+      font-weight: 700;
+      transform: rotate(45deg);
+    }
+
+    .track-header {
+      text-align: center;
+      margin-bottom: 2em;
+    }
+
+    .track-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin: 0 0 0.5em 0;
+    }
+
+    .track-subtitle {
+      color: var(--light);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 1em 0;
+    }
+
+    .track-duration {
+      background: rgba(50,221,184,0.15);
+      color: var(--accent);
+      padding: 0.5em 1em;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .track-features {
+      margin: 2em 0;
+    }
+
+    .track-features h4 {
+      color: var(--light);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0 0 1em 0;
+    }
+
+    .track-features ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .track-features li {
+      color: var(--muted);
+      padding: 0.4em 0;
+      position: relative;
+      padding-left: 1.5em;
+    }
+
+    .track-features li::before {
+      content: '✓';
+      color: var(--accent);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .track-guarantee {
+      background: rgba(50,221,184,0.1);
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.2em;
+      margin: 1.5em 0;
+      text-align: center;
+    }
+
+    .track-guarantee h5 {
+      color: var(--accent);
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 0.5em 0;
+    }
+
+    .track-guarantee p {
+      color: var(--light);
+      font-size: 0.9rem;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .track-pricing {
+      text-align: center;
+      margin: 2em 0;
+    }
+
+    .track-price {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 0.5em;
+    }
+
+    .track-price-note {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .track-actions {
+      text-align: center;
+      margin-top: 2em;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--section);
+      padding: 1em 2.5em;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 1.8px 7px #0affd140;
+      transition: background .17s, color .13s, box-shadow .24s;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 1em;
+    }
+
+    .btn-primary:hover, .btn-primary:focus {
+      background: var(--accent-dark);
+      color: #e7fefb;
+      box-shadow: 0 3.8px 17px #1affba4a;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--accent);
+      padding: 0.8em 2em;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 2px solid var(--accent);
+      cursor: pointer;
+      transition: background .15s, color .13s, border .13s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover, .btn-secondary:focus {
+      background: var(--accent);
+      color: var(--section);
+    }
+
+    /* Curriculum Section */
+    .curriculum-section {
+      max-width: 1120px;
+      margin: 0 auto 4rem auto;
+      padding: 0 4vw;
+      position: relative;
+      z-index: 1;
+    }
+
+    .curriculum-header {
+      text-align: center;
+      margin-bottom: 3em;
+    }
+
+    .curriculum-header h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--light);
+      margin: 0 0 0.5em 0;
+    }
+
+    .curriculum-header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .curriculum-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+      margin-bottom: 2em;
+      flex-wrap: wrap;
+    }
+
+    .tab-button {
+      background: var(--card);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.8em 1.5em;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .tab-button.active {
+      background: var(--accent);
+      color: var(--section);
+      border-color: var(--accent);
+    }
+
+    .curriculum-content {
+      background: var(--section);
+      border-radius: 20px;
+      padding: 2.5em;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .curriculum-modules {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2em;
+    }
+
+    .module-card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1.8em;
+      border: 1px solid var(--border);
+    }
+
+    .module-title {
+      color: var(--accent);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0 0 1em 0;
+    }
+
+    .module-topics {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .module-topics li {
+      color: var(--light);
+      padding: 0.3em 0;
+      font-size: 0.95rem;
+      position: relative;
+      padding-left: 1.2em;
+    }
+
+    .module-topics li::before {
+      content: '•';
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+    }
+
+    /* FAQ Section */
+    .faq-section {
       max-width: 1000px;
       margin: 0 auto 4rem auto;
       padding: 0 4vw;
@@ -174,32 +543,29 @@
       z-index: 1;
     }
 
-    .faq-categories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2em;
+    .faq-header {
+      text-align: center;
       margin-bottom: 3em;
     }
 
-    .faq-category {
-      background: var(--section);
-      border-radius: 20px;
-      padding: 2.5em 2em;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
+    .faq-header h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--light);
+      margin: 0 0 0.5em 0;
     }
 
-    .category-title {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin: 0 0 1.5em 0;
-      text-align: center;
+    .faq-header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
     }
 
     .faq-item {
       margin-bottom: 1.5em;
-      background: var(--card);
+      background: var(--section);
       border-radius: 12px;
       border: 1px solid var(--border);
       overflow: hidden;
@@ -251,47 +617,47 @@
       max-height: 500px;
     }
 
-    /* Contact CTA */
-    .contact-cta {
+    /* Enrollment CTA */
+    .enrollment-cta {
       background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
       border-radius: 22px;
       margin: 3em auto 2em auto;
       max-width: 800px;
-      padding: 2.5em 2em;
+      padding: 3em 2em;
       text-align: center;
       box-shadow: 0 10px 30px rgba(50, 221, 184, 0.2);
       position: relative;
       z-index: 1;
     }
 
-    .contact-cta h3 {
-      font-size: 1.6rem;
+    .enrollment-cta h3 {
+      font-size: 1.8rem;
       font-weight: 800;
       color: var(--section);
       margin: 0 0 0.8em 0;
     }
 
-    .contact-cta p {
+    .enrollment-cta p {
       color: var(--section);
       font-size: 1.1rem;
-      margin: 0 0 1.8em 0;
+      margin: 0 0 2em 0;
       opacity: 0.9;
       max-width: 500px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    .contact-buttons {
+    .cta-buttons {
       display: flex;
       gap: 1.2em;
       justify-content: center;
       flex-wrap: wrap;
     }
 
-    .btn-primary {
+    .cta-btn-primary {
       background: var(--section);
       color: var(--accent);
-      padding: 1em 2.2em;
+      padding: 1em 2.5em;
       border-radius: 8px;
       font-weight: 700;
       font-size: 1.1rem;
@@ -302,16 +668,16 @@
       display: inline-block;
     }
 
-    .btn-primary:hover {
+    .cta-btn-primary:hover {
       background: transparent;
       color: var(--section);
       border-color: var(--section);
     }
 
-    .btn-secondary {
+    .cta-btn-secondary {
       background: transparent;
       color: var(--section);
-      padding: 1em 2.2em;
+      padding: 1em 2.5em;
       border-radius: 8px;
       font-weight: 700;
       font-size: 1.1rem;
@@ -322,7 +688,7 @@
       display: inline-block;
     }
 
-    .btn-secondary:hover {
+    .cta-btn-secondary:hover {
       background: var(--section);
       color: var(--accent);
     }
@@ -395,42 +761,16 @@
       height: 30px;
     }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .header-top, .header-main {
-        flex-direction: column;
-        gap: 1em;
-        padding: 1rem 4vw;
-      }
-      .page-header h1 {
-        font-size: 2.2rem;
-      }
-      .faq-categories {
-        grid-template-columns: 1fr;
-        gap: 1.5em;
-      }
-      .contact-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: 2em;
-        text-align: center;
-      }
+    /* Hidden content for tabs */
+    .tab-content {
+      display: none;
     }
-    @media (max-width: 480px) {
-      .page-header h1 {
-        font-size: 1.8rem;
-      }
-      nav {
-        font-size: 0.93rem;
-      }
-      .faq-category {
-        padding: 1.8em 1.2em;
-      }
+    .tab-content.active {
+      display: block;
     }
   </style>
+
+  <!-- Mobile Responsive CSS -->
   <link rel="stylesheet" href="mobile-responsive.css">
 </head>
 <body>
@@ -442,273 +782,436 @@
   
   <!-- Page Header -->
   <div class="page-header">
-    <h1>Frequently Asked Questions</h1>
-    <p>Get answers to common questions about our AI & Data Science training programs, enrollment process, and career support</p>
+    <h1>AI & Data Science Courses</h1>
+    <p>Master in-demand skills with enterprise-grade training programs designed to launch your career in AI and Data Science</p>
   </div>
 
-  <!-- FAQ Content -->
-  <div class="faq-container">
-    <div class="faq-categories">
-      
-      <!-- Course Information -->
-      <div class="faq-category">
-        <h2 class="category-title">Course Information</h2>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What courses do you offer?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>We offer three comprehensive tracks: Foundation Track (skills & portfolio building), Professional Track (freelancing focus with ₹20K-40K/month guarantee), and Complete Track (full-time job placement with 6-15 LPA guarantee). Each track covers enterprise-grade tools like Azure Cloud, Python, SQL, Power BI, and Machine Learning.</p>
-          </div>
+  <!-- Course Overview Stats -->
+  <div class="course-overview">
+    <div class="overview-stats">
+      <div class="stat-card">
+        <span class="stat-number">3</span>
+        <div class="stat-label">Learning Tracks</div>
+        <div class="stat-description">Foundation to Professional</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">6-8</span>
+        <div class="stat-label">Months Duration</div>
+        <div class="stat-description">Flexible Learning Pace</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">15+</span>
+        <div class="stat-label">Enterprise Tools</div>
+        <div class="stat-description">Real-World Technology</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number">100%</span>
+        <div class="stat-label">Placement Support</div>
+        <div class="stat-description">Career Guarantee</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Course Tracks -->
+  <div class="course-tracks">
+    <div class="tracks-header">
+      <h2>Choose Your Learning Path</h2>
+      <p>Each track is designed for different career goals and experience levels. All tracks include lifetime access, mentorship, and career support.</p>
+    </div>
+
+    <div class="tracks-grid">
+      <!-- Foundation Track -->
+      <div class="track-card">
+        <div class="track-header">
+          <h3 class="track-title">Foundation Track</h3>
+          <div class="track-subtitle">Skills & Portfolio Builder</div>
+          <div class="track-duration">3-4 Months</div>
         </div>
 
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>How long are the courses?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Course duration varies by track. Foundation Track is 3-4 months, Professional Track is 4-6 months, and Complete Track is 6-8 months. All courses include lifetime access to materials and ongoing mentorship support.</p>
-          </div>
+        <div class="track-features">
+          <h4>What You'll Master:</h4>
+          <ul>
+            <li>Python Programming & Data Analysis</li>
+            <li>SQL & Database Management</li>
+            <li>Power BI & Data Visualization</li>
+            <li>Azure Cloud Fundamentals</li>
+            <li>Machine Learning Basics</li>
+            <li>Portfolio Development</li>
+            <li>Interview Preparation</li>
+          </ul>
         </div>
 
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Do I need prior experience?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>No prior experience required! We've successfully trained students from diverse backgrounds including B.A. students with zero tech knowledge, B.Com graduates, and marketing professionals. Our curriculum starts from basics and builds up to advanced enterprise skills.</p>
-          </div>
+        <div class="track-guarantee">
+          <h5>📈 Skills Guarantee</h5>
+          <p>Job-interview ready portfolio with 5+ real projects and enterprise tool proficiency</p>
         </div>
 
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What makes this different from other courses?</span>
-            <span class="faq-toggle">+</span>
+        <div class="track-pricing">
+          <div class="track-price">Contact for Pricing</div>
+          <div class="track-price-note">EMI options available</div>
+        </div>
+
+        <div class="track-actions">
+          <a href="enroll.html" class="btn-primary">Enroll Now</a>
+          <a href="Strategy Call.html" class="btn-secondary">Free Strategy Call</a>
+        </div>
+      </div>
+
+      <!-- Professional Track -->
+      <div class="track-card featured">
+        <div class="track-header">
+          <h3 class="track-title">Professional Track</h3>
+          <div class="track-subtitle">Freelancing Focus</div>
+          <div class="track-duration">4-6 Months</div>
+        </div>
+
+        <div class="track-features">
+          <h4>Everything in Foundation Plus:</h4>
+          <ul>
+            <li>Advanced ML & AI Applications</li>
+            <li>Databricks & Data Engineering</li>
+            <li>ChatGPT API Integration</li>
+            <li>N8N Automation Workflows</li>
+            <li>Client Project Management</li>
+            <li>Freelancing Business Skills</li>
+            <li>Client Acquisition Strategies</li>
+          </ul>
+        </div>
+
+        <div class="track-guarantee">
+          <h5>💰 First Gig Guarantee</h5>
+          <p>First freelance project worth ₹20K-40K/month or money back</p>
+        </div>
+
+        <div class="track-pricing">
+          <div class="track-price">Contact for Pricing</div>
+          <div class="track-price-note">0% EMI available</div>
+        </div>
+
+        <div class="track-actions">
+          <a href="enroll.html" class="btn-primary">Enroll Now</a>
+          <a href="Strategy Call.html" class="btn-secondary">Free Strategy Call</a>
+        </div>
+      </div>
+
+      <!-- Complete Track -->
+      <div class="track-card">
+        <div class="track-header">
+          <h3 class="track-title">Complete Track</h3>
+          <div class="track-subtitle">Job Placement Program</div>
+          <div class="track-duration">6-8 Months</div>
+        </div>
+
+        <div class="track-features">
+          <h4>Everything in Professional Plus:</h4>
+          <ul>
+            <li>DevOps & MLOps Practices</li>
+            <li>Advanced Cloud Architecture</li>
+            <li>Leadership & Team Skills</li>
+            <li>Industry Specialization</li>
+            <li>1-on-1 Career Coaching</li>
+            <li>Resume & LinkedIn Optimization</li>
+            <li>Mock Interviews & Prep</li>
+          </ul>
+        </div>
+
+        <div class="track-guarantee">
+          <h5>🎯 Job Placement Guarantee</h5>
+          <p>Full-time job placement (6-15 LPA) or continue training until placed</p>
+        </div>
+
+        <div class="track-pricing">
+          <div class="track-price">Contact for Pricing</div>
+          <div class="track-price-note">Income Share Agreement available</div>
+        </div>
+
+        <div class="track-actions">
+          <a href="enroll.html" class="btn-primary">Enroll Now</a>
+          <a href="Strategy Call.html" class="btn-secondary">Free Strategy Call</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Curriculum Section -->
+  <div class="curriculum-section">
+    <div class="curriculum-header">
+      <h2>Detailed Curriculum</h2>
+      <p>Our curriculum is designed by industry experts and updated regularly to match current market demands</p>
+    </div>
+
+    <div class="curriculum-tabs">
+      <button class="tab-button active" onclick="showTab('foundation')">Foundation</button>
+      <button class="tab-button" onclick="showTab('professional')">Professional</button>
+      <button class="tab-button" onclick="showTab('complete')">Complete</button>
+    </div>
+
+    <div class="curriculum-content">
+      <!-- Foundation Curriculum -->
+      <div id="foundation" class="tab-content active">
+        <div class="curriculum-modules">
+          <div class="module-card">
+            <h4 class="module-title">Module 1: Python Fundamentals</h4>
+            <ul class="module-topics">
+              <li>Python syntax and data types</li>
+              <li>Control structures and functions</li>
+              <li>Object-oriented programming</li>
+              <li>Libraries: NumPy, Pandas</li>
+              <li>Data manipulation and analysis</li>
+            </ul>
           </div>
-          <div class="faq-answer">
-            <p>We focus on real business problems using enterprise-grade tools, not toy projects. You'll work with actual production systems, get hands-on experience with Fortune 500 company tools, and receive mentorship from someone who's built scalable data systems in real business environments.</p>
+          <div class="module-card">
+            <h4 class="module-title">Module 2: SQL & Databases</h4>
+            <ul class="module-topics">
+              <li>Database design principles</li>
+              <li>SQL queries and joins</li>
+              <li>Data modeling</li>
+              <li>Azure SQL Database</li>
+              <li>Performance optimization</li>
+            </ul>
+          </div>
+          <div class="module-card">
+            <h4 class="module-title">Module 3: Data Visualization</h4>
+            <ul class="module-topics">
+              <li>Power BI fundamentals</li>
+              <li>Dashboard creation</li>
+              <li>DAX formulas</li>
+              <li>Interactive reports</li>
+              <li>Data storytelling</li>
+            </ul>
+          </div>
+          <div class="module-card">
+            <h4 class="module-title">Module 4: Cloud Basics</h4>
+            <ul class="module-topics">
+              <li>Azure fundamentals</li>
+              <li>Data storage solutions</li>
+              <li>Virtual machines and containers</li>
+              <li>Security and compliance</li>
+              <li>Cost management</li>
+            </ul>
+          </div>
+          <div class="module-card">
+            <h4 class="module-title">Module 5: Machine Learning</h4>
+            <ul class="module-topics">
+              <li>ML algorithms and concepts</li>
+              <li>Scikit-learn library</li>
+              <li>Model training and evaluation</li>
+              <li>Supervised and unsupervised learning</li>
+              <li>Feature engineering</li>
+            </ul>
+          </div>
+          <div class="module-card">
+            <h4 class="module-title">Module 6: Portfolio Projects</h4>
+            <ul class="module-topics">
+              <li>End-to-end data analysis project</li>
+              <li>Predictive modeling project</li>
+              <li>Dashboard creation project</li>
+              <li>GitHub portfolio setup</li>
+              <li>Project presentation skills</li>
+            </ul>
           </div>
         </div>
       </div>
 
-      <!-- Enrollment & Payment -->
-      <div class="faq-category">
-        <h2 class="category-title">Enrollment & Payment</h2>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>How much do courses cost?</span>
-            <span class="faq-toggle">+</span>
+      <!-- Professional Curriculum -->
+      <div id="professional" class="tab-content">
+        <div class="curriculum-modules">
+          <div class="module-card">
+            <h4 class="module-title">Advanced ML & AI</h4>
+            <ul class="module-topics">
+              <li>Deep learning with TensorFlow</li>
+              <li>Computer vision projects</li>
+              <li>Natural language processing</li>
+              <li>AI model deployment</li>
+              <li>MLOps fundamentals</li>
+            </ul>
           </div>
-          <div class="faq-answer">
-            <p>Course fees vary by track and are designed to be affordable with EMI options available at 0% interest for qualified participants. Contact us for detailed pricing information and payment plans that work for your budget.</p>
+          <div class="module-card">
+            <h4 class="module-title">Data Engineering</h4>
+            <ul class="module-topics">
+              <li>Databricks platform</li>
+              <li>Apache Spark programming</li>
+              <li>Data pipelines and ETL</li>
+              <li>Delta Lake architecture</li>
+              <li>Real-time data processing</li>
+            </ul>
           </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Do you offer EMI options?</span>
-            <span class="faq-toggle">+</span>
+          <div class="module-card">
+            <h4 class="module-title">AI Integration</h4>
+            <ul class="module-topics">
+              <li>ChatGPT API integration</li>
+              <li>Custom AI applications</li>
+              <li>Prompt engineering</li>
+              <li>AI-powered automation</li>
+              <li>Conversational AI development</li>
+            </ul>
           </div>
-          <div class="faq-answer">
-            <p>Yes! We offer 0% interest EMI options for qualified participants. Payment can be made via bank transfer, UPI, credit/debit cards, or other approved methods. We believe financial constraints shouldn't stop your learning journey.</p>
+          <div class="module-card">
+            <h4 class="module-title">Automation</h4>
+            <ul class="module-topics">
+              <li>N8N workflow automation</li>
+              <li>API integrations</li>
+              <li>Process automation</li>
+              <li>Webhook implementations</li>
+              <li>Business process optimization</li>
+            </ul>
           </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What is your refund policy?</span>
-            <span class="faq-toggle">+</span>
+          <div class="module-card">
+            <h4 class="module-title">Freelancing Business</h4>
+            <ul class="module-topics">
+              <li>Client acquisition strategies</li>
+              <li>Project pricing and proposals</li>
+              <li>Contract negotiation</li>
+              <li>Client communication</li>
+              <li>Building long-term relationships</li>
+            </ul>
           </div>
-          <div class="faq-answer">
-            <p>We offer a 7-day cooling-off period with 100% refund, no questions asked. After that, partial refunds are available based on course completion percentage with valid reasons. See our detailed <a href="Refund Policy.html">Refund Policy</a> for complete terms.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>How do I enroll?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Start with a free strategy call to discuss your goals and choose the right track. After enrollment confirmation and payment, you'll receive course access within 24-48 hours along with onboarding materials and community access.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Learning Experience -->
-      <div class="faq-category">
-        <h2 class="category-title">Learning Experience</h2>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Is this online or offline?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Our courses are delivered online with live interactive sessions, recorded content for lifetime access, and hands-on projects. You can learn from anywhere while getting personalized mentorship and community support.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What if I miss a live session?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>All live sessions are recorded and available for lifetime access. While attendance is encouraged for maximum benefit, you won't miss out on any content. Additional support is available through mentorship sessions and community discussions.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What kind of support do I get?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>You receive comprehensive support including personalized mentorship, project reviews, career guidance, resume assistance, interview preparation, and access to our student community. Our goal is your success, not just course completion.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What tools and software will I use?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>You'll work with enterprise-grade tools including Azure Cloud, Python, Databricks, SQL, Power BI, ChatGPT API, DevOps tools, GitHub, VS Code, N8N Automation, Machine Learning frameworks, and more. We provide access to professional platforms used by Fortune 500 companies.</p>
+          <div class="module-card">
+            <h4 class="module-title">Advanced Projects</h4>
+            <ul class="module-topics">
+              <li>Full-stack data application</li>
+              <li>AI-powered business solution</li>
+              <li>Automated data pipeline</li>
+              <li>Client simulation projects</li>
+              <li>Industry-specific case studies</li>
+            </ul>
           </div>
         </div>
       </div>
 
-      <!-- Career Support -->
-      <div class="faq-category">
-        <h2 class="category-title">Career Support</h2>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Do you guarantee job placement?</span>
-            <span class="faq-toggle">+</span>
+      <!-- Complete Curriculum -->
+      <div id="complete" class="tab-content">
+        <div class="curriculum-modules">
+          <div class="module-card">
+            <h4 class="module-title">DevOps & MLOps</h4>
+            <ul class="module-topics">
+              <li>Docker containerization</li>
+              <li>Kubernetes orchestration</li>
+              <li>CI/CD pipelines</li>
+              <li>Model versioning and deployment</li>
+              <li>Infrastructure as code</li>
+            </ul>
           </div>
-          <div class="faq-answer">
-            <p>Our Complete Track includes a full-time job placement guarantee (6-15 LPA) for students who complete all requirements including 80% of coursework, maintain 80% attendance, and actively participate in career support activities.</p>
+          <div class="module-card">
+            <h4 class="module-title">Advanced Cloud</h4>
+            <ul class="module-topics">
+              <li>Multi-cloud architecture</li>
+              <li>Serverless computing</li>
+              <li>Cloud security best practices</li>
+              <li>Cost optimization strategies</li>
+              <li>Disaster recovery planning</li>
+            </ul>
           </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What about freelancing opportunities?</span>
-            <span class="faq-toggle">+</span>
+          <div class="module-card">
+            <h4 class="module-title">Leadership Skills</h4>
+            <ul class="module-topics">
+              <li>Team management principles</li>
+              <li>Technical communication</li>
+              <li>Project management</li>
+              <li>Stakeholder management</li>
+              <li>Agile methodologies</li>
+            </ul>
           </div>
-          <div class="faq-answer">
-            <p>Our Professional Track includes a first freelance gig guarantee (₹20K-40K/month). We help you build a strong portfolio, connect with clients, and develop the business skills needed for successful freelancing in AI and data science.</p>
+          <div class="module-card">
+            <h4 class="module-title">Industry Specialization</h4>
+            <ul class="module-topics">
+              <li>Finance and banking AI</li>
+              <li>Healthcare analytics</li>
+              <li>E-commerce optimization</li>
+              <li>Manufacturing IoT</li>
+              <li>Custom industry focus</li>
+            </ul>
           </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What companies do your students work at?</span>
-            <span class="faq-toggle">+</span>
+          <div class="module-card">
+            <h4 class="module-title">Career Preparation</h4>
+            <ul class="module-topics">
+              <li>Resume optimization</li>
+              <li>LinkedIn profile enhancement</li>
+              <li>Interview preparation</li>
+              <li>Salary negotiation</li>
+              <li>Professional networking</li>
+            </ul>
           </div>
-          <div class="faq-answer">
-            <p>Our alumni work across various industries including tech companies, startups, financial services, consulting firms, and as independent freelancers. We focus on building skills that are in demand across the market, not just specific companies.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>How long does it take to get a job after completion?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Timeline varies based on individual effort, market conditions, and career goals. With our Complete Track guarantee and active career support, most dedicated students secure opportunities within 3-6 months of course completion.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Technical Requirements -->
-      <div class="faq-category">
-        <h2 class="category-title">Technical Requirements</h2>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What equipment do I need?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>You need a computer/laptop with stable internet connection. Basic software requirements will be covered during onboarding. We'll guide you through setting up your development environment and accessing cloud platforms.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Do I need to purchase expensive software?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>No! We provide access to enterprise platforms that would normally be expensive. This includes cloud computing credits, professional tool licenses, and development environments. Part of our value is giving you access to real enterprise infrastructure.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Can I use a Mac or do I need Windows?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Both Mac and Windows work fine. Most of our work is done through web browsers and cloud platforms, so operating system doesn't matter. We'll help you set up your specific environment during the first week.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Certificates & Recognition -->
-      <div class="faq-category">
-        <h2 class="category-title">Certificates & Recognition</h2>
-        
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Do I get a certificate?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>Yes! Upon completion of 80% of assigned projects and meeting requirements, you receive a completion certificate. More importantly, you'll have a strong portfolio of real projects that demonstrate your skills to employers.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Are certificates recognized by employers?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>While certificates help, employers value practical skills more. Our focus is on building a portfolio of real projects and demonstrable skills that speak for themselves in interviews and job applications.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>What happens after I complete the course?</span>
-            <span class="faq-toggle">+</span>
-          </div>
-          <div class="faq-answer">
-            <p>You join our alumni network with ongoing support, career guidance, and access to new opportunities. We maintain long-term relationships with our students and continue supporting your career growth beyond course completion.</p>
+          <div class="module-card">
+            <h4 class="module-title">Capstone Project</h4>
+            <ul class="module-topics">
+              <li>Enterprise-level project</li>
+              <li>Cross-functional collaboration</li>
+              <li>Business impact analysis</li>
+              <li>Executive presentation</li>
+              <li>Industry showcase</li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Contact CTA -->
-    <div class="contact-cta">
-      <h3>Still Have Questions?</h3>
-      <p>Can't find the answer you're looking for? Our team is here to help you make the right decision for your career.</p>
-      <div class="contact-buttons">
-        <a href="Strategy Call.html" class="btn-primary">Book Free Strategy Call</a>
-        <a href="https://wa.me/919301310154" class="btn-secondary">WhatsApp Us</a>
+  <!-- FAQ Section -->
+  <div class="faq-section">
+    <div class="faq-header">
+      <h2>Course FAQs</h2>
+      <p>Common questions about our training programs and enrollment process</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Which track should I choose?</span>
+        <span class="faq-toggle">+</span>
       </div>
+      <div class="faq-answer">
+        <p>Choose Foundation if you're new to data science, Professional if you want to freelance, and Complete if you're targeting full-time employment. Book a free strategy call to get personalized recommendations.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Do I need prior programming experience?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>No prior experience required. We start from basics and build up to advanced concepts. Our students come from diverse backgrounds including commerce, arts, and marketing.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>How does the guarantee work?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Each track has specific guarantee terms. You must complete 80% of coursework, maintain 80% attendance, and actively participate in career support. Detailed terms are provided upon enrollment.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>What tools and software access do I get?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>We provide access to Azure Cloud, Databricks, Power BI, and other enterprise tools worth thousands of dollars. You'll work with the same platforms used by Fortune 500 companies.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Can I switch between tracks?</span>
+        <span class="faq-toggle">+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Yes, you can upgrade to a higher track by paying the difference. Downgrades are considered on a case-by-case basis. Contact our support team to discuss your options.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enrollment CTA -->
+  <div class="enrollment-cta">
+    <h3>Ready to Transform Your Career?</h3>
+    <p>Join thousands of successful graduates who've launched their AI and Data Science careers with our proven training programs</p>
+    <div class="cta-buttons">
+      <a href="enroll.html" class="cta-btn-primary">Start Your Journey</a>
+      <a href="Strategy Call.html" class="cta-btn-secondary">Book Free Strategy Call</a>
     </div>
   </div>
 
@@ -747,6 +1250,64 @@
           }
         });
       });
+    });
+
+    // Tab Functionality for Curriculum
+    function showTab(tabName) {
+      // Hide all tab contents
+      const tabContents = document.querySelectorAll('.tab-content');
+      tabContents.forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Remove active class from all buttons
+      const tabButtons = document.querySelectorAll('.tab-button');
+      tabButtons.forEach(button => {
+        button.classList.remove('active');
+      });
+      
+      // Show selected tab content
+      document.getElementById(tabName).classList.add('active');
+      
+      // Add active class to clicked button
+      event.target.classList.add('active');
+    }
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add scroll-based animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.querySelectorAll('.stat-card, .track-card, .module-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
     });
   </script>
 
