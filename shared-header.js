@@ -1,20 +1,5 @@
 function loadHeader() {
     const headerHTML = `
-        <div class="header-top">
-            <div class="left">
-                <span>🇮🇳India</span>
-                <span>+91 9301310154</span>
-                <span class="email-contact">tech@skillaipath.com</span>
-            </div>
-            <div class="right">
-                <span class="follow-text">Follow us:</span>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook"><img src="https://img.icons8.com/ios-glyphs/24/32ddb8/facebook-new.png" alt="Facebook"></a>
-                    <a href="#" aria-label="Twitter"><img src="https://img.icons8.com/ios-glyphs/24/32ddb8/twitter--v1.png" alt="Twitter"></a>
-                    <a href="#" aria-label="LinkedIn"><img src="https://img.icons8.com/ios-glyphs/24/32ddb8/linkedin.png" alt="LinkedIn"></a>
-                </div>
-            </div>
-        </div>
         <div class="header-main">
             <a href="index.html" class="logo-brand" aria-label="SkillAI Path - Go to Homepage">
                 <img src="Assets/Skill-Logo.png" alt="SkillAI Path Logo">
