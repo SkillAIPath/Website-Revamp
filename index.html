@@ -233,35 +233,39 @@
             margin: 0 auto 2.5em auto;
             display: flex;
             flex-wrap: wrap;
-            gap: 2em;
-            padding: 2.7em 4vw 2.7em 4vw;
+            gap: 3em;
+            padding: 3em 4vw 3em 4vw;
             background: white;
             border-radius: 28px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             z-index: 1;
             position: relative;
             border: 2px solid var(--border-light);
+            align-items: center;
         }
 
         .info-img {
-            flex: 1 1 224px;
-            min-width: 180px;
+            flex: 1 1 300px;
+            min-width: 280px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .info-img img {
-            width: 220px;
-            max-width: 100%;
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            aspect-ratio: 3/4;
             border-radius: 1.1em;
-            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.15);
+            box-shadow: 0 12px 30px rgba(139, 92, 246, 0.2);
             object-fit: cover;
+            border: 3px solid rgba(139, 92, 246, 0.1);
         }
 
         .info-text {
-            flex: 2 1 350px;
-            margin-left: 0.7em;
+            flex: 2 1 400px;
+            margin-left: 0;
         }
 
         .info-text h2 {
@@ -876,55 +880,6 @@
         }
 
         /* Got More Questions Section */
-        .more-questions {
-            background: var(--primary-gradient);
-            padding: 2.5rem 2rem;
-            border-radius: 20px;
-            text-align: center;
-            margin-top: 3rem;
-            border: none;
-            color: white;
-        }
-
-        .more-questions h3 {
-            font-size: 1.6rem;
-            color: white;
-            margin-bottom: 0.8rem;
-        }
-
-        .more-questions p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-options {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .contact-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: white;
-            border: 2px solid white;
-            border-radius: 10px;
-            color: var(--vibrant-purple);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .contact-btn:hover {
-            background: transparent;
-            color: white;
-            transform: translateY(-2px);
-        }
-
         /* WhatsApp Floating Button */
         #whatsapp-button {
             position: fixed;
@@ -1077,12 +1032,15 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Build recruiter-ready portfolios — start shipping real enterprise projects in 4 months.</h1>
-            <p class="subtext">Freelance-ready in 3–6 months. Mastery for long-term consulting capability. Real projects, real portfolios, no gimmicks.</p>
+            <h1>Launch your Data & AI Engineering career — build recruiter-ready portfolios with real enterprise projects.</h1>
+            <p class="subtext">Freelance-ready pathways, long-term mastery tracks. Practice like an engineer from day one. No gimmicks.</p>
             <div class="hero-ctas">
-                <a href="https://tidycal.com/viresh-gendle/track-discussion" class="btn btn-primary" target="_blank">Book Your Strategy Call</a>
-                <a href="#tracks" class="btn btn-secondary">See Learning Tracks</a>
+                <a href="https://tracks.skillaipath.com/" class="btn btn-primary" target="_blank">Start Free Preview</a>
+                <a href="https://tidycal.com/m474n0m/skillai-trackassignment" class="btn btn-secondary" target="_blank">Book Strategy Call</a>
             </div>
+            <p style="margin-top: 1.5rem; font-size: 0.95rem; color: rgba(255, 255, 255, 0.9);">
+                Quick questions? <a href="https://wa.me/919301310154?text=Hi! I'm interested in SkillAI Path." target="_blank" style="color: white; text-decoration: underline; font-weight: 600;">WhatsApp us instantly →</a>
+            </p>
             <p class="emi-notice">Flexible EMI options available — invest in your career without financial stress</p>
         </div>
     </section>
@@ -1090,10 +1048,13 @@
     <!-- Founder Section -->
     <div class="info-section" id="about">
         <div class="info-img">
-            <img src="Assets/Vireshphoto.jpg" alt="Viresh Gendle, Founder of SkillAI Path" style="object-fit:cover;">
+            <div style="position: relative;">
+                <div style="position: absolute; inset: -8px; background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(245, 87, 108, 0.15)); border-radius: 1.3em; filter: blur(12px); z-index: -1;"></div>
+                <img src="Assets/Vireshphoto.jpg" alt="Viresh Gendle, Founder of SkillAI Path" style="object-fit:cover;">
+            </div>
         </div>
         <div class="info-text">
-            <h2>Viresh Gendle</h2>
+            <h2>Meet Your Mentor — Viresh Gendle</h2>
             <div style="font-weight: 700; color: var(--vibrant-purple); margin-bottom: 1em; font-size: 1.05em;">
                 AI & Cloud Architect • Enterprise Systems Builder
             </div>
@@ -1131,12 +1092,12 @@
             <div class="tracks">
                 <div class="track-card">
                     <h3 class="track-title">Foundation Track (Starter Path)</h3>
-                    <div class="track-meta">~5 months • 5 projects</div>
+                    <div class="track-meta">5 projects</div>
                     <div class="track-focus">
                         <strong>Focus:</strong> SQL • Python • Power BI • Excel • AI Agents
                     </div>
                     <div class="track-outcomes">
-                        <strong>Outcome:</strong> Recruiter-ready portfolio, interview confidence, freelancing entry skills
+                        <strong>Outcome:</strong> Recruiter-ready portfolio, interview confidence, freelancing entry skills — practice being an AI/Data Engineer from day one
                     </div>
                     <div style="margin-bottom: 1rem; color: var(--text-secondary); font-size: 0.95rem;">
                         <strong>Domains:</strong> Education, Retail, Finance
@@ -1151,12 +1112,12 @@
 
                 <div class="track-card golden">
                     <h3 class="track-title">Mastery Track (Golden Ticket)</h3>
-                    <div class="track-meta">Learner-paced • 11+ enterprise projects</div>
+                    <div class="track-meta">11+ enterprise projects</div>
                     <div class="track-focus">
                         <strong>Focus:</strong> Azure, Databricks, Fabric, AWS, MLOps, GenAI & Agents
                     </div>
                     <div class="track-outcomes">
-                        <strong>Outcome:</strong> Cross-skilled Data & AI Systems Engineer • Enterprise projects • Freelancing gig guarantee (with consistency)
+                        <strong>Outcome:</strong> Cross-skilled Data & AI Systems Engineer • Enterprise-grade portfolio • Practice delivering real-world solutions
                     </div>
                     <div style="margin-bottom: 1rem; color: var(--text-secondary); font-size: 0.95rem;">
                         <strong>Domains:</strong> Healthcare, Smart Education, Logistics, Business Operations
@@ -1171,7 +1132,7 @@
             </div>
             
             <div class="tracks-note">
-                💡 Both paths begin with the same Foundation. Students who commit to Mastery early unlock advanced projects and enterprise platforms. If you begin with Foundation, you can upgrade later — we'll guide you on how.
+                💡 You can start with Foundation and later upgrade to Mastery. The upgrade is simple: pay the balance (Mastery fee − Foundation paid). Full details are explained during the strategy call.
             </div>
             <div class="international-note">
                 💡 <strong>International learners welcome.</strong> Details shared in the strategy call.
@@ -1183,7 +1144,7 @@
     <section class="section">
         <div class="container">
             <div class="urgency-section">
-                <h2>Don't overthink it. If you found this page, you're already ahead.</h2>
+                <h2>Don't overthink it. If you're here, you're already ahead.</h2>
                 <div class="urgency-content">
                     <p>You're ahead of 90% of learners still stuck in tutorials. The market isn't waiting — cycles of AI adoption move fast.</p>
                     <p>This is your chance to start building what companies are already hiring for.</p>
@@ -1194,10 +1155,10 @@
                     <p><strong>The Mastery Track is only for those ready to act</strong> — whether you're an absolute beginner or a career switcher. If you have the right attitude and consistency, we'll turn you into a future-proof AI Data Systems Engineer. If not, this isn't for you.</p>
                 </div>
                 
-                <a href="https://tidycal.com/viresh-gendle/track-discussion" class="btn btn-primary" target="_blank" style="background: white; color: #dc2626; border: 2px solid white; box-shadow: none; font-weight: 700;">Apply Now — Secure Your Track Review</a>
+                <a href="https://tidycal.com/m474n0m/skillai-trackassignment" class="btn btn-primary" target="_blank" style="background: white; color: #dc2626; border: 2px solid white; box-shadow: none; font-weight: 700;">Book Your Strategy Call Now</a>
                 
-                <p style="margin-top: 1.5rem; font-size: 0.95rem; color: rgba(255, 255, 255, 0.85); text-align: center;">
-                    ⚡ Rolling admissions — new batch starts every 2 weeks. Spots capped at 30 per batch to maintain mentorship quality.
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; color: rgba(255, 255, 255, 0.85); text-align: center;">
+                    Or <a href="https://tracks.skillaipath.com/" target="_blank" style="color: white; text-decoration: underline; font-weight: 600;">explore free resources first →</a>
                 </p>
             </div>
         </div>
@@ -1277,7 +1238,7 @@
                         <li>✓ Live portfolio building sessions (we build it with you)</li>
                         <li>✓ Resume crafted together in live calls</li>
                         <li>✓ Freelance setup — proposals, pricing, client onboarding</li>
-                        <li>✓ First gig guidance (with consistent effort)</li>
+                        <li>✓ Freelancing pathway guidance and mentorship</li>
                         <li>✓ Ongoing mentorship access for career pivots</li>
                     </ul>
                     <p style="margin-top: 1rem; font-style: italic; color: var(--vibrant-purple);">
@@ -1358,7 +1319,10 @@
             <div style="text-align: center; margin-top: 3em;">
                 <h3 style="font-size: 1.8rem; font-weight: 800; color: var(--deep-blue); margin-bottom: 0.8em;">Ready to Write Your Success Story?</h3>
                 <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2em; max-width: 600px; margin-left: auto; margin-right: auto;">Join hundreds of professionals who've transformed their careers with our proven methodology</p>
-                <a href="https://tidycal.com/viresh-gendle/track-discussion" class="btn btn-primary" target="_blank">Book Your Track Discussion Call</a>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://tracks.skillaipath.com/" class="btn btn-primary" target="_blank">Start Free Preview</a>
+                    <a href="https://tidycal.com/m474n0m/skillai-trackassignment" class="btn btn-secondary" target="_blank" style="background: transparent; color: var(--vibrant-purple); border: 2px solid var(--vibrant-purple);">Book Strategy Call</a>
+                </div>
             </div>
         </div>
     </div>
@@ -1526,29 +1490,12 @@
         </div>
     </section>
 
-    <!-- Secondary CTA Before FAQ -->
-    <section class="section">
-        <div class="container">
-            <div class="secondary-cta">
-                <h3>Not Ready to Book a Call Yet?</h3>
-                <p>Have quick questions? Message us on WhatsApp for instant answers.</p>
-                <a href="https://wa.me/919301310154?text=Hi! I have questions before booking a call." 
-                   class="btn btn-primary" target="_blank">
-                    Quick Questions on WhatsApp
-                </a>
-                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
-                    Ready for a detailed discussion? <a href="https://tidycal.com/viresh-gendle/track-discussion" target="_blank" style="color: var(--vibrant-purple); text-decoration: underline;">Book your strategy call</a>
-                </p>
-            </div>
-        </div>
-    </section>
-
     <!-- Intake Process Section -->
     <section class="section">
         <div class="container">
             <div class="intake-notice">
                 <h3>Quality-First Intake Process</h3>
-                <p>Each learner is mapped to a real business project track. Applications reviewed weekly — if this cycle is full, yours automatically moves to the next one.</p>
+                <p>Every learner is mapped to a real business project track. Seats are capped for quality, not quantity. If you're serious, book your slot this cycle — the market isn't waiting.</p>
             </div>
         </div>
     </section>
@@ -1560,11 +1507,11 @@
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>What if I have no prior experience in AI or Data Science?</span>
+                        <span>Is this for beginners?</span>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Perfect! Our Foundation Track is designed for complete beginners. We start with basic concepts and gradually build up to enterprise-level skills. Many of our most successful students started with zero technical background.</p>
+                        <p>Yes. You start from zero and practice like an AI/Data Engineer from day one. The Foundation Track covers SQL, Python, Power BI, Excel — and quickly moves to business-grade projects, solving real problems from domains like Finance, Retail, and Education.</p>
                     </div>
                 </div>
 
@@ -1604,7 +1551,7 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Our Mastery Track includes career support and portfolio development to maximize your job prospects till you land one. While we can't guarantee specific placements, our students consistently land relevant roles through the portfolio and mentorship support we provide.</p>
+                        <p>Our Mastery Track includes career support and portfolio development to maximize your job prospects. While we don't guarantee placements, you practice as an AI/Data Engineer on real-world projects — making you visible for high-paying roles.</p>
                     </div>
                 </div>
 
@@ -1614,7 +1561,7 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>You'll build your first portfolio project within weeks. By month 2-3, you'll have deliverables that can be showcased in interviews. Most Foundation students are interview-ready by month 4-5. Mastery students start freelancing or landing higher roles within 6-9 months with consistency.</p>
+                        <p>Most consistent learners build recruiter-ready portfolios within months, not years. Beyond tools, you'll practice the responsibilities of an AI/Data Engineer — designing, optimizing, and presenting — making you visible for high-paying roles.</p>
                     </div>
                 </div>
 
@@ -1624,7 +1571,7 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>The program is learner-paced, not rigid. We work with students at different speeds — some complete in 4 months, others take 6-7. You get lifetime access to materials and can revisit concepts anytime. Our mentorship adapts to your learning pace, not the other way around.</p>
+                        <p>We don't promise overnight jobs or inflated packages. What we provide is a clear roadmap, real projects, weekly reviews, and mentors who keep you accountable. If you execute, you'll graduate with a portfolio and delivery skills companies can't ignore.</p>
                     </div>
                 </div>
 
@@ -1638,31 +1585,23 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Got More Questions Section -->
-            <div class="more-questions">
-                <h3>Got More Questions?</h3>
-                <p>Reach out through your preferred channel.</p>
-                <div class="contact-options">
-                    <a href="https://wa.me/919301310154?text=Hi! I have some questions about SkillAI Path." class="contact-btn" target="_blank">
-                        WhatsApp Us
-                    </a>
-                    <a href="mailto:tech@skillaipath.com" class="contact-btn">
-                        Email Us
-                    </a>
-                </div>
-                <p style="margin-top: 1rem; font-size: 0.9rem; color: rgba(255, 255, 255, 0.8);">
-                    Or <a href="https://tidycal.com/viresh-gendle/track-discussion" target="_blank" style="color: white; text-decoration: underline;">book a call</a> for a detailed discussion
-                </p>
-            </div>
         </div>
     </section>
 
     <!-- Final CTA Section -->
     <section class="section" id="contact">
         <div class="container" style="text-align: center;">
-            <h2 class="section-title">Ready to start your transformation?</h2>
-            <a href="https://tidycal.com/viresh-gendle/track-discussion" class="btn btn-primary" target="_blank" style="display: inline-block;">Book Your Strategy Call Now</a>
+            <h2 class="section-title">Ready to Start Your Transformation?</h2>
+            <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 650px; margin-left: auto; margin-right: auto;">
+                Choose how you want to begin your journey with SkillAI Path
+            </p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; align-items: center;">
+                <a href="https://tracks.skillaipath.com/" class="btn btn-primary" target="_blank" style="display: inline-block;">Start Free Preview</a>
+                <a href="https://tidycal.com/m474n0m/skillai-trackassignment" class="btn btn-secondary" target="_blank" style="display: inline-block; background: transparent; color: var(--vibrant-purple); border: 2px solid var(--vibrant-purple);">Book Strategy Call</a>
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--text-secondary);">
+                Or <a href="https://wa.me/919301310154?text=Hi! I'm ready to start with SkillAI Path." target="_blank" style="color: var(--vibrant-purple); text-decoration: underline; font-weight: 600;">message us on WhatsApp</a> for instant support
+            </p>
         </div>
     </section>
 
