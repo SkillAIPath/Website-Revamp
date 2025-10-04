@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Privacy Policy | SkillAI Path</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #23234e;
+      --primary-bg: #19193f;
+      --overlay: #3d1d5e;
+      --section: #22224b;
+      --card: #29295e;
+      --light: #f8f8ff;
+      --lavender: #e2d7ff;
+      --accent: #32ddb8;
+      --accent-dark: #14ad93;
+      --text: #fff;
+      --muted: #a6a6de;
+      --border: #3e3263;
+      --shadow: 0 10px 28px 0 rgba(49,35,107,0.18);
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--primary-bg);
+      color: var(--light);
+      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+    body {
+      background: radial-gradient(circle at 30% 30%, #3c3072 0%, #19193f 85%);
+      position: relative;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color .22s;
+    }
+    a:hover, a:focus {
+      color: var(--accent-dark);
+    }
+
+    /* Shared Header Styles */
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--primary);
+      padding: 0.5rem 4vw 0.5rem 4vw;
+      font-size: 0.98rem;
+      border-bottom: 1.2px solid #382b52;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+    .header-top .left {
+      display: flex;
+      gap: 1.7em;
+      align-items: center;
+    }
+    .header-top .right {
+      display: flex;
+      gap: 1.1em;
+      align-items: center;
+    }
+    .header-main {
+      background: var(--section);
+      background: linear-gradient(120deg, var(--primary-bg) 60%, var(--section) 100%);
+      border-bottom: 1.8px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 0.7rem 4vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: inherit;
+      position: relative;
+      z-index: 1;
+    }
+    .logo-brand {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 1.39rem;
+      letter-spacing: 0.06em;
+      color: var(--lavender);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-brand img {
+      height: 32px;
+      width: auto;
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 6px;
+      background: #fff0;
+      box-shadow: none;
+      display: inline-block;
+    }
+    nav {
+      display: flex;
+      gap: 1.38em;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    nav a {
+      color: var(--lavender);
+      text-decoration: none;
+      padding: 2px 0;
+      border-bottom: 2px solid transparent;
+      transition: border .2s, color .18s;
+    }
+    nav a:hover, nav a:focus, nav a.active {
+      color: var(--accent);
+      border-bottom:2px solid var(--accent);
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      max-width: 900px;
+      margin: 2rem auto 0 auto;
+      padding: 0 4vw;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .breadcrumb a {
+      color: var(--accent);
+    }
+
+    /* Page Header */
+    .page-header {
+      max-width: 900px;
+      margin: 1rem auto 3rem auto;
+      padding: 0 4vw;
+    }
+    .page-header h1 {
+      font-weight: 800;
+      font-size: 2.4rem;
+      margin: 0;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    /* Content */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 4vw;
+      background: var(--section);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 3rem;
+      border: 1px solid var(--border);
+    }
+    .content h2 {
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--accent);
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+    .content h3 {
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+      color: var(--lavender);
+    }
+    .content p, .content li {
+      color: var(--light);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .content ul, .content ol {
+      padding-left: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .content strong {
+      color: var(--accent);
+    }
+
+    /* Back to Top Button */
+    .back-to-home {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 4vw;
+      text-align: center;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--section);
+      padding: 1em 2.5em;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 1.8px 7px #0affd140;
+      transition: background .17s, color .13s, box-shadow .24s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      color: #e7fefb;
+      box-shadow: 0 3.8px 17px #1affba4a;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: var(--muted);
+      border-top: 2.2px solid var(--border);
+      padding: 3em 4vw 2em 4vw;
+      font-size: 1rem;
+      margin-top: 2em;
+      z-index: 1;
+      position: relative;
+    }
+    .footer-content {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3em;
+      margin-bottom: 2.5em;
+    }
+    .footer-section h4 {
+      color: var(--lavender);
+      font-weight: 700;
+      margin: 0 0 1.2em 0;
+      font-size: 1.1rem;
+    }
+    .footer-section a {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.7em;
+      transition: color 0.3s;
+      font-size: 1rem;
+    }
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1.5em;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-top, .header-main {
+        flex-direction: column;
+        gap: 1em;
+        padding: 1rem 4vw;
+      }
+      .nav-menu {
+        gap: 1.5rem;
+      }
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2em;
+        text-align: center;
+      }
+    }
+    @media (max-width: 480px) {
+      .page-header h1 {
+        font-size: 1.8rem;
+      }
+      nav {
+        font-size: 0.93rem;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="mobile-responsive.css">
+</head>
+<body>
+
+  <!-- Shared Header -->
+  <div id="shared-header"></div>
+  <script src="shared-header.js"></script>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="index.html">Home</a> → Privacy Policy
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>Privacy Policy</h1>
+  </div>
+  <!-- Student-Friendly Summary Box -->
+  <div style="max-width: 900px; margin: 0 auto 2rem; padding: 0 4vw;">
+    <div style="background: linear-gradient(135deg, rgba(50,221,184,0.15) 0%, rgba(50,221,184,0.08) 100%); border-left: 4px solid var(--accent); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(50,221,184,0.1);">
+      <h2 style="color: var(--accent); font-size: 1.3rem; margin: 0 0 1rem 0; font-weight: 700;">Quick Summary</h2>
+      <p style="color: var(--light); font-size: 1.05rem; margin: 0 0 0.8rem 0; line-height: 1.7;"><strong>We use your data only for course delivery, payments, and communication.</strong> Your information helps us provide you with learning materials, process payments, and send important updates via email and WhatsApp.</p>
+      <p style="color: var(--light); font-size: 1.05rem; margin: 0; line-height: 1.7;"><strong>We never sell your data.</strong> Your privacy matters. We only share data with trusted services needed to run the platform (like payment processors).</p>
+    </div>
+  </div>
+
+
+  <!-- Content -->
+  <main class="content">
+    <p><strong>Effective Date:</strong> June 22, 2025</p>
+    <p><strong>Last Updated:</strong> June 22, 2025</p>
+
+    <h2>Introduction</h2>
+    <p>Welcome to SkillAIPath ("we," "our," or "us"). We are an online education platform providing webinars, courses, and skill development programs through www.skillaipath.com. This Privacy Policy explains how we collect, use, and protect your information when you use our educational services, register for courses, attend webinars, or interact with our platform.</p>
+    <p>By using our services, you agree to the collection and use of information as described in this policy.</p>
+
+    <h2>What Information We Collect</h2>
+    <h3>When You Register for Courses or Webinars</h3>
+    <p>When you sign up for our courses, webinars, or download resources, we collect:</p>
+    <ul>
+      <li><strong>Personal Details:</strong> Name, email address, phone number</li>
+      <li><strong>Professional Information:</strong> Job title, company, experience level</li>
+      <li><strong>Educational Preferences:</strong> Course interests, learning goals</li>
+      <li><strong>Communication Preferences:</strong> How you prefer to receive updates</li>
+    </ul>
+
+    <h3>Payment Information</h3>
+    <p>For paid courses and services, we securely collect:</p>
+    <ul>
+      <li><strong>Payment Details:</strong> Through our payment processor Razorpay</li>
+      <li><strong>Billing Information:</strong> Name, address, and payment method</li>
+      <li><strong>Transaction Records:</strong> Purchase history and payment status</li>
+    </ul>
+
+    <h3>Automatic Data Collection</h3>
+    <p>Our website automatically collects:</p>
+    <ul>
+      <li><strong>Usage Analytics:</strong> Pages visited, time spent, course progress</li>
+      <li><strong>Technical Information:</strong> IP address, browser type, device information</li>
+      <li><strong>Learning Behavior:</strong> Course completion rates, quiz results, engagement metrics</li>
+    </ul>
+
+    <h2>How We Store and Process Your Data</h2>
+    <h3>Google Sheets and Airtable Integration</h3>
+    <ul>
+      <li>We store your registration and course data in Google Sheets and Airtable for course management</li>
+      <li>This includes your contact information, course enrollments, and learning progress</li>
+      <li>Data is organized to track your learning journey and provide personalized recommendations</li>
+    </ul>
+
+    <h3>WhatsApp Communication System</h3>
+    <ul>
+      <li>We use WhatsApp automation to send you course reminders, webinar notifications, educational content, and payment confirmations</li>
+      <li>Your phone number is used exclusively for educational and transactional communications. You can opt-out of WhatsApp messages at any time by replying "STOP".</li>
+    </ul>
+
+    <h3>Payment Processing via Razorpay</h3>
+    <ul>
+      <li>All payment transactions are processed securely through Razorpay</li>
+      <li>We do not store your complete credit card or banking details</li>
+      <li>Razorpay handles payment security according to industry standards</li>
+      <li>We only retain transaction IDs and payment status for our records</li>
+    </ul>
+
+    <h2>How We Use Your Information</h2>
+    <h3>Educational Services</h3>
+    <ul>
+      <li><strong>Course Delivery:</strong> Providing access to courses, webinars, and learning materials</li>
+      <li><strong>Progress Tracking:</strong> Monitoring your learning progress and course completion</li>
+      <li><strong>Personalization:</strong> Recommending relevant courses based on your interests and progress</li>
+      <li><strong>Certification:</strong> Issuing certificates upon course completion</li>
+    </ul>
+
+    <h3>Communication and Support</h3>
+    <ul>
+      <li><strong>Course Updates:</strong> Sending important updates about your enrolled courses</li>
+      <li><strong>Webinar Notifications:</strong> Reminding you about upcoming webinars and sending joining links</li>
+      <li><strong>Educational Content:</strong> Sharing relevant tips, resources, and learning materials via WhatsApp</li>
+      <li><strong>Customer Support:</strong> Responding to your queries and providing technical assistance</li>
+    </ul>
+
+    <h3>Business Operations</h3>
+    <ul>
+      <li><strong>Payment Processing:</strong> Managing course payments and issuing receipts</li>
+      <li><strong>Analytics:</strong> Understanding course popularity and improving our educational content</li>
+      <li><strong>Marketing:</strong> Promoting new courses and webinars to interested learners (with consent)</li>
+    </ul>
+
+    <h2>Third-Party Services We Use</h2>
+    <h3>Google Sheets & Airtable</h3>
+    <p><strong>Purpose:</strong> Storing and managing student data, course enrollments, and progress tracking</p>
+    <p><strong>Data Shared:</strong> Registration information, course progress, communication preferences</p>
+    <p><strong>Security:</strong> Access is restricted to authorized team members only</p>
+
+    <h3>Razorpay Payment Gateway</h3>
+    <p><strong>Purpose:</strong> Processing course payments securely</p>
+    <p><strong>Data Shared:</strong> Payment amount, customer details for transaction processing</p>
+    <p><strong>Security:</strong> PCI DSS compliant payment processing with industry-standard encryption</p>
+
+    <h3>WhatsApp Business API</h3>
+    <p><strong>Purpose:</strong> Sending course updates, reminders, and educational content</p>
+    <p><strong>Data Shared:</strong> Phone numbers and names for personalized messaging</p>
+    <p><strong>Control:</strong> You can opt-out anytime by replying "STOP" to any message</p>
+
+    <h3>Website Analytics</h3>
+    <p><strong>Google Analytics:</strong> Understanding website usage and course engagement</p>
+    <p><strong>Data Collected:</strong> Anonymous usage patterns, popular courses, user behavior</p>
+
+    <h2>Your Rights and Controls</h2>
+    <h3>Communication Preferences</h3>
+    <ul>
+      <li><strong>Email:</strong> Unsubscribe from marketing emails using the link in any email</li>
+      <li><strong>WhatsApp:</strong> Stop receiving messages by replying "STOP" to any WhatsApp message</li>
+      <li><strong>Phone Calls:</strong> Request to be removed from call lists by contacting us</li>
+    </ul>
+
+    <h3>Data Access and Management</h3>
+    <ul>
+      <li>View Your Data: Request a copy of all data we have about you</li>
+      <li>Update Information: Modify your profile, contact details, or preferences anytime</li>
+      <li>Delete Account: Request complete removal of your data from our systems</li>
+      <li>Course History: Access your complete learning history and certificates</li>
+    </ul>
+
+    <h3>Payment and Refunds</h3>
+    <ul>
+      <li>Transaction History: View all your payment records and receipts</li>
+      <li>Refund Requests: Process refunds according to our refund policy</li>
+      <li>Payment Method Updates: Change or update your payment information</li>
+    </ul>
+
+    <h2>Data Security and Protection</h2>
+    <h3>Security Measures</h3>
+    <ul>
+      <li>Encrypted Storage: All data stored in Google Sheets and Airtable with encryption</li>
+      <li>Secure Payment Processing: Razorpay handles all sensitive payment data</li>
+      <li>Access Controls: Limited team access with role-based permissions</li>
+      <li>Regular Backups: Automated backups to prevent data loss</li>
+    </ul>
+
+    <h3>Data Retention</h3>
+    <ul>
+      <li>Active Students: Data retained while you remain an active learner</li>
+      <li>Course Completions: Certificate and completion records kept for 7 years</li>
+      <li>Payment Records: Transaction data retained for tax and audit purposes (7 years)</li>
+      <li>Marketing Data: Removed within 30 days of unsubscribe request</li>
+    </ul>
+
+    <h2>Contact Us</h2>
+    <p><strong>SkillAIPath Support Team</strong><br>
+    Email: <a href="mailto:tech@skillaipath.com">tech@skillaipath.com</a><br>
+    Phone: +919301310154<br>
+    Website: www.skillaipath.com</p>
+
+    <p><strong>For Data Requests:</strong> Email with "Data Request" subject including your registered email & phone. Response within 48 hours.</p>
+
+    <p>Last updated: June 22, 2025 | Policy designed for SkillAIPath's online education services and payment processing.</p>
+  </main>
+
+  <!-- Back to Home -->
+  <div class="back-to-home">
+    <a href="index.html" class="btn-primary">← Back to Home</a>
+  </div>
+
+  <!-- Shared Footer -->
+  <div id="shared-footer"></div>
+  <script src="shared-footer.js"></script>
+
+</body>
+</html>

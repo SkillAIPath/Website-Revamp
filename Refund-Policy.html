@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Refund Policy | SkillAI Path</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #23234e;
+      --primary-bg: #19193f;
+      --overlay: #3d1d5e;
+      --section: #22224b;
+      --card: #29295e;
+      --light: #f8f8ff;
+      --lavender: #e2d7ff;
+      --accent: #32ddb8;
+      --accent-dark: #14ad93;
+      --text: #fff;
+      --muted: #a6a6de;
+      --border: #3e3263;
+      --shadow: 0 10px 28px 0 rgba(49,35,107,0.18);
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--primary-bg);
+      color: var(--light);
+      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+    body {
+      background: radial-gradient(circle at 30% 30%, #3c3072 0%, #19193f 85%);
+      position: relative;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color .22s;
+    }
+    a:hover, a:focus {
+      color: var(--accent-dark);
+    }
+
+    /* Shared Header Styles */
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--primary);
+      padding: 0.5rem 4vw 0.5rem 4vw;
+      font-size: 0.98rem;
+      border-bottom: 1.2px solid #382b52;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+    .header-top .left {
+      display: flex;
+      gap: 1.7em;
+      align-items: center;
+    }
+    .header-top .right {
+      display: flex;
+      gap: 1.1em;
+      align-items: center;
+    }
+    .header-main {
+      background: var(--section);
+      background: linear-gradient(120deg, var(--primary-bg) 60%, var(--section) 100%);
+      border-bottom: 1.8px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 0.7rem 4vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: inherit;
+      position: relative;
+      z-index: 1;
+    }
+    .logo-brand {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 1.39rem;
+      letter-spacing: 0.06em;
+      color: var(--lavender);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-brand img {
+      height: 32px;
+      width: auto;
+      vertical-align: middle;
+      margin-right: 8px;
+      border-radius: 6px;
+      background: #fff0;
+      box-shadow: none;
+      display: inline-block;
+    }
+    nav {
+      display: flex;
+      gap: 1.38em;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    nav a {
+      color: var(--lavender);
+      text-decoration: none;
+      padding: 2px 0;
+      border-bottom: 2px solid transparent;
+      transition: border .2s, color .18s;
+    }
+    nav a:hover, nav a:focus, nav a.active {
+      color: var(--accent);
+      border-bottom:2px solid var(--accent);
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      max-width: 900px;
+      margin: 2rem auto 0 auto;
+      padding: 0 4vw;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .breadcrumb a {
+      color: var(--accent);
+    }
+
+    /* Page Header */
+    .page-header {
+      max-width: 900px;
+      margin: 1rem auto 3rem auto;
+      padding: 0 4vw;
+    }
+    .page-header h1 {
+      font-weight: 800;
+      font-size: 2.4rem;
+      margin: 0;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    /* Content */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 4vw;
+      background: var(--section);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 3rem;
+      border: 1px solid var(--border);
+    }
+    .content h2 {
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--accent);
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+    .content h3 {
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+      color: var(--lavender);
+    }
+    .content p, .content li {
+      color: var(--light);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .content ul, .content ol {
+      padding-left: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .content strong {
+      color: var(--accent);
+    }
+    .content pre {
+      background: rgba(50,221,184,0.15);
+      padding: 1.5em;
+      border-radius: 8px;
+      color: var(--accent);
+      font-family: monospace;
+      font-size: 0.95em;
+      overflow-x: auto;
+      margin: 1.5em 0;
+    }
+
+    /* Back to Top Button */
+    .back-to-home {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 4vw;
+      text-align: center;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--section);
+      padding: 1em 2.5em;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 1.8px 7px #0affd140;
+      transition: background .17s, color .13s, box-shadow .24s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      color: #e7fefb;
+      box-shadow: 0 3.8px 17px #1affba4a;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: var(--muted);
+      border-top: 2.2px solid var(--border);
+      padding: 3em 4vw 2em 4vw;
+      font-size: 1rem;
+      margin-top: 2em;
+      z-index: 1;
+      position: relative;
+    }
+    .footer-content {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3em;
+      margin-bottom: 2.5em;
+    }
+    .footer-section h4 {
+      color: var(--lavender);
+      font-weight: 700;
+      margin: 0 0 1.2em 0;
+      font-size: 1.1rem;
+    }
+    .footer-section a {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.7em;
+      transition: color 0.3s;
+      font-size: 1rem;
+    }
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1.5em;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-top, .header-main {
+        flex-direction: column;
+        gap: 1em;
+        padding: 1rem 4vw;
+      }
+      .nav-menu {
+        gap: 1.5rem;
+      }
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2em;
+        text-align: center;
+      }
+    }
+    @media (max-width: 480px) {
+      .page-header h1 {
+        font-size: 1.8rem;
+      }
+      nav {
+        font-size: 0.93rem;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="mobile-responsive.css">
+</head>
+<body>
+
+  <!-- Shared Header -->
+  <div id="shared-header"></div>
+  <script src="shared-header.js"></script>>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="index.html">Home</a> → Refund Policy
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>Refund Policy</h1>
+  </div>
+
+  <!-- Student-Friendly Summary Box -->
+  <div style="max-width: 900px; margin: 0 auto 2rem; padding: 0 4vw;">
+    <div style="background: linear-gradient(135deg, rgba(50,221,184,0.15) 0%, rgba(50,221,184,0.08) 100%); border-left: 4px solid var(--accent); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(50,221,184,0.1);">
+      <h2 style="color: var(--accent); font-size: 1.3rem; margin: 0 0 1rem 0; font-weight: 700;">Quick Summary</h2>
+      <p style="color: var(--light); font-size: 1.05rem; margin: 0 0 0.8rem 0; line-height: 1.7;"><strong>7-day no-questions refund:</strong> Changed your mind? Get 100% of your money back within the first 7 days, no questions asked.</p>
+      <p style="color: var(--light); font-size: 1.05rem; margin: 0; line-height: 1.7;"><strong>After 7 days:</strong> No refunds. This lets us allocate expensive resources and maintain quality. Use the 7-day window to evaluate the program.</p>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <main class="content">
+
+    <p><strong>Last Updated:</strong> January 15, 2025</p>
+
+    <h2>Our Commitment to You</h2>
+    <p>At SkillAI Path (operated by KRISHNAV TEKNOLZY PRIVATE LIMITED), we stand behind the quality of our training programs. This refund policy is simple: try the program risk-free for 7 days.</p>
+
+    <h2>Refund Policy - Simple & Clear</h2>
+    
+    <h3>7-Day Money-Back Guarantee</h3>
+    <p><strong>Within 7 Days of Enrollment:</strong></p>
+    <ul>
+      <li><strong>Refund Amount:</strong> 100% of fees paid</li>
+      <li><strong>Conditions:</strong> No questions asked, no explanations needed</li>
+      <li><strong>Processing Time:</strong> 3-5 business days</li>
+      <li><strong>Course Access:</strong> Revoked immediately upon refund approval</li>
+    </ul>
+
+    <h3>After 7 Days</h3>
+    <p><strong>No Refunds Available</strong></p>
+    <p>After the 7-day cooling-off period, all enrollment fees are non-refundable. This policy allows us to:</p>
+    <ul>
+      <li>Maintain small batch sizes and quality mentorship</li>
+      <li>Provide enterprise platform access and resources</li>
+      <li>Ensure serious commitment from enrolled students</li>
+      <li>Allocate mentorship time effectively</li>
+    </ul>
+
+    <h2>Why No Partial Refunds?</h2>
+    <p><strong>We create a personalized roadmap for you to follow.</strong> Once you enroll, we invest significant upfront work mapping your learning path, allocating resources, and preparing your journey.</p>
+    <p>Our programs include:</p>
+    <ul>
+      <li>Custom career roadmap tailored to your background and goals</li>
+      <li>Access to expensive enterprise platforms (Azure, Databricks, AWS)</li>
+      <li>Live mentorship sessions with limited capacity</li>
+      <li>Personalized project reviews and guidance</li>
+      <li>Lifetime access to all course materials and updates</li>
+    </ul>
+    <p>These resources are allocated when you enroll. The 7-day window gives you ample time to evaluate if the program is right for you before committing.</p>
+
+    <h2>How to Request a Refund (Within 7 Days)</h2>
+    
+    <h3>Step 1: Send Refund Request</h3>
+    <p>Email <a href="mailto:tech@skillaipath.com">tech@skillaipath.com</a> with:</p>
+    <ul>
+      <li>Subject: "7-Day Refund Request"</li>
+      <li>Your name and enrollment email</li>
+      <li>Preferred refund method (bank transfer/UPI/original payment method)</li>
+    </ul>
+
+    <h3>Step 2: Confirmation</h3>
+    <p>You'll receive confirmation within 24 hours during business days.</p>
+
+    <h3>Step 3: Refund Processing</h3>
+    <p>Refund will be processed within 3-5 business days to your original payment method.</p>
+
+    <h3>Email Template</h3>
+    <pre>Subject: 7-Day Refund Request
+
+Dear SkillAI Path Team,
+
+I am requesting a refund for my enrollment in [Track Name].
+My enrollment date was [Date].
+My enrollment email is [Email].
+
+Preferred refund method: [Bank transfer/UPI/Original payment method]
+
+Thank you.
+
+[Your Full Name]
+[Contact Number]</pre>
+
+    <h2>Refund Methods</h2>
+    <ul>
+      <li><strong>Original Payment Method:</strong> Automatic refund to the card/account used for payment</li>
+      <li><strong>Bank Transfer:</strong> Direct transfer to your bank account (3-5 business days)</li>
+      <li><strong>UPI:</strong> Instant refund to your UPI ID</li>
+    </ul>
+
+    <h2>Important Notes</h2>
+    <ul>
+      <li>The 7-day period starts from your enrollment confirmation date</li>
+      <li>Refund requests received after 7 days will not be processed</li>
+      <li>Course access will be revoked upon refund approval</li>
+      <li>All downloaded materials must be deleted upon refund</li>
+      <li>No exceptions to the 7-day policy</li>
+    </ul>
+
+    <h2>Special Circumstances</h2>
+    <p>In exceptional cases such as:</p>
+    <ul>
+      <li>Medical emergencies requiring hospitalization</li>
+      <li>Death in immediate family</li>
+      <li>Natural disasters or force majeure events</li>
+    </ul>
+    <p>Contact us at <a href="mailto:tech@skillaipath.com">tech@skillaipath.com</a> with supporting documentation. Each case will be reviewed individually, but approval is not guaranteed.</p>
+
+    <h2>Contact Information for Refunds</h2>
+    <p><strong>Primary Email:</strong> <a href="mailto:tech@skillaipath.com">tech@skillaipath.com</a><br>
+    <strong>WhatsApp Support:</strong> +91 9301310154<br>
+    <strong>Business Hours:</strong> Monday to Friday, 9:00 AM to 6:00 PM IST<br>
+    <strong>Response Time:</strong> Within 24 hours for refund inquiries</p>
+
+    <h2>Questions About This Policy?</h2>
+    <p>Our team is here to help clarify any doubts before you enroll.</p>
+    <p><strong>Email:</strong> <a href="mailto:tech@skillaipath.com">tech@skillaipath.com</a><br>
+    <strong>WhatsApp:</strong> +91 9301310154</p>
+
+  </main>
+
+  <!-- Back to Home -->
+  <div class="back-to-home">
+    <a href="index.html" class="btn-primary">← Back to Home</a>
+  </div>
+
+  <!-- Shared Footer -->
+  <div id="shared-footer"></div>
+  <script src="shared-footer.js"></script>
+
+</body>
+</html>
